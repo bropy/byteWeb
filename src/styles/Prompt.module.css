@@ -3,8 +3,7 @@
   flex-direction: column;
   height: fit-content;
   width: 90%;
-  margin-top: 60px;
-  margin-left: 5%;
+  margin: 5vw 5vw 5vw 5vw;
   background-color: none;
 }
 
@@ -45,9 +44,12 @@
   font-weight: 600;
 }
 
-.squares {
-  height: auto;
-  width: auto; 
+.decorativeSquares {
+  height: 6.6vw;
+  width: 11.1vw; 
+  background-image: url('../images/squares.png');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .image {

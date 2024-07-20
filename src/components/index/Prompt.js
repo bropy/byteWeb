@@ -1,5 +1,4 @@
 import styles from '../../styles/Prompt.module.css';
-import imageSrc from '../../images/squares.png'
 import ButtonDowload from './ButtonDownload';
 
 
@@ -11,7 +10,7 @@ const Prompt = () => {
         <div className={`${styles.text} ${styles.textLarge} ${styles.fontWeight800} ${styles.left}`}>
           ЗРУЧНІСТЬ
         </div>
-        <img src={imageSrc} className={styles.squares}/>
+        <div className={styles.decorativeSquares} />
       </div>
       <div className={`${styles.text} ${styles.textLarge} ${styles.fontWeight800} ${styles.right}`}>
         & ШВИДКІСТЬ

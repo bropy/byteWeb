@@ -1,7 +1,7 @@
 .footerDiv {
     height: fit-content;
     width: 70vw;
-    margin: 50px 5% 0 5%;
+    margin: 5vw 5vw 5vw 5vw;
     background-color: none;
     font-family: 'Mulish' sans-serif;
     font-size: 1vw;
@@ -24,7 +24,7 @@
 }
 
 .interactive {
-    margin-bottom: 10px;
+    margin-bottom: 0.75vw;
 }
 
 .interactive:hover {
@@ -39,9 +39,9 @@
 }
 
 .social {
-    height: 30px;
-    width: 30px;
-    margin: 5px 10px 5px 0;
+    height: 2vw;
+    width: 2vw;
+    margin-right: 0.75vw;
     background-size: cover;
 }
 

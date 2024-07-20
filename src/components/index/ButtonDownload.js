@@ -1,5 +1,4 @@
 import styles from '../../styles/ButtonDownload.module.css';
-import imageSrc from '../../images/download_icon.svg'
 
 const ButtonDownload = () => {
   const handleClick = () => {
@@ -8,7 +7,7 @@ const ButtonDownload = () => {
 
   return (
     <div className={styles.button} onClick={handleClick}>
-      <img src={imageSrc}></img>
+      <div className={styles.downloadIcon} />
       <div>Завантажити</div>
     </div>
   );

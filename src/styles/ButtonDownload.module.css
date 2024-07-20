@@ -3,11 +3,22 @@
     flex-direction: row;
     align-items: center;
     width: fit-content;
-    padding: 6px 15% 6px 15%;
-    border-radius: 20px 20px 20px 20px;
-    background-color: black;
+    padding: 0.5vw 15% 0.5vw 15%;
+    border-radius: 1.5vw 1.5vw 1.5vw 1.5vw;
+    background-color: #1C1C1C;
     font-family: 'Mulish' sans-serif;
     font-size: 0.8vw;
     font-weight: 700;
+}
 
+.button:hover {
+    cursor: pointer;
+}
+
+.downloadIcon {
+    height: 1.2vw;
+    width: 1.2vw;
+    margin-right: 0.75vw;
+    background-image: url('../images/download_white_icon.png');
+    background-size: cover;
 }
