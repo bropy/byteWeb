@@ -1,0 +1,67 @@
+.promptDiv {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  width: 90%;
+  margin-top: 60px;
+  margin-left: 5%;
+  background-color: none;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; 
+  justify-content: space-between; 
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: space-between; 
+  height: 20vw;
+}
+
+.text {
+  font-family: 'Mulish' sans-serif;
+  color: black;
+}
+
+.textLarge {
+  font-size: 6.6vw;
+}
+
+.textSmall{
+  font-size: 1vw;
+  margin-bottom: 5px;
+}
+
+.textWeight800 {
+  font-weight: 800;
+}
+
+.textWeight800 {
+  font-weight: 600;
+}
+
+.squares {
+  height: auto;
+  width: auto; 
+}
+
+.image {
+  height: 20vw;
+  width: 75%;
+  border-radius: 5vw 0 0 5vw;
+  background-color: gray;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+  align-self: flex-end;
+}

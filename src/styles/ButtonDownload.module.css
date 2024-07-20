@@ -1,0 +1,13 @@
+.button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: fit-content;
+    padding: 6px 15% 6px 15%;
+    border-radius: 20px 20px 20px 20px;
+    background-color: black;
+    font-family: 'Mulish' sans-serif;
+    font-size: 0.8vw;
+    font-weight: 700;
+
+}
