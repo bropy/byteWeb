@@ -1,0 +1,66 @@
+.footerDiv {
+    height: fit-content;
+    width: 70vw;
+    margin: 50px 5% 0 5%;
+    background-color: none;
+    font-family: 'Mulish' sans-serif;
+    font-size: 1vw;
+    font-weight: 600;
+    color: black;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start; 
+    justify-content: space-between; 
+  }
+  
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    justify-content: space-between; 
+}
+
+.interactive {
+    margin-bottom: 10px;
+}
+
+.interactive:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.logo {
+    height: 30px;
+    width: 100px;
+    background-color: gray;
+}
+
+.social {
+    height: 30px;
+    width: 30px;
+    margin: 5px 10px 5px 0;
+    background-size: cover;
+}
+
+.instagram {
+    background-image: url(../images/instagram_icon.png);
+}
+
+.facebook {
+    background-image: url(../images/facebook_icon.png);
+}
+
+.youtube {
+    background-image: url(../images/youtube_icon.png);
+}
+
+.x {
+    background-image: url(../images/x_icon.png);
+}
+
+.fontWeight700 {
+    font-weight: 700;
+  }
