@@ -1,16 +1,13 @@
 import Prompt from './Prompt';
+import AboutProject from './AboutProject';
 import DownloadNow from './DownloadNow';
 
 
 const Content = () => {
-    const handleClick = () => {
-        window.location.href = '/download';
-    };
-
     return (
         <div>
             <Prompt />
-
+            <AboutProject />
             
             <DownloadNow />
         </div>

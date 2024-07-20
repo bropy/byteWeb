@@ -1,0 +1,33 @@
+.aboutProjectDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    width: 90vw;
+    margin: 10vw 5vw 10vw 5vw;
+    color: #1C1C1C;
+    font-family: 'Mulish' sans-serif;
+    font-size: 1vw;
+    font-weight: 600;
+    background-color: none;
+}
+
+.rightColumn {
+    width: 60%;
+}
+
+.marginLeft {
+    margin-left: 30%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 2vw;
+}
+
+.textColumn {
+    display: flex;
+    width: 35%;
+    margin: 0 5% 0 5%;
+}
