@@ -79,7 +79,7 @@ const Footer = () => {
                         Повернення
                     </div>
                     <div className={styles.interactive} onClick={() => window.location.href = '/'}>
-                        Файли Cockie
+                        Файли Coockie
                     </div>
                 </div>
             </div>
