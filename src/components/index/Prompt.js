@@ -1,5 +1,5 @@
 import styles from '../../styles/Prompt.module.css';
-import ButtonDowload from './ButtonDownload';
+import ButtonDowload from '../layout/ButtonDownload';
 import text from '../../styles/Text.module.css';
 
 

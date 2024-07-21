@@ -1,0 +1,35 @@
+.container {
+    height: fit-content;
+    width: 90vw;
+    margin: 10vw 5vw 10vw 5vw;
+    background-color: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.image1 {
+    width: 27.2vw;
+    aspect-ratio: 5 / 3;
+    margin-left: 25vw;
+    background-color: gray;
+}
+
+.imageLeft {
+    width: 50%;
+    aspect-ratio: 46 / 25;
+    margin-right: 10vw;
+    border-radius: 0 5.2vw 5.2vw 0;
+    background-color: gray;
+}
+
+.imageRight {
+    width: 50%;
+    aspect-ratio: 46 / 25;
+    margin-left: 10vw;
+    border-radius: 5.2vw 0 0 5.2vw;
+    background-color: gray;
+}
