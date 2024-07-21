@@ -22,28 +22,6 @@
   height: 20vw;
 }
 
-.text {
-  font-family: 'Mulish' sans-serif;
-  color: #1C1C1C;
-}
-
-.textLarge {
-  font-size: 6.6vw;
-}
-
-.textSmall{
-  font-size: 1vw;
-  margin-bottom: 5px;
-}
-
-.fontWeight600 {
-  font-weight: 600;
-}
-
-.fontWeight800 {
-  font-weight: 800;
-}
-
 .decorativeSquares {
   height: 6.6vw;
   width: 11.1vw; 
@@ -55,7 +33,7 @@
 .image {
   height: 20vw;
   width: 75%;
-  border-radius: 5vw 0 0 5vw;
+  border-radius: 5.2vw 0 0 5.2vw;
   background-color: gray;
 }
 

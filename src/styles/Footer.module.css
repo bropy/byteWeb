@@ -3,10 +3,6 @@
     width: 70vw;
     margin: 10vw 5vw 5vw 5vw;
     background-color: none;
-    font-family: 'Mulish' sans-serif;
-    font-size: 1vw;
-    font-weight: 600;
-    color: #1C1C1C;
 }
 
 .row {
@@ -60,7 +56,3 @@
 .x {
     background-image: url(../images/x_icon.png);
 }
-
-.fontWeight700 {
-    font-weight: 700;
-  }

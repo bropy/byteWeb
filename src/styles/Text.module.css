@@ -1,10 +1,30 @@
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-VariableFont_wght.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+
 .textBlack {
     color: #1C1C1C;
     font-family: 'Mulish' sans-serif;
 }
 
+.textWhite {
+    color: #FFFFFF;
+    font-family: 'Mulish' sans-serif;
+}
+
+.fontWeight200 {
+    font-weight: 200;
+}
+
 .fontWeight600 {
     font-weight: 600;
+}
+
+.fontWeight700 {
+    font-weight: 700;
 }
 
 .fontWeight800 {
@@ -19,10 +39,23 @@
     font-size: 1.4vw; 
 }
 
+.textMedium{
+    font-size: 2.5vw; 
+}
+
 .textLarge {
     font-size: 6.6vw;
 }
 
+.textAlignCenter {
+    text-align: center;
+}
+  
+.textVertical {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg); 
+}
 
-  
-  
+.textUppercase {
+    text-transform: uppercase;
+}

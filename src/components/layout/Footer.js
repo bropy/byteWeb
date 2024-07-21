@@ -1,14 +1,15 @@
 import styles from '../../styles/Footer.module.css';
+import text from '../../styles/Text.module.css';
 
 
 const Footer = () => {
  
     return (
-        <div className={`${styles.footerDiv} ${styles.row}`}>
+        <div className={`${styles.footerDiv} ${styles.row} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={styles.column}>
                 <div className={`${styles.logo} ${styles.interactive}`} 
                 onClick={() => window.location.href = '/'}></div>
-                <div className={`${styles.interactive} ${styles.fontWeight700}`} 
+                <div className={`${styles.interactive} ${text.fontWeight700}`} 
                 onClick={() => window.location.href = '/'}>
                     Соціальні мережі
                 </div>
@@ -24,7 +25,7 @@ const Footer = () => {
             </div>
         </div>
             <div className={styles.column}>
-                <div className={`${styles.interactive} ${styles.fontWeight700}`} 
+                <div className={`${styles.interactive} ${text.fontWeight700}`} 
                 onClick={() => window.location.href = '/'}>
                     Продукт
                 </div>
@@ -42,7 +43,7 @@ const Footer = () => {
                 </div>
             </div>
                 <div className={styles.column}>
-                    <div className={`${styles.interactive} ${styles.fontWeight700}`} 
+                    <div className={`${styles.interactive} ${text.fontWeight700}`} 
                     onClick={() => window.location.href = '/'}>
                         Компанія
                     </div>
@@ -63,7 +64,7 @@ const Footer = () => {
                     </div>
                 </div>
             <div className={styles.column}>
-                <div className={`${styles.interactive} ${styles.fontWeight700}`} 
+                <div className={`${styles.interactive} ${text.fontWeight700}`} 
                 onClick={() => window.location.href = '/'}>
                     Політика
                 </div>
