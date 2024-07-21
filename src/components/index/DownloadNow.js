@@ -1,4 +1,4 @@
-import ButtonDowload from './ButtonDownload';
+import ButtonDowload from '../layout/ButtonDownload';
 import styles from '../../styles/DownloadNow.module.css';
 import text from '../../styles/Text.module.css';
 

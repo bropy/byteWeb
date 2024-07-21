@@ -44,11 +44,19 @@
 }
 
 .textLarge {
-    font-size: 6.6vw;
+    font-size: 6.66vw;
+}
+
+.textAlignLeft {
+    text-align: left;
 }
 
 .textAlignCenter {
     text-align: center;
+}
+
+.textAlignRight {
+    text-align: right;
 }
   
 .textVertical {

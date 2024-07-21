@@ -1,7 +1,7 @@
 import Prompt from './Prompt';
 import AboutProject from './AboutProject';
 import DownloadNow from './DownloadNow';
-import styles from '../../styles/Content.module.css';
+import styles from '../../styles/MainPageContent.module.css';
 import text from '../../styles/Text.module.css';
 
 
