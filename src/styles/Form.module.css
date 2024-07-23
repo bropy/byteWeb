@@ -58,3 +58,73 @@ flex-shrink: 0;
 border-radius: 20px;
 background: #1C1C1C;
 }
+.decDiv{
+    margin-top: 40px;
+    width: 308px;
+    height: 2px;
+    background: #777;
+}
+.abo{
+    color: #000;
+    margin-top: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+
+/* main bold(100%)DESKTOP */
+font-family: Mulish;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: 100%; /* 18px */
+}
+.aboDiv{
+    display: flex;
+
+}
+.iconButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+.iconGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.iconButton {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.googleIcon {
+    background-image: url('../images/google-icon.svg');
+}
+
+.facebookIcon {
+    background-image: url('../images/arrow1.png');
+}
+
+.appleIcon {
+    background-image: url('../images/apple-173_svgrepo.com.svg');
+}
+
+.steamIcon {
+    background-image: url('../images/steam_svgrepo.com.svg');
+}
+
+.xboxIcon {
+    background-image: url('../images/xbox_svgrepo.com.svg');
+}
+
+.playstationIcon {
+    background-image: url('../images/play-station-logo_svgrepo.com.svg');
+}

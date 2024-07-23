@@ -18,10 +18,18 @@ const Form = () => {
                     <input type="password" id="password" name="password" className={styles.inputContainer} placeholder='Введіть ваш пароль' />
                     <button type='submit'className={styles.Submit}>УВІЙТИ</button>
                 </form>
-                <div>
-                    <div></div> {/*left line */}
-                    <p>або</p> {/*text between */}
-                    <div></div>{/*right line */}
+                <div  className={`${styles.aboDiv}`}>
+                    <div className={`${styles.decDiv}`}></div> {/*left line */}
+                    <p className={`${styles.abo}`}>або</p> {/*text between */}
+                    <div className={`${styles.decDiv}`}></div>{/*right line */}
+                </div>
+                <div className={`${styles.iconGrid}`}>
+                    <button className={`${styles.iconButton} ${styles.googleIcon}`}></button>
+                    <button className={`${styles.iconButton} ${styles.facebookIcon}`}></button>
+                    <button className={`${styles.iconButton} ${styles.appleIcon}`}></button>
+                    <button className={`${styles.iconButton} ${styles.steamIcon}`}></button>
+                    <button className={`${styles.iconButton} ${styles.xboxIcon}`}></button>
+                    <button className={`${styles.iconButton} ${styles.playstationIcon}`}></button>
                 </div>
             </div>
         </div>
