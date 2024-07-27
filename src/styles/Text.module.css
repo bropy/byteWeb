@@ -32,19 +32,19 @@
 }
 
 .textSmall{
-    font-size: 1vw;
+    font-size: clamp(14px, 0.95vw, 28px);
 }
 
 .textMediumSmall{
-    font-size: 1.4vw; 
+    font-size: clamp(18px, 1.4vw, 25px);
 }
 
 .textMedium{
-    font-size: 2.5vw; 
+    font-size: clamp(25px, 2.5vw, 45px);
 }
 
 .textLarge {
-    font-size: 6.66vw;
+    font-size: clamp(43px, 6.66vw, 128px);
 }
 
 .textAlignLeft {

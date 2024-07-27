@@ -9,19 +9,13 @@ const AboutProject = () => {
                 ПРО ПРОЄКТ
             </div>
             <div className={styles.rightColumn}>
-                <div className={`${text.textMediumSmall} ${text.fontWeight800} ${styles.marginLeft}`}>
-                    Lorem ipsum dolor sit amet consectetur.
-                </div>
                 <div className={`${text.textMediumSmall} ${text.fontWeight800}`}>
-                    Augue dignissim tincidunt risus lectus felis proin. Id duis consectetur adipiscing euismod enim tortor vitae. tincidunt ultrices nam ipsum. Platea volutpat adipiscing malesuada lorem lectus enim quis sit a.
-                </div>
+                    Byte - це інноваційна платформа цифровох дистрибуції, створена для геймірів усього світу. Наша Мета - забезпечити зручний та доступний спосіб придбання, збереження та гри в улюблені відеоігри.                </div>
                 <div className={styles.row}>
                     <div className={styles.textColumn}>
-                        Lorem ipsum dolor sit amet consectetur. A diam facilisi fringilla sed in. Nec et accumsan cursus porta amet nam dolor dui.
-                    </div>
+                        Byte об´єднує геймерів, розробників та ентузіастів ігор на одній платформі. Ми пропонуємо широкий асортимент ігор різних жанрів та рівнів склідності, що задовольнять як новачків, так і досвідчених гравців.                    </div>
                     <div className={styles.textColumn}>
-                        Nec et accumsan cursus porta amet nam dolor dui. Amet enim sed odio commodo elit turpis enim quam. Ultricies placerat odio adipiscing ut.
-                    </div>
+                        Наша платформа підтримує регулярні оновлення, нові релізи та ексклюзивні пропозиції, щоб ви завжди мали доступ до найкращих ігор.                    </div>
                 </div>
             </div>
         </div>

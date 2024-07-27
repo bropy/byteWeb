@@ -14,11 +14,11 @@ const Content = () => {
                 <div className={styles.imageLeft} />
                 <div className={`${styles.textLeft} ${styles.alignSelfEnd}`}>
                     <div className={`${text.textMedium} ${text.textUppercase} ${text.fontWeight800}`}>
-                        Lorem ipsum dolor
+                        Великий вибір ігор                    
                     </div>
                     <br />
                     <div>
-                        Lorem ipsum dolor sit amet consectetur. A diam facilisi fringilla sed in. Nec et accumsan cursus porta amet nam dolor dui.
+                        Знаходьте ігри для будь-якого настрою та смаку серед тисяч доступних проектів.
                     </div>
                 </div>
             </div>
@@ -32,11 +32,11 @@ const Content = () => {
             <div className={`${styles.elementRight} ${styles.row}`}>
                 <div className={`${styles.textRight} ${styles.alignSelfEnd}`}>
                     <div className={`${text.textMedium} ${text.textUppercase} ${text.fontWeight800}`}>
-                        Lorem ipsum dolor
+                        Зручність використання
                     </div>
                     <br />
                     <div>
-                        Lorem ipsum dolor sit amet consectetur. A diam facilisi fringilla sed in. Nec et accumsan cursus porta amet nam dolor dui.
+                        Інтуїтивно зрозумілий інтерфейс, який дозволяє швидко знаходити потрібну інформацію та легко керувати вашою бібліотекою ігор.
                     </div>
                 </div>
                 <div className={styles.imageRight} />
@@ -45,11 +45,11 @@ const Content = () => {
                 <div className={styles.imageLeft} />
                 <div className={`${styles.textLeft} ${styles.alignSelfEnd}`}>
                     <div className={`${text.textMedium} ${text.textUppercase} ${text.fontWeight800}`}>
-                        Lorem ipsum dolor
+                        Підтримка спільноти
                     </div>
                     <br />
                     <div>
-                        Lorem ipsum dolor sit amet consectetur. A diam facilisi fringilla sed in. Nec et accumsan cursus porta amet nam dolor dui.
+                        Долучайтеся до активної спільноти геймерів, обговорюйте ігри, отримуйте допомогу та поради, діліться своїми досягненнями.
                     </div>
                 </div>
             </div>
@@ -117,6 +117,7 @@ const Content = () => {
                     </div>
                 </div>
             </div>
+            <AboutProject />
             <DownloadNow />
         </div>
     );

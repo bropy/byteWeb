@@ -1,0 +1,77 @@
+.container {
+    height: fit-content;
+    width: 90vw;
+    margin: 10vw 5vw 10vw 5vw;
+    background-color: none;
+}
+
+.support {
+    height: fit-content;
+    width: 52.5%;
+    margin: 10vw 0 10vw 0;
+}
+
+.form {
+    display: flex;
+    border: 2px solid #1C1C1C;
+    border-radius: 1.5vw;
+}
+
+.searchIcon {
+    height: 1.2vw;
+    width: 1.2vw;
+    background-image: url('../images/search_icon.png');
+    background-size: cover;
+    margin: 0.375vw 0.75vw 0.375vw 0.75vw;
+}
+
+.input {
+    height: fit-content;
+    width: 95%;
+    border-radius: 0 1.5vw 1.5vw 0;
+    padding: 0.375vw 0.75vw 0.375vw 0.75vw;
+}
+
+.input:focus {
+    outline: none; 
+}
+
+.promptText {
+    margin-bottom: 5vw;
+    text-align: right;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 5vw;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 182px;
+    width: 15.25%;
+    min-width: 182px;
+    aspect-ratio: 1 / 1;
+    margin: 0.5vw;
+    background-color: #D9D9D9;
+    border-radius: 1vw;
+    padding: clamp(20px, 1.5vw, 30px) clamp(20px, 1.5vw, 40px) clamp(20px, 1.5vw, 30px) clamp(20px, 1.5vw, 40px);
+    
+}
+
+.image {
+    height: clamp(26.4%, 33.33%, 52%);
+    aspect-ratio: 1 / 1;
+    margin-bottom: 1vw;
+    background-color: gray;
+}
+
+.interactive:hover {
+    cursor: pointer;
+}

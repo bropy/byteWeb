@@ -33,6 +33,7 @@
 .image {
   height: 20vw;
   width: 75%;
+  margin-left: 1vw;;
   border-radius: 5.2vw 0 0 5.2vw;
   background-color: gray;
 }
