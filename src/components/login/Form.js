@@ -31,6 +31,9 @@ const Form = () => {
                     <button className={`${styles.iconButton} ${styles.xboxIcon}`}></button>
                     <button className={`${styles.iconButton} ${styles.playstationIcon}`}></button>
                 </div>
+                <a href="#" className={`${styles.linkText}`}>Не можете увійти або забули пароль?</a>
+                <a href="#" className={`${styles.linkText}`}>Створити акаунт</a>
+
             </div>
         </div>
     );
