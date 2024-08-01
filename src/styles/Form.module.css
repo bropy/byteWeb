@@ -1,7 +1,6 @@
 .smain{
     display: flex;
     width: 100%;
-    height: 100%;
     padding: 113px 530px;
     justify-content:center;
     align-items: center;
@@ -9,7 +8,6 @@
 }
 .main{
     width: 860px;
-    height: 854px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,13 +133,46 @@ line-height: 100%; /* 18px */
 .playstationIcon {
     background-image: url('../images/play-station-logo_svgrepo.com.svg');
 }
-.linkText {
+.pText {
     color: #777777;
-    text-decoration: underline;
-
     font-size: 18px;
     line-height: 1.5;
     display: block;
-    text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom: 35px;
 }
+
+.linkText {
+    color: #777777;
+    text-decoration: underline;
+    font-size: 18px;
+    line-height: 1.5;
+    display: inline;
+    margin-left: 10px;
+
+}
+.divName, .divSelect{
+    display: flex;
+    flex-direction: row;
+
+}
+.divName .inputContainer{
+        width: 48%;
+        margin-right: 35px;
+}
+.divSelect .inputContainer{
+    width: 31%;
+    margin-right: 35px;
+}
+.customSelect {
+    appearance: none;
+    background-image: url('../images/select-arrow.svg');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%;
+    background-size: 16px 16px;
+    padding-right: 2.5em;
+  }
+  
+  .customSelect::-ms-expand {
+    display: none;
+  }
