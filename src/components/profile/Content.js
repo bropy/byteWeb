@@ -1,6 +1,7 @@
-import styles from '../../styles/ProfilePageContent.module.css'
-import positioning from '../../styles/Positioning.module.css'
-import text from '../../styles/Text.module.css'
+import React, { useState, useEffect } from 'react';
+import styles from '../../styles/ProfilePageContent.module.css';
+import positioning from '../../styles/Positioning.module.css';
+import text from '../../styles/Text.module.css';
 
 const friendsMock = [
     { id: 1, nickname: 'Friend1', state: 'Востаннє в мережі 5 дн. тому' },
@@ -8,28 +9,28 @@ const friendsMock = [
     { id: 3, nickname: 'Friend3', state: 'Грає: Resident evil 5' },
     { id: 4, nickname: 'Friend4', state: 'Востаннє в мережі 13 хв. тому' },
     { id: 5, nickname: 'Friend5', state: 'Востаннє в мережі 57 хв. тому' },
+    { id: 6, nickname: 'Friend6', state: 'Востаннє в мережі 2 дн. тому' },
+    { id: 7, nickname: 'Friend7', state: 'У мережі' },
+    { id: 8, nickname: 'Friend8', state: 'У мережі' },
+    { id: 9, nickname: 'Friend9', state: 'Востаннє в мережі 36 хв. тому' },
+    { id: 10, nickname: 'Friend10', state: 'Грає: Omensight' },
+    { id: 11, nickname: 'Friend11', state: 'Грає: Aragami' },
 ];
 
-const friendsElements = [];
-
-const LoadMoreFriends = () => {
-    for (let i = 0; i < friendsMock.length && i < 4; i++) {
-        friendsElements.push(
-          friendsMock[i]
-        );
-    }
-}
-
-const ClearFriends = () => {
-    for (let i = 0; i < friendsElements.length; i++) {
-        friendsElements.pop();
-    }
-}
-
 const Content = () => {
-    ClearFriends();
-    LoadMoreFriends();
-    
+    const [friendsElements, setFriendsElements] = useState([]);
+    const [loadIndex, setLoadIndex] = useState(0);
+
+    const LoadMoreFriends = () => {
+        const newFriends = friendsMock.slice(loadIndex, loadIndex + 4);
+        setLoadIndex(loadIndex + newFriends.length);
+        setFriendsElements(prevFriends => [...prevFriends, ...newFriends]);
+    };
+
+    useEffect(() => {
+        LoadMoreFriends();
+    }, []);
+ 
     return (
         <div className={`${positioning.container} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={positioning.row}>
@@ -122,7 +123,7 @@ const Content = () => {
                             Друзі
                         </div>
                         <div className={text.fontWeight800}>
-                            11
+                            {friendsMock.length}
                         </div>
                     </div>
                     
@@ -140,11 +141,22 @@ const Content = () => {
                                 </div>
                             </div>
                         ))}
+                        <br />
+                        {loadIndex < friendsMock.length && (
+                            <div className={`
+                                ${text.fontWeight800} 
+                                ${text.textUppercase} 
+                                ${text.textAlignCenter} 
+                                ${styles.interactive}`}
+                                onClick={LoadMoreFriends}>
+                                Завантажити більше...
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Content;
