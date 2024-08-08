@@ -1,12 +1,23 @@
 .button {
     display: flex;
     flex-direction: row;
-    width: fit-content;
     border-radius: 1.5vw;
     padding: 0.75vw 4vw 0.75vw 4vw;
     align-items: center;
+    justify-content: center;
+    font-size: clamp(14px, 0.94vw, 18px);
+}
+
+.black {
     background-color: #1C1C1C;
-    font-size: 1vw;
+}
+
+.gray {
+    background-color: #777777;
+}
+
+.widthFitContent {
+    width: fit-content;
 }
 
 .button:hover {

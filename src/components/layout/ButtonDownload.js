@@ -1,4 +1,4 @@
-import styles from '../../styles/ButtonDownload.module.css';
+import button from '../../styles/Button.module.css';
 import text from '../../styles/Text.module.css';
 
 
@@ -8,8 +8,9 @@ const ButtonDownload = () => {
   };
 
   return (
-    <div className={styles.button} onClick={handleClick}>
-      <div className={styles.downloadIcon} />
+    <div className={`${button.button} ${button.black} ${button.widthFitContent}`} 
+      onClick={handleClick}>
+      <div className={button.downloadIcon} />
       <div className={`${text.textWhite} ${text.fontWeight700}`}>Завантажити</div>
     </div>
   );

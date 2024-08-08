@@ -53,7 +53,7 @@ const Footer = () => {
                     <br />
                     <div className={styles.column}>
                         <div className={styles.interactive} onClick={() => window.location.href = '/'}>
-                            Про
+                            Про нас
                         </div>
                         <div className={styles.interactive} onClick={() => window.location.href = '/'}>
                             Робота/Вакансії

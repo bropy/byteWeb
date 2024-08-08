@@ -1,20 +1,26 @@
-.columnLeft {
-    height: fit-content;
-    width: 25%;
-    margin-right: 1vw;
-    border-top: solid 1px #1C1C1C;
+.column {
+    width: 49.5%;
     background-color: none;
 }
 
-.columnRight {
-    height: fit-content;
-    width: 50%;
-    background-color: lightcoral;
+.profileInfo {
+    height: 21.875vw;
+    background-color: none;
+}
+
+.profileAvatar {
+    height: 21.875vw;
+    width: 21.875vw;
+    border-radius: 0 5vw 5vw 0;
+    background-color: #D9D9D9;
+}
+
+.menu {
+    border-top: solid 2px #1C1C1C;
 }
 
 .category {
-    border-top: solid 1px #1C1C1C;
-    border-bottom: solid 1px #1C1C1C;
+    border-bottom: solid 2px #1C1C1C;
     padding: 0.75vw 0.375vw;
 }
 
@@ -23,15 +29,11 @@
     cursor: pointer;
 }
 
-.friends {
-    border-top: solid 1px #1C1C1C;
-}
-
 .friendElement {
     margin: 0.5vw 0;
 }
 
-.avatar {
+.friendAvatar {
     height: 2vw;
     width: 2vw;
     margin: 0 1vw 0 0.375vw;
@@ -39,3 +41,4 @@
     justify-self: center;
     align-self: center;
 }
+
