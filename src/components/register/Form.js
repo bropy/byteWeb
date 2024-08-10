@@ -81,7 +81,8 @@ const Form = () => {
 
                 <p className={styles.pText}>
                     Вже маєте обліковий запис?
-                    <a href="/login" className={styles.linkText}>Увійти</a>
+                    <Link href="/login" className={`${styles.linkText}`}>Увійти</Link>
+
                 </p>
             </div>
         </div>
