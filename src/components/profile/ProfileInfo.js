@@ -5,6 +5,8 @@ import positioning from '../../styles/Positioning.module.css';
 
 
 export default function ProfileInfo({user}) {
+    const { nickname = 'Not Found', country = 'Not Found', about = 'Not Found', state = 'Non' } = user || {};
+
     const handleClick = () => {
         //ToDo 
     };
@@ -15,13 +17,13 @@ export default function ProfileInfo({user}) {
             <div className={`${positioning.column} ${styles.column} ${positioning.justifyBetween}`}>
                 <div>
                     <div className={`${text.textMedium} ${text.fontWeight800}`}>
-                        {user != null ? user.nickname : 'Not Found'}
+                        {nickname}
                     </div>
                     <div>
-                        Країна: {user != null ? user.country : 'Not Found'}
+                        Країна: {country}
                     </div>
                     <div>
-                    {user != null ? user.about : 'Not Found'}
+                    {about}
                     </div>
                 </div>
                 <div>
@@ -30,11 +32,11 @@ export default function ProfileInfo({user}) {
                             Статус:&nbsp;
                         </div>
                         <div className={`${text.textUppercase} ${text.fontWeight800}`}>
-                            {user != null ? user.state : 'Non'}
+                            {state}
                         </div>
                     </div>
                     <br />
-                    {user != null && 
+                    {user && 
                     <div className={`${button.button} ${button.black}`} 
                         onClick={handleClick}>
                         <div className={`${text.textWhite} ${text.fontWeight700}`}>

@@ -8,15 +8,17 @@ export default function ProfileMenu({user}) {
     const [friendsElements, setFriendsElements] = useState([]);
     const [loadIndex, setLoadIndex] = useState(0);
 
-    const LoadMoreFriends = () => {
-        if (user == null) return;
-        const newFriends = user.friends.slice(loadIndex, loadIndex + 4);
+    const { friends = [] } = user || {};
+
+    const loadMoreFriends = () => {
+        if (friends == null) return;
+        const newFriends = friends.slice(loadIndex, loadIndex + 4);
         setLoadIndex(loadIndex + newFriends.length);
         setFriendsElements(prevFriends => [...prevFriends, ...newFriends]);
     };
 
     useEffect(() => {
-        LoadMoreFriends();
+        loadMoreFriends();
     }, []);
 
     return (
@@ -112,7 +114,7 @@ export default function ProfileMenu({user}) {
                         Друзі
                     </div>
                     <div className={text.fontWeight800}>
-                        {user != null ? user.friends.length : 0}
+                        {friends != null ? friends.length : 0}
                     </div>
                 </div>
                 <div className={styles.friends}>
@@ -132,13 +134,13 @@ export default function ProfileMenu({user}) {
                         </div>
                     ))}
                     <br />
-                    {user != null && loadIndex < user.friends.length && (
+                    {loadIndex < friends?.length && (
                         <div className={`
                             ${text.fontWeight800} 
                             ${text.textUppercase} 
                             ${text.textAlignCenter} 
                             ${styles.interactive}`}
-                            onClick={LoadMoreFriends}>
+                            onClick={loadMoreFriends}>
                             Завантажити більше...
                         </div>
                     )}

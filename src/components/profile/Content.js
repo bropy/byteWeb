@@ -24,10 +24,37 @@ const userMock = {
         { id: 9, nickname: 'Friend9', state: 'Востаннє в мережі 36 хв. тому' },
         { id: 10, nickname: 'Friend10', state: 'Грає: Omensight' },
         { id: 11, nickname: 'Friend11', state: 'Грає: Aragami' },
-    ]
+    ],
+    activity : {
+        activityTotal: 17,
+        lastGames: [
+            {
+                id: 1,
+                title: 'Batman: Arkham Asylum GOTY Edition',
+                time: 11.5, 
+                lastPlay: '23 лип.',
+                achivements: {
+                    unlocked: 18,
+                    total: 47
+                }
+            }, 
+            {
+                id: 2,
+                title: 'The Sims™ 4',
+                time: 251, 
+                lastPlay: '20 лип.',
+            }, 
+            {
+                id: 3,
+                title: 'VRChat',
+                time: 80, 
+                lastPlay: '6 лип.',
+            }
+        ]
+    }
 };
 
-const Content = () => {
+export default function Content () {
 
     return (
         <div className={`${positioning.container} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
@@ -37,7 +64,7 @@ const Content = () => {
                     <br />
                     <ProfileMenu user={userMock} />
                 </div>
-                <ProfileActivity user={userMock} />
+                <ProfileActivity activity={userMock.activity} />
             </div>
             <div className={`${positioning.row} ${styles.row}`}>
                 LOWER ROW
@@ -45,5 +72,3 @@ const Content = () => {
         </div>
     );
 };
-
-export default Content;
