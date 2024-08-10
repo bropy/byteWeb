@@ -1,6 +1,7 @@
 import styles from '../../styles/Form.module.css';
 import text from '../../styles/Text.module.css';
 import { useState, useRef, useEffect } from 'react';
+import Link from 'next/link';
 
 const Form = () => {
     const months = [
@@ -56,7 +57,7 @@ const Form = () => {
                     <input type="text" id="showname" name="showname" className={styles.inputContainer} placeholder="Відображуване ім'я" />
                     
                     <p className={styles.pText}>
-                        Ваше відображуване ім'я має містити від 3 до 16 символів і може містити літери, цифри, непослідовні тире, крапки, підкреслення та пробіли.
+                        Ваше відображуване ім&apos;я має містити від 3 до 16 символів і може містити літери, цифри, непослідовні тире, крапки, підкреслення та пробіли.
                     </p>
 
                     <input type="password" id="password" name="password" className={styles.inputContainer} placeholder='Введіть ваш пароль' />
