@@ -1,5 +1,6 @@
 import styles from '../../styles/Form.module.css';
 import text from '../../styles/Text.module.css';
+import { useState, useRef, useEffect } from 'react';
 
 const Form = () => {
     const months = [

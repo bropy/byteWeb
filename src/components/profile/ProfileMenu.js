@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileMenu.module.css';
+import { useState, useRef, useEffect } from 'react';
 
 
 export default function ProfileMenu({user}) {
