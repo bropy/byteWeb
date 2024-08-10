@@ -1,0 +1,14 @@
+.column {
+    width: 49.5%;
+}
+
+.profileInfo {
+    height: 21.875vw;
+}
+
+.profileAvatar {
+    height: 21.875vw;
+    width: 21.875vw;
+    border-radius: 0 5vw 5vw 0;
+    background-color: #D9D9D9;
+}

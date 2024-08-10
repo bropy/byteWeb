@@ -1,3 +1,10 @@
+.container {
+    height: fit-content;
+    width: 90vw;
+    margin: 5vw;
+    background-color: none;
+}
+
 .row {
     display: flex;
     flex-direction: row;

@@ -54,7 +54,7 @@
 .arrowRight {
     display: flex;
     flex-direction: column;
-    height:1vw;
+    height: 1vw;
     width: 4vw;
     margin-left: 1.5vw;
     background-image: url('../images/arrow1.png');

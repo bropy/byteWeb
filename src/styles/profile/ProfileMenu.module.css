@@ -1,0 +1,30 @@
+.column {
+    width: 49.5%;
+}
+
+.upperLine {
+    border-top: solid 2px #1C1C1C;
+}
+
+.category {
+    border-bottom: solid 2px #1C1C1C;
+    padding: 0.75vw 0.375vw;
+}
+
+.interactive:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+.friendElement {
+    margin: 0.5vw 0;
+}
+
+.friendAvatar {
+    height: 2vw;
+    width: 2vw;
+    margin: 0 1vw 0 0.375vw;
+    background-color: gray;
+    justify-self: center;
+    align-self: center;
+}

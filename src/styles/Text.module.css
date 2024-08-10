@@ -31,16 +31,20 @@
     font-weight: 800;
 }
 
-.textSmall{
-    font-size: clamp(14px, 0.95vw, 28px);
+.textSmallest {
+    font-size: clamp(12px, 0.73vw, 14px);
 }
 
-.textMediumSmall{
-    font-size: clamp(18px, 1.4vw, 25px);
+.textSmall {
+    font-size: clamp(14px, 0.94vw, 18px);
+}
+
+.textMediumSmall {
+    font-size: clamp(18px, 1.3vw, 25px);
 }
 
 .textMedium{
-    font-size: clamp(25px, 2.5vw, 45px);
+    font-size: clamp(25px, 2.35vw, 45px);
 }
 
 .textLarge {

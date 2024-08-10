@@ -70,7 +70,7 @@ const Content = () => {
                     <div className={styles.elementThick}>
                         <div className={styles.row}>
                             <div className={`${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
-                                Id duis consectetur adipiscing
+                                Точна дата релізу S.T.A.L.K.E.R 2
                             </div>
                             <div className={`${text.textMedium} ${text.fontWeight200}`}>
                                 01
@@ -78,7 +78,7 @@ const Content = () => {
                         </div>
                         <br />
                         <div>
-                            Lorem ipsum dolor sit amet consectetur. A diam facilisi fringilla sed in. Nec et accumsan cursus porta amet nam dolor dui.
+                            Досліджуйте Чорнобильську Зону Відчуження повну небезпечних ворогів, смертельних аномалій та поту...
                         </div>
                         <br />
                         <div className={styles.image1} />
@@ -88,7 +88,7 @@ const Content = () => {
                             02
                         </div>
                         <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
-                            Id duis consectetur adipiscing
+                            Kingdom Come: <br/> Deliverance II 
                         </div>
                     </div>
                     <div className={styles.elementThin}>
@@ -96,7 +96,7 @@ const Content = () => {
                             03
                         </div>
                         <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
-                            tincidunt ultrices nam ipsum
+                            Manor Lords
                         </div>
                     </div>
                     <div className={styles.elementThin}>
@@ -104,7 +104,7 @@ const Content = () => {
                             04
                         </div>
                         <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
-                            lorem lectus enim
+                            Dwarf Fortress
                         </div>
                     </div>
                     <div className={styles.elementThin}>
@@ -112,7 +112,7 @@ const Content = () => {
                             05
                         </div>
                         <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
-                            tincidunt ultrices nam ipsum
+                            Metal Gear Rising: <br/> Revengeance
                         </div>
                     </div>
                 </div>

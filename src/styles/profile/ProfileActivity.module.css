@@ -1,0 +1,14 @@
+.column {
+    width: 49.5%;
+    background-color: none;
+}
+
+.games {
+    border-top: 1px solid #777777;
+    border-bottom: 1px solid #777777;
+}
+
+.interactive:hover {
+    color: gray;
+    cursor: pointer;
+}
