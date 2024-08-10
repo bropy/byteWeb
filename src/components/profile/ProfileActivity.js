@@ -8,8 +8,8 @@ export default function ProfileMenu({activity}) {
     
     return (
         <div className={`${positioning.column} ${styles.column}`}>
-            <div className={`${positioning.row} ${positioning.justifyBetween}`}>
-                <div className={`${text.upperCase} ${text.fontWeight800}`}>
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.alignCenter}`}>
+                <div className={`${text.upperCase} ${text.textMedium} ${text.fontWeight800}`}>
                     Остання активність
                 </div>
                 <div>
