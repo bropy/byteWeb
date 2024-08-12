@@ -61,7 +61,6 @@ export default function Content () {
             <div className={`${positioning.row} ${positioning.justifyBetween}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <ProfileInfo user={userMock} />
-                    <br />
                     <ProfileMenu user={userMock} />
                 </div>
                 <ProfileActivity activity={userMock.activity} />

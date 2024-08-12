@@ -14,7 +14,7 @@ export default function GameInfo({game}) {
         <div className={`${positioning.row} ${styles.gameInfo}`}>
             <div className={styles.image} alt={`${title} thumbnail`} />
             <div className={`${positioning.column} ${styles.info}`}>
-                <div className={`${text.fontWidth700} ${styles.interactive}`}
+                <div className={`${text.textMediumSmall} ${text.fontWidth800} ${styles.interactive}`}
                     onClick={() => window.location.href = `/app/${id}`}>
                     {title}
                 </div>
