@@ -83,6 +83,7 @@ export default function Content () {
                 </div>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <FavoriteGame />
+                    <br /><br /><br />
                     <ProfileGroups />
                 </div>
             </div>

@@ -106,6 +106,9 @@ export default function ProfileComments({ comments }) {
                 Коментарі
             </div>
             <div>
+                ToDo: Search
+            </div>
+            <div>
                 {currentComments.map((comment, index) => (
                     <Comment key={index} comment={comment} />
                 ))}
