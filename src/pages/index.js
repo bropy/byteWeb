@@ -3,7 +3,7 @@ import Navbar from '../components/layout/Navbar';
 import Content from '../components/index/Content';
 import Footer from '../components/layout/Footer';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin", "cyrillic", "greek"] });
 
 export default function Home() {
   return (
