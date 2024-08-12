@@ -33,7 +33,8 @@ const Navbar = () => {
 
   return (
     <header className="flex items-center justify-between px-4 py-4 bg-white">
-      <div className="w-10 h-10 bg-gray-400"></div>
+      <Link href="/" className="block w-10 h-10 bg-gray-400">
+      </Link>
       
       <nav className="hidden md:block flex-grow">
         <ul className="flex justify-center space-x-6">
