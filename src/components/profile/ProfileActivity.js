@@ -3,12 +3,12 @@ import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileActivity.module.css';
 import GameInfo from './GameInfo'
 
-export default function ProfileMenu({activity}) {
+export default function ProfileActivity({activity}) {
     const { activityTotal = 0, lastGames = [] } = activity || {};
     
     return (
-        <div className={`${positioning.column} ${styles.column}`}>
-            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.alignCenter}`}>
+        <div>
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.alignCenter} ${styles.title}`}>
                 <div className={`${text.upperCase} ${text.textMedium} ${text.fontWeight800}`}>
                     Остання активність
                 </div>
@@ -16,7 +16,6 @@ export default function ProfileMenu({activity}) {
                     {`${activityTotal} год. останні 2 тижні`} 
                 </div>
             </div>
-            <br />
             <div className={styles.games}>
                 {lastGames.length > 0 ? (
                     activity.lastGames.slice(0, 3).map((game) => (

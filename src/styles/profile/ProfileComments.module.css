@@ -2,6 +2,14 @@
     border-bottom: 2px solid #777777;
 }
 
+.button {
+    margin: 0 6px 0 6px;
+}
+
+.active {
+    font-size: clamp(18px, 1.3vw, 25px);
+}
+
 .interactive:hover {
     color: gray;
     cursor: pointer;

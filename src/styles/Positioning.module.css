@@ -23,12 +23,17 @@
     justify-content: start;
 }
 
-.justifyBetween {
-    justify-content: space-between;
+.justifyCenter {
+    justify-content: center;
 }
+
 
 .justifyEnd {
     justify-content: flex-end;
+}
+
+.justifyBetween {
+    justify-content: space-between;
 }
 
 .alignStart {

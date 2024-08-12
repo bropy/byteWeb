@@ -1,8 +1,7 @@
 .gameInfo {
     aspect-ratio: 860 / 234;
     width: 100%;
-    border-top: 1px solid #777777;
-    border-bottom: 1px solid #777777;
+    border-bottom: 2px solid #777777;
     padding: 2vw 0;
 }
 

@@ -3,12 +3,12 @@
 }
 
 .upperLine {
-    border-top: solid 2px #1C1C1C;
+    border-top: solid 2px #777777;
 }
 
 .category {
-    border-bottom: solid 2px #1C1C1C;
-    padding: 0.75vw 0.375vw;
+    border-bottom: solid 2px #777777;
+    padding: 1vw 0.375vw;
 }
 
 .interactive:hover {
@@ -17,14 +17,15 @@
 }
 
 .friendElement {
-    margin: 0.5vw 0;
+    margin: 20px 0;
 }
 
 .friendAvatar {
-    height: 2vw;
-    width: 2vw;
+    height: 40px;
+    width: 40px;
     margin: 0 1vw 0 0.375vw;
-    background-color: gray;
+    border-radius: 5px;
+    background-color: #D9D9D9;
     justify-self: center;
     align-self: center;
 }

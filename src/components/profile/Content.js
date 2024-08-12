@@ -4,6 +4,9 @@ import styles from '../../styles/profile/ProfilePageContent.module.css';
 import ProfileInfo from "./ProfileInfo";
 import ProfileMenu from "./ProfileMenu";
 import ProfileActivity from "./ProfileActivity";
+import ProfileComments from "./ProfileComments";
+import FavoriteGame from "./FavoriteGame";
+import ProfileGroups from "./ProfileGroups";
 
 
 const userMock = {
@@ -51,8 +54,15 @@ const userMock = {
                 lastPlay: '6 лип.',
             }
         ]
-    }
+    },
+    comments: Array.from({ length: 142 }, (_, i) => ({
+        author: `Friend${i + 1}`,
+        commentText: `Comment ${i + 1}. Lorem ipsum dolor sit amet consectetur :)`,
+        published: new Date(2024, 6, 16 + (i % 30), 8 + (i % 24), 15 + (i % 60), 0),
+    }))
 };
+
+ 
 
 export default function Content () {
 
@@ -63,10 +73,18 @@ export default function Content () {
                     <ProfileInfo user={userMock} />
                     <ProfileMenu user={userMock} />
                 </div>
-                <ProfileActivity activity={userMock.activity} />
+                <div className={`${positioning.column} ${styles.column}`}>
+                    <ProfileActivity activity={userMock.activity} />
+                </div>
             </div>
-            <div className={`${positioning.row} ${styles.row}`}>
-                LOWER ROW
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${styles.row}`}>
+                <div className={`${positioning.column} ${styles.column}`}>
+                    <ProfileComments comments={userMock.comments}/>
+                </div>
+                <div className={`${positioning.column} ${styles.column}`}>
+                    <FavoriteGame />
+                    <ProfileGroups />
+                </div>
             </div>
         </div>
     );
