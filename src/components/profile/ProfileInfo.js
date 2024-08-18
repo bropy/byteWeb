@@ -31,7 +31,7 @@ export default function ProfileInfo({user}) {
                         <div>
                             Статус:&nbsp;
                         </div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             {state}
                         </div>
                     </div>

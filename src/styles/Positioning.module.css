@@ -15,10 +15,6 @@
     flex-direction: column;
 }
 
-.dynamic {
-    flex: 1;
-}
-
 .justifyStart {
     justify-content: start;
 }
@@ -46,4 +42,12 @@
 
 .alignEnd {
     align-items: flex-end;
+}
+
+.dynamic {
+    flex: 1;
+}
+
+.wrap {
+    flex-wrap: wrap;
 }

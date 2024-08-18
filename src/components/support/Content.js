@@ -8,7 +8,7 @@ const Content = () => {
         <div className={`${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={styles.container}>
                 <div className={styles.support}>
-                    <div className={`${text.textLarge} ${text.textUppercase} ${text.fontWeight800}`}>
+                    <div className={`${text.textLarge} ${text.uppercase} ${text.fontWeight800}`}>
                         Підтримка
                     </div>
                     <form className={styles.form}>
@@ -22,7 +22,7 @@ const Content = () => {
             </div>
             <div className={styles.container}>
                 <div className={styles.promptText}>
-                    <div className={`${text.textMedium} ${text.textUppercase} ${text.fontWeight800}`}>
+                    <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Потрібна допомога? Ми тут
                     </div>
                     <div>
@@ -36,7 +36,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Оголошення
                         </div>
                         <div>
@@ -46,7 +46,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Основи byte
                         </div>
                         <div>
@@ -56,7 +56,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Налаштування аккаунта
                         </div>
                         <div>
@@ -66,7 +66,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Ігри, програми тощо
                         </div>
                         <div>
@@ -76,7 +76,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Покупки
                         </div>
                         <div>
@@ -86,7 +86,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Покупки
                         </div>
                         <div>
@@ -96,7 +96,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Спільнота byte
                         </div>
                         <div>
@@ -106,7 +106,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Безпека і конфіденційність
                         </div>
                         <div>
@@ -116,7 +116,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             помилки та їх усунення (відомі)
                         </div>
                         <div>
@@ -126,7 +126,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Програми та дії
                         </div>
                         <div>
@@ -136,7 +136,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Програми та дії
                         </div>
                         <div>
@@ -146,7 +146,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Програми та дії
                         </div>
                         <div>
@@ -154,14 +154,14 @@ const Content = () => {
                         </div>
                     </div>
                 </div>
-                <div className={`${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800} ${text.textAlignCenter}`}>
+                <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800} ${text.alignCenter}`}>
                     Інші способи пошуку допомоги
                 </div>
                 <div className={styles.cards}>
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = 'https://www.reddit.com/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Reddit
                         </div>
                         <div>
@@ -171,7 +171,7 @@ const Content = () => {
                     <div className={`${styles.card} ${styles.interactive}`}
                     onClick={() => window.location.href = 'https://www.x.com/'}>
                         <div className={styles.image}></div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             Twitter(x)
                         </div>
                         <div>

@@ -6,12 +6,12 @@ import text from '../../styles/Text.module.css'
 const Content = () => {
     return (
         <div className={`${styles.container} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
-            <div className={`${text.textLarge} ${text.fontWeight800} ${text.textUppercase}`}>Діяльність</div>
+            <div className={`${text.textLarge} ${text.fontWeight800} ${text.uppercase}`}>Діяльність</div>
             <div className={styles.row}>
-                <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.textUppercase}`}>
+                <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.uppercase}`}>
                     Контент від спільноти та розробників для всіх ігор і програм у Byte.
                 </div>
-                <div className={`${text.textLarge} ${text.fontWeight800} ${text.textUppercase}`}>Спільноти</div>
+                <div className={`${text.textLarge} ${text.fontWeight800} ${text.uppercase}`}>Спільноти</div>
             </div>
             <form className={styles.form}>
                 <button type='submit'>

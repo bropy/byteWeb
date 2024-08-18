@@ -137,8 +137,8 @@ export default function ProfileMenu({user}) {
                     {loadIndex < friends?.length && (
                         <div className={`
                             ${text.fontWeight800} 
-                            ${text.textUppercase} 
-                            ${text.textAlignCenter} 
+                            ${text.uppercase} 
+                            ${text.alignCenter} 
                             ${styles.interactive}`}
                             onClick={loadMoreFriends}>
                             Завантажити більше...

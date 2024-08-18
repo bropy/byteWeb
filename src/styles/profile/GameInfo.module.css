@@ -1,41 +1,49 @@
+/* Elements */
+
 .gameInfo {
-    aspect-ratio: 860 / 234;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
-    border-bottom: 2px solid #777777;
-    padding: 2vw 0;
+    padding: 40px 0 20px 0;
 }
 
 .image {
-    height: 100%;
-    width: 31.2%;
-    margin-right: 1vw;
+    height: 153px;
+    width: 272px;
+    margin: 0 20px 20px 0;
     border-radius: 2vw;
     background-color: #D9D9D9;
 }
 
 .info {
     flex: 1;
+    min-width: 272px;
+    margin: 0 0 20px 0;
 }
 
 .line {
-    height: 0;
     width: 100%;
     border-top: 2px solid #777777;
-    margin: 1vw 0;
-    background-color: #777777;
+}
+
+/* Achivements */
+
+.achivementsCounter {
+    margin: 15px 15px 0 0;
 }
 
 .progress {
-    height: 1vw;
-    width: 48%;
+    height: 18px;
+    min-width: 33%;
+    margin-top: 15px;
     border: 2px solid #777777;
-    border-radius: 2vw; 
+    border-radius: 36px; 
     overflow: hidden; 
 }
 
 .progress::-webkit-progress-value {
     background-color: #777777; 
-    border-radius: 2vw 0 0 2vw; 
+    border-radius: 36px 0 0 36px; 
 }
 
 .progress::-webkit-progress-bar {
@@ -44,7 +52,36 @@
 
 .progress::-moz-progress-bar {
     background-color: #777777; 
-    border-radius: 2vw 0 0 2vw; 
+    border-radius: 36px 0 0 36px; 
+}
+
+/* Screenshot */
+
+.screenshot {
+    height: 40px;
+    width: 40px;
+    margin-right: 20px;
+    border-radius: 5px;
+    background-color: #D9D9D9;
+    justify-self: center;
+    align-self: center;
+}
+
+.moreScreenshots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #1C1C1C;
+}
+
+/* positioning and interactive */
+
+.marginVertical {
+    margin: 15px 0;
+}
+
+.separator {
+    margin: 0 15px;
 }
 
 .interactive:hover {
