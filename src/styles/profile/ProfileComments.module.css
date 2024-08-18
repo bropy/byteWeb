@@ -14,3 +14,12 @@
     color: gray;
     cursor: pointer;
 }
+
+.form {
+    width: 100%;
+}
+
+.input {
+    width: 75%;
+    border-bottom: 2px solid #777777;
+}

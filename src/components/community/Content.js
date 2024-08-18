@@ -20,7 +20,6 @@ const Content = () => {
                 <input type='text' id='support_input' name='support_input' 
                 placeholder='Пошук (центр спільноти/люди)' className={styles.input} />
             </form>
-
         </div>
     );
 }

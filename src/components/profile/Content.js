@@ -56,7 +56,10 @@ const userMock = {
         ]
     },
     comments: Array.from({ length: 142 }, (_, i) => ({
-        author: `Friend${i + 1}`,
+        author: {
+            id: i, 
+            nickname: `Author${i + 1}`,
+        },
         commentText: `Comment ${i + 1}. Lorem ipsum dolor sit amet consectetur :)`,
         published: new Date(2024, 6, 16 + (i % 30), 8 + (i % 24), 15 + (i % 60), 0),
     }))
