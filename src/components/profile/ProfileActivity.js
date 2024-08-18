@@ -19,8 +19,8 @@ export default function ProfileActivity({activity}) {
             <div className={styles.games}>
                 {lastGames.length > 0 ? (
                     activity.lastGames.slice(0, 3).map((game) => (
-                        <div>
-                            <GameInfo key={game.id} game={game} />
+                        <div key={game.id} >
+                            <GameInfo game={game} />
                             <div className={styles.line} />
                         </div>
                     ))
