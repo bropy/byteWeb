@@ -46,7 +46,7 @@ export default function GameInfo({game, screenshots}) {
                     {title}
                 </div>
                 <div className={`${positioning.row} ${positioning.alignCenter} ${styles.marginVertical}`}>
-                    <div className={text.alignRight}>{`${time} год. загалом`}</div>
+                    <div className={text.noWrap}>{`${time} год. загалом`}</div>
                     <div className={styles.separator}>|</div>
                     <div>{`Востаннє зіграно ${lastPlay}`}</div>
                 </div>
@@ -55,12 +55,15 @@ export default function GameInfo({game, screenshots}) {
                         <div className={styles.line} />
                         <div className={`${positioning.row} ${positioning.justifyBetween} 
                             ${positioning.alignCenter} ${positioning.wrap}`}>
-                            <div className={`${styles.achivementsCounter} ${styles.interactive} ${text.noWrap}`}
+                            <div className={`${styles.achivementsCounter} ${styles.interactive} 
+                                ${positioning.row} ${text.noWrap}`}
                                 onClick={() => window.location.href = `/app/${id}/achivements`}>
-                                Здобуття досягнень  {achivements.unlocked} з {achivements.total}
+                                Здобуття досягнень&nbsp;
+                                <div className={text.fontWeight700}>{achivements.unlocked}</div>
+                                &nbsp;з&nbsp;
+                                <div className={text.fontWeight700}>{achivements.total}</div>
                             </div>
-                            <progress value={achivements.unlocked} 
-                                max={achivements.total} 
+                            <progress value={achivements.unlocked} max={achivements.total} 
                                 className={`${styles.progress} ${positioning.dynamic}`} />
                         </div>
                     </div>

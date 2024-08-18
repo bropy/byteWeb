@@ -84,7 +84,7 @@ export default function Content () {
 
     return (
         <div className={`${positioning.container} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
-            <div className={`${positioning.row} ${positioning.justifyBetween}`}>
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <ProfileInfo user={userMock} />
                     <ProfileMenu user={userMock} />
@@ -93,7 +93,7 @@ export default function Content () {
                     <ProfileActivity activity={userMock.activity} />
                 </div>
             </div>
-            <div className={`${positioning.row} ${positioning.justifyBetween} ${styles.row}`}>
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.row}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <ProfileComments comments={userMock.comments}/>
                 </div>
