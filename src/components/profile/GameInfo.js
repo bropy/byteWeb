@@ -3,12 +3,19 @@ import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/GameInfo.module.css';
 
 export default function GameInfo({game, screenshots}) {
-
     if (!game) {
         return null; 
     }
 
     const { id, title = 'Untitled Game', time = 'N/A', lastPlay = 'N/A', achivements } = game;
+
+    const handleTitleClick = () => {
+        window.location.href = `/app/${id}`;
+    };
+
+    const handleAchievementsClick = () => {
+        window.location.href = `/app/${id}/achivements`;
+    };
 
     return (
         <div className={`${positioning.row} ${styles.gameInfo}`}>
@@ -26,16 +33,20 @@ export default function GameInfo({game, screenshots}) {
                     <div>{`Востаннє зіграно ${lastPlay}`}</div>
                 </div>
                 {!screenshots && achivements != null && (
-                    <div > 
+                    <div> 
                         <div className={styles.line} />
                         <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.alignCenter}`}>
-                            <div className={styles.interactive}
-                                onClick={() => window.location.href = `/app/${id}/achivements`}>
-                                {`Здобуття досягнень  ${achivements.unlocked} з ${achivements.total}`}
+                            <div 
+                                className={styles.interactive}
+                                onClick={handleAchievementsClick}
+                            >
+                                {`Здобуття досягнень  ${achivements.unlocked} з ${achivements.total}`}
                             </div>
-                            <progress value={achivements.unlocked} 
+                            <progress 
+                                value={achivements.unlocked} 
                                 max={achivements.total} 
-                                className={styles.progress} />
+                                className={styles.progress} 
+                            />
                         </div>
                     </div>
                 )}
