@@ -1,15 +1,24 @@
 .column {
-    width: 49.5%;
-}
-
-.profileInfo {
-    height: 21.875vw;
-    margin-bottom: 6vw;
+    flex: 1;
+    min-width: 280px;
 }
 
 .profileAvatar {
+    max-height: 420px;
     height: 21.875vw;
+    min-height: 280px;
+    max-width: 420px;
     width: 21.875vw;
-    border-radius: 0 5vw 5vw 0;
+    min-width: 280px;
+    margin: 0 20px 15px 0;
+    border-radius: 0 100px 100px 0;
     background-color: #D9D9D9;
+}
+
+.profileInfo {
+    margin-bottom: 6vw;
+}
+
+.marginVertical {
+    margin: 15px 0;
 }

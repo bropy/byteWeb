@@ -56,10 +56,26 @@ const userMock = {
         ]
     },
     comments: Array.from({ length: 142 }, (_, i) => ({
-        author: `Friend${i + 1}`,
+        author: {
+            id: i, 
+            nickname: `Author${i + 1}`,
+        },
         commentText: `Comment ${i + 1}. Lorem ipsum dolor sit amet consectetur :)`,
         published: new Date(2024, 6, 16 + (i % 30), 8 + (i % 24), 15 + (i % 60), 0),
-    }))
+    })),
+    favoriteGame: {
+        id: 4,
+        title: 'Red Dead Redemption 2',
+        time: 400, 
+        lastPlay: '25 лип.',
+        achivements: {
+            unlocked: 18,
+            total: 47
+        }
+    },
+    screenshots: [
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+    ]
 };
 
  
@@ -68,7 +84,7 @@ export default function Content () {
 
     return (
         <div className={`${positioning.container} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
-            <div className={`${positioning.row} ${positioning.justifyBetween}`}>
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <ProfileInfo user={userMock} />
                     <ProfileMenu user={userMock} />
@@ -77,13 +93,13 @@ export default function Content () {
                     <ProfileActivity activity={userMock.activity} />
                 </div>
             </div>
-            <div className={`${positioning.row} ${positioning.justifyBetween} ${styles.row}`}>
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.row}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <ProfileComments comments={userMock.comments}/>
                 </div>
                 <div className={`${positioning.column} ${styles.column}`}>
-                    <FavoriteGame />
-                    <br /><br /><br />
+                    <FavoriteGame game={userMock.favoriteGame} screenshots={userMock.screenshots}/>
+                    <br /><br />
                     <ProfileGroups />
                 </div>
             </div>

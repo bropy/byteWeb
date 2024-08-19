@@ -6,3 +6,8 @@
     color: gray;
     cursor: pointer;
 }
+
+.line {
+    width: 100%;
+    border-top: 2px solid #777777;
+}

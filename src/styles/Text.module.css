@@ -33,7 +33,7 @@
 }
 
 .fontWeight700 {
-    font-weight: 700;
+    font-weight: 800;
 }
 
 .fontWeight800 {
@@ -60,23 +60,27 @@
     font-size: clamp(43px, 6.66vw, 128px);
 }
 
-.textAlignLeft {
+.alignLeft {
     text-align: left;
 }
 
-.textAlignCenter {
+.alignCenter {
     text-align: center;
 }
 
-.textAlignRight {
+.alignRight {
     text-align: right;
 }
   
-.textVertical {
+.vertical {
     writing-mode: vertical-rl;
     transform: rotate(180deg); 
 }
 
-.textUppercase {
+.uppercase {
     text-transform: uppercase;
+}
+
+.noWrap {
+    white-space: nowrap;
 }

@@ -12,14 +12,14 @@ export default function ProfileInfo({user}) {
     };
 
     return (
-        <div className={`${positioning.row} ${positioning.justifyBetween} ${styles.profileInfo}`}>
+        <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.profileInfo}`}>
             <div className={styles.profileAvatar} />
             <div className={`${positioning.column} ${styles.column} ${positioning.justifyBetween}`}>
                 <div>
                     <div className={`${text.textMedium} ${text.fontWeight800}`}>
                         {nickname}
                     </div>
-                    <div>
+                    <div className={styles.marginVertical}>
                         Країна: {country}
                     </div>
                     <div>
@@ -27,17 +27,16 @@ export default function ProfileInfo({user}) {
                     </div>
                 </div>
                 <div>
-                    <div className={positioning.row}>
+                    <div className={`${positioning.row} ${styles.marginVertical}`}>
                         <div>
                             Статус:&nbsp;
                         </div>
-                        <div className={`${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.uppercase} ${text.fontWeight800}`}>
                             {state}
                         </div>
                     </div>
-                    <br />
                     {user && 
-                    <div className={`${button.button} ${button.black}`} 
+                    <div className={`${button.button} ${button.black} ${styles.marginVertical}`} 
                         onClick={handleClick}>
                         <div className={`${text.textWhite} ${text.fontWeight700}`}>
                             Редагувати профіль

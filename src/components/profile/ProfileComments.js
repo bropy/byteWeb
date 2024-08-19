@@ -2,16 +2,19 @@ import React, { useState } from 'react';
 import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileComments.module.css';
+import commentStyles from '../../styles/profile/Comment.module.css';
 import Comment from './Comment';
 
 export default function ProfileComments({ comments }) {
     // TODO: Sort Comments by Date
 
+    const [commentList, setCommentList] = useState(comments);
     const [currentPage, setCurrentPage] = useState(1);
     const commentsPerPage = 5;
-    const totalPages = Math.ceil(comments.length / commentsPerPage);
+    const totalPages = Math.ceil(commentList.length / commentsPerPage);
+    const [newCommentText, setNewCommentText] = useState('');
 
-    const currentComments = comments.slice(
+    const currentComments = commentList.slice(
         (currentPage - 1) * commentsPerPage,
         currentPage * commentsPerPage
     );
@@ -30,6 +33,24 @@ export default function ProfileComments({ comments }) {
         if (currentPage > 1) {
             setCurrentPage(currentPage - 1);
         }
+    };
+
+    const handleAddComment = (e) => {
+        e.preventDefault();
+        if (newCommentText.trim() === '') return;
+
+        const newComment = {
+            author: {
+                id: '',
+                nickname: 'Current User'
+            },
+            commentText: newCommentText,
+            published: new Date()
+        };
+
+        setCommentList([newComment, ...commentList]);
+        setNewCommentText('');
+        setCurrentPage(1);
     };
 
     const renderPagination = () => {
@@ -105,8 +126,19 @@ export default function ProfileComments({ comments }) {
             <div className={`${positioning.row} ${text.upperCase} ${text.textMedium} ${text.fontWeight800} ${styles.title}`}>
                 Коментарі
             </div>
-            <div>
-                ToDo: Search
+            <div className={`${positioning.row} ${commentStyles.comment} ${positioning.alignCenter}`}>
+                <div className={commentStyles.avatar} />
+                <form className={styles.form} onSubmit={handleAddComment}>
+                    <input
+                        type='text'
+                        id='comment_input'
+                        name='comment_input'
+                        placeholder='Написати коментар'
+                        className={styles.input}
+                        value={newCommentText}
+                        onChange={(e) => setNewCommentText(e.target.value)}
+                    />
+                </form>
             </div>
             <div>
                 {currentComments.map((comment, index) => (

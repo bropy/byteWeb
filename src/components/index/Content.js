@@ -13,7 +13,7 @@ const Content = () => {
             <div className={`${styles.elementLeft} ${styles.row}`}>
                 <div className={styles.imageLeft} />
                 <div className={`${styles.textLeft} ${styles.alignSelfEnd}`}>
-                    <div className={`${text.textMedium} ${text.textUppercase} ${text.fontWeight800}`}>
+                    <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Великий вибір ігор                    
                     </div>
                     <br />
@@ -31,7 +31,7 @@ const Content = () => {
             </div>
             <div className={`${styles.elementRight} ${styles.row}`}>
                 <div className={`${styles.textRight} ${styles.alignSelfEnd}`}>
-                    <div className={`${text.textMedium} ${text.textUppercase} ${text.fontWeight800}`}>
+                    <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Зручність використання
                     </div>
                     <br />
@@ -44,7 +44,7 @@ const Content = () => {
             <div className={`${styles.elementLeft} ${styles.row}`}>
                 <div className={styles.imageLeft} />
                 <div className={`${styles.textLeft} ${styles.alignSelfEnd}`}>
-                    <div className={`${text.textMedium} ${text.textUppercase} ${text.fontWeight800}`}>
+                    <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Підтримка спільноти
                     </div>
                     <br />
@@ -69,7 +69,7 @@ const Content = () => {
                 <div className={styles.row}>
                     <div className={styles.elementThick}>
                         <div className={styles.row}>
-                            <div className={`${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
+                            <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
                                 Точна дата релізу S.T.A.L.K.E.R 2
                             </div>
                             <div className={`${text.textMedium} ${text.fontWeight200}`}>
@@ -87,7 +87,7 @@ const Content = () => {
                         <div className={`${text.textMedium} ${text.fontWeight200}`}>
                             02
                         </div>
-                        <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
                             Kingdom Come: <br/> Deliverance II 
                         </div>
                     </div>
@@ -95,7 +95,7 @@ const Content = () => {
                         <div className={`${text.textMedium} ${text.fontWeight200}`}>
                             03
                         </div>
-                        <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
                             Manor Lords
                         </div>
                     </div>
@@ -103,7 +103,7 @@ const Content = () => {
                         <div className={`${text.textMedium} ${text.fontWeight200}`}>
                             04
                         </div>
-                        <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
                             Dwarf Fortress
                         </div>
                     </div>
@@ -111,7 +111,7 @@ const Content = () => {
                         <div className={`${text.textMedium} ${text.fontWeight200}`}>
                             05
                         </div>
-                        <div className={`${text.textVertical} ${text.textMediumSmall} ${text.textUppercase} ${text.fontWeight800}`}>
+                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
                             Metal Gear Rising: <br/> Revengeance
                         </div>
                     </div>

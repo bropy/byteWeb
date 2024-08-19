@@ -1,5 +1,7 @@
 .column {
-    width: 49.5%;
+    flex: 1;
+    min-width: 350px;
+    margin-right: 20px;
     background-color: none;
 }
 

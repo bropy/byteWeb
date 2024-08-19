@@ -19,7 +19,10 @@ export default function ProfileActivity({activity}) {
             <div className={styles.games}>
                 {lastGames.length > 0 ? (
                     activity.lastGames.slice(0, 3).map((game) => (
-                        <GameInfo key={game.id} game={game} />
+                        <div key={game.id} >
+                            <GameInfo game={game} />
+                            <div className={styles.line} />
+                        </div>
                     ))
                 ) : (
                     <div>
@@ -30,22 +33,22 @@ export default function ProfileActivity({activity}) {
                 )}
             </div>
             <br />
-            <div className={`${positioning.row} ${positioning.justifyEnd}`}>
+            <div className={`${positioning.row}`}>
                 <div>
                     Переглянути
                 </div>
                 &nbsp;&nbsp;&nbsp;
-                <div className={`${text.fontWidth700} ${styles.interactive}`}
+                <div className={`${text.fontWeight700} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                     Нещодавно зіграні
                 </div>
                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <div className={`${text.fontWidth700} ${styles.interactive}`}
+                <div className={`${text.fontWeight700} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                     Бажане
                 </div>
                 &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <div className={`${text.fontWidth700} ${styles.interactive}`}
+                <div className={`${text.fontWeight700} ${styles.interactive}`}
                     onClick={() => window.location.href = '/'}>
                     Рецензії
                 </div>
