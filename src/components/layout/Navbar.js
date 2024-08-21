@@ -32,7 +32,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="flex items-center justify-between px-4 py-4 bg-white">
+    <header className="flex items-center w-full justify-between px-4 py-4 bg-white">
       <Link href="/" className="block w-10 h-10 bg-gray-400">
       </Link>
       

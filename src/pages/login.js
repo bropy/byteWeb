@@ -7,7 +7,6 @@ export default function Download(){
         <div>
             <Navbar/>
             <Form/>
-            <Footer/>
         </div>
     );
 }

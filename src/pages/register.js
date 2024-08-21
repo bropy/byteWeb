@@ -7,7 +7,6 @@ export default function Register(){
         <div>
             <Navbar/>
             <Form/>
-            <Footer/>
         </div>
     );
 }
