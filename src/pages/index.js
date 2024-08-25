@@ -6,6 +6,9 @@ import Footer from '../components/layout/Footer';
 //const inter = Inter({ subsets: ["latin", "cyrillic", "greek"] });
 
 export default function Home() {
+  var cors = require('cors')
+
+app.use(cors())
   return (
     <div className={''/*inter.className*/}>
       <Navbar />
