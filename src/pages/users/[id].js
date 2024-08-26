@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import { fetchData } from '../api/profileApi';
-import Content from '@/components/profiles/Content';
+
 
 export default function Profile() {
     const [profile, setProfile] = useState(null);
@@ -12,6 +12,7 @@ export default function Profile() {
     const router = useRouter();
     const { id } = router.query;
 
+  
     useEffect(() => {
       if (id) {
         fetchData(`/${id}`)
@@ -27,11 +28,11 @@ export default function Profile() {
           });
       }
     }, [id]);
-
+  
     if (loading) return <div>Loading...</div>;
     if (error) return <div>Error: {error}</div>;
     if (!profile) return <div>No profile found</div>;
-
+  
     return (
       <div>
         <Navbar />
@@ -39,4 +40,20 @@ export default function Profile() {
         <Footer />
       </div>
     );
-}
+  }
+  
+  function Content({ profile }) {
+    return (
+      <div>
+        <h2>{profile.nickname || "No data"}</h2>
+        <img 
+          src={profile.avatar || "/placeholder-avatar.png"} 
+          alt={profile.nickname} 
+          style={{width: '200px', height: '200px', objectFit: 'cover'}} 
+        />
+        <p>{profile.description || "No data"}</p>
+        
+      </div>
+      
+    );
+  }
