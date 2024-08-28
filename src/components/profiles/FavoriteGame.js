@@ -4,13 +4,13 @@ import styles from '../../styles/profile/FavoriteGame.module.css';
 import GameInfo from './GameInfo'
 
 
-export default function ProfileActivity({game, screenshots}) {
+export default function ProfileActivity({game}) {
     return (
         <div>
             <div className={`${positioning.row} ${text.upperCase} ${text.textMedium} ${text.fontWeight800} ${styles.title}`}>
                 Улюблена гра
             </div>
-            <GameInfo key={game.id} game={game} screenshots={screenshots} />
+            <GameInfo game={game} />
         </div>
     );
 };

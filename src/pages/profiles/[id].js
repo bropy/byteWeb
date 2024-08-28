@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Navbar from "../../components/layout/Navbar";
 import Footer from "../../components/layout/Footer";
 import { fetchData } from '../api/profileApi';
+
 import Content from '@/components/profiles/Content';
 
 export default function Profile() {
