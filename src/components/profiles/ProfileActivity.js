@@ -1,11 +1,21 @@
+import React from 'react';
+import { format, subWeeks, isAfter } from 'date-fns';
 import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileActivity.module.css';
-import GameInfo from './GameInfo'
+import GameInfo from './GameInfo';
 
-export default function ProfileActivity({activity}) {
-    const { activityTotal = 0, lastGames = [] } = activity || {};
-    
+export default function ProfileActivity({ activity }) {
+    const twoWeeksAgo = subWeeks(new Date(), 2);
+
+    // Filter and sort the games
+    const recentGames = activity
+        .filter(game => isAfter(new Date(game.lastPlayed), twoWeeksAgo)) // Filter games played in the last 2 weeks
+        .sort((a, b) => b.playtimeHours - a.playtimeHours); // Sort by playtime in descending order
+
+    // Calculate total playtime for the last 2 weeks
+    const totalPlaytime = recentGames.reduce((sum, game) => sum + game.playtimeHours, 0);
+
     return (
         <div>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.alignCenter} ${styles.title}`}>
@@ -13,13 +23,13 @@ export default function ProfileActivity({activity}) {
                     Остання активність
                 </div>
                 <div>
-                    {`${activityTotal} год. останні 2 тижні`} 
+                    {`${totalPlaytime.toFixed(1)} год. останні 2 тижні`} 
                 </div>
             </div>
             <div className={styles.games}>
-                {lastGames.length > 0 ? (
-                    activity.lastGames.slice(0, 3).map((game) => (
-                        <div key={game.id} >
+                {recentGames.length > 0 ? (
+                    recentGames.map((game) => (
+                        <div key={game.gameId}>
                             <GameInfo game={game} />
                             <div className={styles.line} />
                         </div>
@@ -32,6 +42,7 @@ export default function ProfileActivity({activity}) {
                     </div>
                 )}
             </div>
+
             <br />
             <div className={`${positioning.row}`}>
                 <div>
@@ -55,4 +66,4 @@ export default function ProfileActivity({activity}) {
             </div>
         </div>
     );
-};
+}

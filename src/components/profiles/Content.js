@@ -109,7 +109,7 @@ export default function Content({ profile }) {
                     <ProfileMenu profile={profile} />
                 </div>
                 <div className={`${positioning.column} ${styles.column}`}>
-                    <ProfileActivity activity={profile.activity} />
+                    <ProfileActivity activity={profile.games} />
                 </div>
             </div>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.row}`}>

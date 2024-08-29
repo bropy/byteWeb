@@ -16,11 +16,18 @@ export default function GameInfo({game, screenshots}) {
 
     return (
         <div className={`${positioning.row} ${styles.gameInfo}`}>
-            <div 
+           {/* <div 
                 className={styles.image} 
                 style={{ backgroundImage: `url(${game.avatar})` }} 
                 alt={`${game.title} thumbnail`} 
-            />
+            />*/}
+            <img 
+                    src={game.avatar} 
+                    alt={`${game.title} thumbnail`} 
+                    className={styles.image} 
+                    style={{ objectFit: 'cover' }} 
+                />
+
             <div className={`${positioning.column} ${styles.info}`}>
                 <div 
                     className={`${text.textMediumSmall} ${text.fontWidth800} ${styles.interactive}`}
@@ -42,11 +49,11 @@ export default function GameInfo({game, screenshots}) {
                                 className={styles.interactive}
                                 onClick={handleAchievementsClick}
                             >
-                                {`Здобуття досягнень ${game.achievements.unlocked} з ${game.achievements.total}`}
+                                {`Здобуття досягнень ${game.achievements.length} з ${game.total}`}
                             </div>
                             <progress 
-                                value={game.achievements.unlocked} 
-                                max={game.achievements.total} 
+                                value={game.achievements.length} 
+                                max={game.total} 
                                 className={styles.progress} 
                             />
                         </div>

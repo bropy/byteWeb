@@ -79,13 +79,6 @@ INSERT INTO game_developers (game_id, developer_id) VALUES
 ((SELECT id FROM games WHERE title = 'Half-Life'), (SELECT id FROM users WHERE login = 'valve')),
 ((SELECT id FROM games WHERE title = 'The Witcher 3'), (SELECT id FROM users WHERE login = 'cdprojekt')),
 ((SELECT id FROM games WHERE title = 'GTA V'), (SELECT id FROM users WHERE login = 'rockstar'));
-
--- User Games (Library)
-INSERT INTO user_games (game_id, user_id, playtime_hours, last_played,avatar, status) VALUES
-((SELECT id FROM games WHERE title = 'Half-Life'), (SELECT id FROM users WHERE login = 'maxim4ick'), 20.5, '2024-08-01','https://cdn2.steamgriddb.com/hero_thumb/65c0277ea758218c418ef9580692af22.jpg', 'owned'),
-((SELECT id FROM games WHERE title = 'The Witcher 3'), (SELECT id FROM users WHERE login = 'maxim4ick'), 50.0, '2024-07-30','https://pcbuildsonabudget.com/wp-content/uploads/2016/01/the-witcher-3-wild-hunt-banner.png', 'owned'),
-((SELECT id FROM games WHERE title = 'GTA V'), (SELECT id FROM users WHERE login = 'maxim4ick'), 15.2, '2024-08-15','https://gamemag.ru/images/cache/News/News84263/ad3c20f3bf-2_1390x600.jpg', 'owned');
-
 -- Achievements
 INSERT INTO achievements (game_id, name, instruction, image) VALUES
 ((SELECT id FROM games WHERE title = 'Half-Life'), 'Crowbar Master', 'Kill 100 enemies with the crowbar', 'https://static.wikia.nocookie.net/left4dead/images/2/29/Achievement_Gnome_Alone.png'),
@@ -95,14 +88,53 @@ INSERT INTO achievements (game_id, name, instruction, image) VALUES
 ((SELECT id FROM games WHERE title = 'GTA V'), 'Los Santos Kingpin', 'Complete all heists', 'https://png.klev.club/uploads/posts/2024-05/png-klev-club-v0b7-p-rekrut-dota-2-png-10.png'),
 ((SELECT id FROM games WHERE title = 'GTA V'), 'Stunt Driver', 'Complete all stunt jumps', 'https://vice-online.com/uploads/monthly_2023_07/GTAV9.png.cffcc65047c28cf74368f4a028086cc0.png');
 
--- User Game Achievements
-INSERT INTO user_game_achievements (user_game_id, achievement_id, earned_at) VALUES
-((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'Half-Life') AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
- (SELECT id FROM achievements WHERE name = 'Crowbar Master'), '2024-08-01 14:30:00'),
-((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'The Witcher 3') AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
- (SELECT id FROM achievements WHERE name = 'Monster Slayer'), '2024-07-30 20:15:00'),
-((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'GTA V') AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
- (SELECT id FROM achievements WHERE name = 'Los Santos Kingpin'), '2024-08-15 18:45:00');
+-- User Games (Library)
+-- Update Library (User Games)
+INSERT INTO user_games (game_id, user_id, playtime_hours, last_played, status, avatar, total) VALUES
+((SELECT id FROM games WHERE title = 'Half-Life'), 
+ (SELECT id FROM users WHERE login = 'maxim4ick'), 
+ 20.5, '2024-08-01', 'owned', 
+ (SELECT avatar FROM games WHERE title = 'Half-Life'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'Half-Life'))),
+
+((SELECT id FROM games WHERE title = 'The Witcher 3'), 
+ (SELECT id FROM users WHERE login = 'maxim4ick'), 
+ 50.0, '2024-07-30', 'owned', 
+ (SELECT avatar FROM games WHERE title = 'The Witcher 3'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'The Witcher 3'))),
+
+((SELECT id FROM games WHERE title = 'GTA V'), 
+ (SELECT id FROM users WHERE login = 'maxim4ick'), 
+ 15.2, '2024-08-15', 'owned', 
+ (SELECT avatar FROM games WHERE title = 'GTA V'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'GTA V')));
+
+-- Update User Game Achievements
+INSERT INTO user_game_achievements (user_game_id, achievement_id, earned_at, avatar, total) VALUES
+((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'Half-Life') 
+ AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
+ (SELECT id FROM achievements WHERE name = 'Crowbar Master'), 
+ '2024-08-01 14:30:00', 
+ (SELECT avatar FROM games WHERE title = 'Half-Life'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'Half-Life'))),
+
+((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'The Witcher 3') 
+ AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
+ (SELECT id FROM achievements WHERE name = 'Monster Slayer'), 
+ '2024-07-30 20:15:00', 
+ (SELECT avatar FROM games WHERE title = 'The Witcher 3'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'The Witcher 3'))),
+
+((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'GTA V') 
+ AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
+ (SELECT id FROM achievements WHERE name = 'Los Santos Kingpin'), 
+ '2024-08-15 18:45:00', 
+ (SELECT avatar FROM games WHERE title = 'GTA V'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'GTA V')));
+
+
+-- Achievements
+
  --
  -- Friends for maxim4ick
 INSERT INTO friends (user_id, friend_id) VALUES 
@@ -136,3 +168,91 @@ INSERT INTO screenshot (name, likes, dislikes, award, description, source, profi
 -- Videos for maxim4ick
 INSERT INTO video (name, description, source, likes, dislikes, award, profile_id, game_id, date) VALUES
 ('The Witcher 3: Best Moments', 'Compilation of the best moments in The Witcher 3.', 'https://www.youtube.com/watch?v=wJg9fs5jgeI', 350, 12, 25, (SELECT id FROM profiles WHERE nickname = 'MaxPro'), (SELECT id FROM games WHERE title = 'The Witcher 3'), CURRENT_TIMESTAMP);
+--minecraft added
+-- New Publisher
+INSERT INTO users (login, password, email, first_name, last_name, birth_date) VALUES 
+('mojang', 'mojangPass123', 'contact@mojang.com', 'Mojang', 'Studios', '2000-05-17');
+
+-- New Game
+INSERT INTO games (title, description, avatar, source, release_date, price, approved, publisher_id) VALUES
+('Minecraft', 'A sandbox game that allows players to build and explore their own worlds.', 'https://gaming-cdn.com/images/news/articles/7191/cover/minecraft-gets-a-new-artwork-cover66856ea7d02ad.jpg', 'https://github.com/Mojang/Minecraft', '2011-11-18', 26.95, true, (SELECT id FROM users WHERE login = 'mojang'));
+
+-- New Achievements
+INSERT INTO achievements (game_id, name, instruction, image) VALUES
+((SELECT id FROM games WHERE title = 'Minecraft'), 'Master Builder', 'Build 100 different structures', 'https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1672970/b6e5c117c5ed58aec4b85e18dfc52fc2cbb0c0fb.jpg'),
+((SELECT id FROM games WHERE title = 'Minecraft'), 'Ender Dragon Slayer', 'Defeat the Ender Dragon', 'https://cdn.akamai.steamstatic.com/steamcommunity/public/images/apps/1672970/0789757fa37bffff919770ed06dd47fc0796c31e.jpg');
+
+-- User Game (Library) for Minecraft
+INSERT INTO user_games (game_id, user_id, playtime_hours, last_played, status, avatar, total) VALUES
+((SELECT id FROM games WHERE title = 'Minecraft'), 
+ (SELECT id FROM users WHERE login = 'maxim4ick'), 
+ 30.0, '2024-08-28', 'owned', 
+ (SELECT avatar FROM games WHERE title = 'Minecraft'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'Minecraft')));
+
+-- User Game Achievements for Minecraft
+INSERT INTO user_game_achievements (user_game_id, achievement_id, earned_at, avatar, total) VALUES
+((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'Minecraft') 
+ AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
+ (SELECT id FROM achievements WHERE name = 'Master Builder'), 
+ '2024-08-28 12:00:00', 
+ (SELECT avatar FROM games WHERE title = 'Minecraft'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'Minecraft'))),
+
+((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'Minecraft') 
+ AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
+ (SELECT id FROM achievements WHERE name = 'Ender Dragon Slayer'), 
+ '2024-08-28 14:00:00', 
+ (SELECT avatar FROM games WHERE title = 'Minecraft'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'Minecraft')));
+
+
+-- New Game sims
+INSERT INTO users (login, password, email, first_name, last_name, birth_date) VALUES 
+('ea', 'eaSecurePass456', 'contact@ea.com', 'Electronic', 'Arts', '1982-05-28');
+
+-- Assign the publisher role to Electronic Arts
+INSERT INTO user_roles (user_id, role_id) VALUES
+((SELECT id FROM users WHERE login = 'ea'), (SELECT id FROM roles WHERE name = 'publisher'));
+
+-- Create a profile for Electronic Arts
+INSERT INTO profiles (nickname, avatar, description, country, status, user_id) VALUES 
+('EA Games', 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Electronic-Arts-Logo.svg/220px-Electronic-Arts-Logo.svg.png', 'Electronic Arts Inc. is an American video game company headquartered in Redwood City, California.', 'USA', 'Active', (SELECT id FROM users WHERE login = 'ea'));
+
+-- Add The Sims game
+INSERT INTO games (title, description, avatar, source, release_date, price, approved, publisher_id) VALUES
+('The Sims', 'A life simulation game developed by Maxis and published by Electronic Arts.', 'https://media.contentapi.ea.com/content/dam/eacom/SIMS/brand-refresh-assets/images/2019/07/ts4-featured-image-base-refresh.png.adapt.crop16x9.575p.png', 'https://www.ea.com/games/the-sims', '2000-02-04', 49.99, true, (SELECT id FROM users WHERE login = 'ea'));
+
+-- Add achievements for The Sims
+INSERT INTO achievements (game_id, name, instruction, image) VALUES
+((SELECT id FROM games WHERE title = 'The Sims'), 'Master Architect', 'Build a house with 10 rooms or more', 'https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/226037991/original/f6f4c571fcb7affeb69b32077f9fb5ba6333f7ce/build-you-a-playable-the-sims-4-house-or-lot.jpeg'),
+((SELECT id FROM games WHERE title = 'The Sims'), 'Social Butterfly', 'Make 50 friends', 'https://64.media.tumblr.com/5473ce7b2c4cdeacbf14997654876ae5/95147e0c715c49e9-52/s1280x1920/5a659b6cb328b92bbed94b2da3c40755751f8db6.png'),
+((SELECT id FROM games WHERE title = 'The Sims'), 'Career Guru', 'Reach the top of your career', 'https://images.saymedia-content.com/.image/ar_4:3%2Cc_fill%2Ccs_srgb%2Cq_auto:eco%2Cw_1200/MTc0NDU1NjIxNjkyMDQwNTUy/sims-4-careers.png');
+
+-- Add The Sims to maxim4ick's library
+INSERT INTO user_games (game_id, user_id, playtime_hours, last_played, status, avatar, total) VALUES
+((SELECT id FROM games WHERE title = 'The Sims'), 
+ (SELECT id FROM users WHERE login = 'maxim4ick'), 
+ 45.0, '2024-08-30', 'owned', 
+ (SELECT avatar FROM games WHERE title = 'The Sims'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'The Sims')));
+
+-- Add achievements for maxim4ick in The Sims
+INSERT INTO user_game_achievements (user_game_id, achievement_id, earned_at, avatar, total) VALUES
+((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'The Sims') 
+ AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
+ (SELECT id FROM achievements WHERE name = 'Master Architect' AND game_id = (SELECT id FROM games WHERE title = 'The Sims')), 
+ '2024-08-30 10:00:00', 
+ (SELECT avatar FROM games WHERE title = 'The Sims'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'The Sims'))),
+
+((SELECT id FROM user_games WHERE game_id = (SELECT id FROM games WHERE title = 'The Sims') 
+ AND user_id = (SELECT id FROM users WHERE login = 'maxim4ick')),
+ (SELECT id FROM achievements WHERE name = 'Social Butterfly' AND game_id = (SELECT id FROM games WHERE title = 'The Sims')), 
+ '2024-08-30 11:30:00', 
+ (SELECT avatar FROM games WHERE title = 'The Sims'),
+ (SELECT COUNT(*) FROM achievements WHERE game_id = (SELECT id FROM games WHERE title = 'The Sims')));
+
+-- Add The Sims to game developers (assuming EA is also considered a developer)
+INSERT INTO game_developers (game_id, developer_id) VALUES
+((SELECT id FROM games WHERE title = 'The Sims'), (SELECT id FROM users WHERE login = 'ea'));
