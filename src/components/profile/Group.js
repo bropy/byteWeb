@@ -4,18 +4,26 @@ import styles from '../../styles/profile/Group.module.css';
 
 
 export default function Group({group}) {
+    if (!group) return null; 
+
+    const { id, name = '', members = 0 } = group;
+
+    const handleGroupClick = () => {
+        window.location.href = `/group/${id}`;
+    };
+
     return (
-        <div key={group.id} 
+        <div key={id} 
         className={styles.interactive}
-        onClick={() => window.location.href = `/group/${group.id}`}>
+        onClick={handleGroupClick}>
             <div className={`${positioning.row}`}>
                 <div className={`${styles.avatar}`} />         
                 <div className={`${positioning.column} ${text.textSmall} ${text.fontWeight800}`}>
                     <div className={`${text.fontWeight800}`}>
-                        {group.name}
+                        {name}
                     </div>
                     <div className={`${text.fontWeight600}`}>
-                        {`Учасників: ${group.members}`}
+                        {`Учасників: ${members}`}
                     </div>
                 </div>
             </div>
