@@ -4,6 +4,19 @@
     padding: 1vw 0.375vw;
 }
 
+.groups {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+.group {
+    width: 50%;
+    min-width: 280px;
+    margin-top: 20px;
+}
+
 .interactive:hover {
     color: gray;
     cursor: pointer;

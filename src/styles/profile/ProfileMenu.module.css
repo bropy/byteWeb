@@ -1,5 +1,9 @@
 .column {
-    width: 49.5%;
+    width: 50%;
+}
+
+.marginRight {
+    margin-right: 20px;
 }
 
 .upperLine {

@@ -51,3 +51,7 @@
 .wrap {
     flex-wrap: wrap;
 }
+
+.wrapReverse {
+    flex-wrap: wrap-reverse;
+}
