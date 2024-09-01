@@ -13,9 +13,9 @@ export default function Group({group}) {
     };
 
     return (
-        <div key={id} 
-        className={styles.interactive}
-        onClick={handleGroupClick}>
+        <div 
+            className={styles.interactive}
+            onClick={handleGroupClick}>
             <div className={`${positioning.row}`}>
                 <div className={`${styles.avatar}`} />         
                 <div className={`${positioning.column} ${text.textSmall} ${text.fontWeight800}`}>
