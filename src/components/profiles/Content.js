@@ -27,6 +27,14 @@ const userMock = {
         { id: 10, nickname: 'Friend10', state: 'Грає: Omensight' },
         { id: 11, nickname: 'Friend11', state: 'Грає: Aragami' },
     ],
+    groups: [
+        { id: 1, name: 'Group1', members: 1 },
+        { id: 2, name: 'Group2', members: 2 },
+        { id: 3, name: 'Group3', members: 3 },
+        { id: 4, name: 'Group4', members: 4 },
+        { id: 5, name: 'Group5', members: 5 },
+        { id: 6, name: 'Group6', members: 6 },
+    ],
     activity : {
         activityTotal: 17,
         lastGames: [
@@ -112,14 +120,14 @@ export default function Content({ profile }) {
                     <ProfileActivity activity={profile.games} />
                 </div>
             </div>
-            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.row}`}>
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.row}`}>
             <div className={`${positioning.column} ${styles.column}`}>
                     <ProfileComments comments={userMock.comments}/>
                 </div>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <FavoriteGame game={profile.favoriteGame}/>
                     <br /><br />
-                    <ProfileGroups />
+                    <ProfileGroups groups={userMock.groups} />
                 </div>
             </div>
         </div>

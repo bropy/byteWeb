@@ -23,7 +23,7 @@ export default function Comment({comment}) {
             <div className={`${positioning.column} ${styles.avatar} ${styles.interactive}`}
                 onClick={() => window.location.href = `/profile/${author.id}`} />
             <div className={positioning.column}>
-                <div className={`${positioning.row}`}>
+                <div className={`${positioning.row} ${positioning.justifyBetween}`}>
                     <div className={`${text.fontWeight700} ${styles.interactive}`}
                         onClick={() => window.location.href = `/profile/${author.id}`}>
                         {author.nickname}

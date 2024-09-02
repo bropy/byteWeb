@@ -23,7 +23,7 @@ export default function ProfileMenu({ profile }) {
 
     return (
         <div className={`${positioning.row} ${positioning.justifyBetween}`}>
-            <div className={`${positioning.column} ${styles.column} ${styles.upperLine}`}>
+            <div className={`${positioning.column} ${styles.column} ${styles.upperLine} ${styles.marginRight}`}>
                 <div className={`
                     ${positioning.row} 
                     ${positioning.justifyBetween} 
