@@ -37,7 +37,9 @@ export default function ProfileGroups({groups}) {
             </div>
             <div className={styles.groups}>
                 {groupsElements.map(group => (
-                    <div className={styles.group}> 
+                    <div 
+                        key={group.id}
+                        className={styles.group}> 
                         <Group group={group} />
                     </div>
 

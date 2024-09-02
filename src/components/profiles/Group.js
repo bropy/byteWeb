@@ -14,7 +14,6 @@ export default function Group({group}) {
 
     return (
         <div 
-            key={id} 
             className={styles.interactive}
             onClick={handleGroupClick}>
             <div className={`${positioning.row}`}>
