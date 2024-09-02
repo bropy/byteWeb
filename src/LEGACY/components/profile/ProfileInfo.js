@@ -1,7 +1,7 @@
-import button from '../../styles/Button.module.css';
-import text from '../../styles/Text.module.css';
-import styles from '../../styles/profile/ProfileInfo.module.css';
-import positioning from '../../styles/Positioning.module.css';
+import button from '../../../styles/Button.module.css';
+import text from '../../../styles/Text.module.css';
+import styles from '../../../styles/profile/ProfileInfo.module.css';
+import positioning from '../../../styles/Positioning.module.css';
 
 
 export default function ProfileInfo({user}) {

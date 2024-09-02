@@ -1,6 +1,6 @@
-import text from '../../styles/Text.module.css';
-import positioning from '../../styles/Positioning.module.css';
-import styles from '../../styles/profile/Group.module.css';
+import text from '../../../styles/Text.module.css';
+import positioning from '../../../styles/Positioning.module.css';
+import styles from '../../../styles/profile/Group.module.css';
 
 
 export default function Group({group}) {

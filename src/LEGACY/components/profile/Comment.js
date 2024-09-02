@@ -1,6 +1,6 @@
-import text from '../../styles/Text.module.css';
-import positioning from '../../styles/Positioning.module.css';
-import styles from '../../styles/profile/Comment.module.css';
+import text from '../../../styles/Text.module.css';
+import positioning from '../../../styles/Positioning.module.css';
+import styles from '../../../styles/profile/Comment.module.css';
 
 
 export default function Comment({comment}) {

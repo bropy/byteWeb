@@ -1,5 +1,5 @@
 import Navbar from "../components/layout/Navbar";
-import Content from "../components/profile/Content";
+import Content from "../LEGACY/components/profile/Content";
 import Footer from "@/components/layout/Footer";
 
 export default function Profile(){

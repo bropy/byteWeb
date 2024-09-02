@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
+
 import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileMenu.module.css';
+
+import Modal from './Modal';
+
 
 export default function ProfileMenu({ profile }) {
     const [friendsElements, setFriendsElements] = useState([]);
@@ -20,6 +24,11 @@ export default function ProfileMenu({ profile }) {
             loadMoreFriends(); 
         }
     }, [friendsProfiles]);
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
 
     return (
         <div className={`${positioning.row} ${positioning.justifyBetween}`}>
@@ -85,7 +94,7 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={() => window.location.href = '/profile/friends'}>
+                    onClick={openModal}>
                     <div>Друзі</div>
                     <div className={text.fontWeight800}>{friendsProfiles.length}</div>
                 </div>
@@ -118,6 +127,30 @@ export default function ProfileMenu({ profile }) {
                     )}
                 </div>
             </div>
+            <Modal isOpen={isModalOpen} onClose={closeModal} title={'Друзі'}>
+                <div className={`${positioning.row} ${positioning.wrap}`}>
+                    {friendsProfiles.map(friend => (
+                        <div 
+                            key={friend.id} 
+                            className={`${styles.friendElement} ${positioning.row} ${styles.interactive}`}
+                            style={{
+                                width: '50%',
+                                minWidth: '280px',
+                            }}
+                            onClick={() => window.location.href = `/profiles/${friend.id}`}>
+                            <div className={styles.friendAvatar}/>
+                            <div className={positioning.column}>
+                                <div>
+                                    {friend.nickname}
+                                </div>
+                                <div className={text.textSmallest}>
+                                    {friend.state}
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </ Modal>
         </div>
     );
 }
