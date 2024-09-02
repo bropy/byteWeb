@@ -1,6 +1,6 @@
 import React from 'react';
 import text from '../../styles/Text.module.css';
-import styles from '../../FriendsModal.module.css';
+import styles from '../../Modal.module.css';
 
 
 export default function FriendsModal ({ isOpen, onClose, title, children }) {
