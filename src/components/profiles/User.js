@@ -12,8 +12,8 @@ export default function User({user, style}) {
             style={style}
             onClick={() => window.location.href = `/profiles/${user.id}`}>
             <img 
-                src={friend.avatar} 
-                alt={friend.nickname} 
+                src={user.avatar} 
+                alt={user.nickname} 
                 className={styles.userAvatar}
             />
             <div className={positioning.column}>
