@@ -50,11 +50,7 @@ export default function ProfileGroups({groups}) {
                         {groups.map(group => (
                             <div 
                                 key={group.id}
-                                className={styles.group}
-                                style={{
-                                    width: '50%',     
-                                    minWidth: '280px',  
-                                }}> 
+                                className={styles.group}> 
                                 <Group group={group} />
                             </div>
                         ))}
