@@ -43,8 +43,8 @@ export default function ProfileMenu({ profile }) {
     const closeModal = () => setIsModalOpen(false);
 
     return (
-        <div className={`${positioning.row} ${positioning.justifyBetween}`}>
-            <div className={`${positioning.column} ${styles.column} ${styles.upperLine} ${styles.marginRight}`}>
+        <div className={`${positioning.row} ${positioning.wrap}`}>
+            <div className={`${positioning.column} ${styles.column} ${styles.upperLine}`}>
                 <div className={`
                     ${positioning.row} 
                     ${positioning.justifyBetween} 
@@ -140,6 +140,7 @@ export default function ProfileMenu({ profile }) {
                     )}
                 </div>
             </div>
+
             <Modal 
                 isOpen={isModalOpen} 
                 onClose={closeModal} 

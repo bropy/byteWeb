@@ -1,8 +1,11 @@
 .column {
     flex: 1;
     min-width: 350px;
-    margin-right: 20px;
     background-color: none;
+}
+
+.marginRight {
+    margin-right: 20px;
 }
 
 .row {

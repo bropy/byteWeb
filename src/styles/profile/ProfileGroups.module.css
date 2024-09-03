@@ -12,7 +12,7 @@
 }
 
 .group {
-    width: 50%;
+    flex: 1;
     min-width: 280px;
     margin-top: 20px;
 }

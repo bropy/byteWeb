@@ -47,7 +47,7 @@ export default function ProfileGroups({groups}) {
                 ${styles.interactive}`} 
                 onClick={() => openModal('Групи',
                     <div className={`${positioning.row} ${positioning.wrap}`}>
-                        {groupsElements.map(group => (
+                        {groups.map(group => (
                             <div 
                                 key={group.id}
                                 className={styles.group}
