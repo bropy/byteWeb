@@ -151,7 +151,7 @@ export default function ProfileMenu({user}) {
                 </div>
                 <div className={styles.friends}>
                     {friendsElements.map(friend => (
-                        <User user={friend}/>
+                        <User key={friend.id} user={friend}/>
                     ))}
                     <br />
                     {loadIndex < friends?.length && (

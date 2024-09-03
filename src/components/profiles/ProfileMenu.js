@@ -123,19 +123,7 @@ export default function ProfileMenu({ profile }) {
                 </div>
                 <div className={styles.friends}>
                     {friendsElements.map(friend => (
-                        <div key={friend.id} 
-                            className={`${styles.friendElement} ${positioning.row} ${styles.interactive}`}
-                            onClick={() => window.location.href = `/profiles/${friend.id}`}>
-                            <img 
-                                src={friend.avatar} 
-                                alt={friend.nickname} 
-                                className={styles.friendAvatar}
-                            />
-                            <div className={positioning.column}>
-                                <div>{friend.nickname}</div>
-                                <div className={text.textSmallest}>{friend.status}</div>
-                            </div>
-                        </div>
+                        <User key={friend.id} user={friend}/>
                     ))}
                     <br />
                     {loadIndex < friendsProfiles.length && (
