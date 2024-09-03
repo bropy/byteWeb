@@ -24,6 +24,20 @@ export default function ProfileGroups({groups}) {
         loadMoreGroups();
     }, []);
 
+    // MODAL BLOCK
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalContent, setModalContent] = useState(null);
+
+    const openModal = (title, content) => {
+        setModalTitle(title); 
+        setModalContent(content);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <div className={`${positioning.column}`}>
             <div className={`
@@ -31,7 +45,21 @@ export default function ProfileGroups({groups}) {
                 ${positioning.justifyBetween} 
                 ${styles.category} 
                 ${styles.interactive}`} 
-                onClick={() => window.location.href = '/profile/groups'}>
+                onClick={() => openModal('Групи',
+                    <div className={`${positioning.row} ${positioning.wrap}`}>
+                        {groupsElements.map(group => (
+                            <div 
+                                key={group.id}
+                                className={styles.group}
+                                style={{
+                                    width: '50%',     
+                                    minWidth: '280px',  
+                                }}> 
+                                <Group group={group} />
+                            </div>
+                        ))}
+                    </div>
+                )}>
                 <div>
                     Групи
                 </div>
@@ -46,20 +74,26 @@ export default function ProfileGroups({groups}) {
                         className={styles.group}> 
                         <Group group={group} />
                     </div>
-
                 ))}  
             </div>
             <br />
-                {loadIndex < groups?.length && (
-                    <div className={`
-                        ${text.fontWeight800} 
-                        ${text.uppercase} 
-                        ${text.alignCenter} 
-                        ${styles.interactive}`}
-                        onClick={loadMoreGroups}>
-                        Завантажити більше...
-                    </div>
-                )}
+            {loadIndex < groups?.length && (
+                <div className={`
+                    ${text.fontWeight800} 
+                    ${text.uppercase} 
+                    ${text.alignCenter} 
+                    ${styles.interactive}`}
+                    onClick={loadMoreGroups}>
+                    Завантажити більше...
+                </div>
+            )}
+            
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+                title={modalTitle} >
+                {modalContent}
+            </ Modal>
         </div>
     );
 };
