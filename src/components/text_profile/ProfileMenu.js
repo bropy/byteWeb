@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
-import text from '../../../styles/Text.module.css';
-import positioning from '../../../styles/Positioning.module.css';
-import styles from '../../../styles/profile/ProfileMenu.module.css';
+import text from '../../styles/Text.module.css';
+import positioning from '../../styles/Positioning.module.css';
+import styles from '../../styles/profile/ProfileMenu.module.css';
 
 import User from './User';
 import Modal from './Modal';

@@ -41,7 +41,7 @@ const Footer = () => {
                     <div className={styles.interactive} onClick={() => window.location.href = '/support'}>
                         {translations.support || 'Підтримка'}
                     </div>
-                    <div className={styles.interactive} onClick={() => window.location.href = '/profile'}>
+                    <div className={styles.interactive} onClick={() => window.location.href = '/test_profile'}>
                         {translations.profile || 'Профіль'}
                     </div>
                 </div>

@@ -1,6 +1,6 @@
-import text from '../../../styles/Text.module.css';
-import positioning from '../../../styles/Positioning.module.css';
-import styles from '../../../styles/profile/ProfileActivity.module.css';
+import text from '../../styles/Text.module.css';
+import positioning from '../../styles/Positioning.module.css';
+import styles from '../../styles/profile/ProfileActivity.module.css';
 import GameInfo from './GameInfo'
 
 export default function ProfileActivity({activity}) {

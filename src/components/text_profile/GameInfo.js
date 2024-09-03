@@ -1,6 +1,6 @@
-import text from '../../../styles/Text.module.css';
-import positioning from '../../../styles/Positioning.module.css';
-import styles from '../../../styles/profile/GameInfo.module.css';
+import text from '../../styles/Text.module.css';
+import positioning from '../../styles/Positioning.module.css';
+import styles from '../../styles/profile/GameInfo.module.css';
 
 export default function GameInfo({game, screenshots}) {
     if (!game) {

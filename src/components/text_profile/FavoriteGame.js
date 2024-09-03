@@ -1,6 +1,6 @@
-import text from '../../../styles/Text.module.css';
-import positioning from '../../../styles/Positioning.module.css';
-import styles from '../../../styles/profile/FavoriteGame.module.css';
+import text from '../../styles/Text.module.css';
+import positioning from '../../styles/Positioning.module.css';
+import styles from '../../styles/profile/FavoriteGame.module.css';
 import GameInfo from './GameInfo'
 
 
