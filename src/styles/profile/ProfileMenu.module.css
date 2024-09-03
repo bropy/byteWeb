@@ -19,17 +19,3 @@
     color: gray;
     cursor: pointer;
 }
-
-.friendElement {
-    margin: 20px 0;
-}
-
-.friendAvatar {
-    height: 40px;
-    width: 40px;
-    margin: 0 1vw 0 0.375vw;
-    border-radius: 5px;
-    background-color: #D9D9D9;
-    justify-self: center;
-    align-self: center;
-}

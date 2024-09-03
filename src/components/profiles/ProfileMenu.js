@@ -4,30 +4,40 @@ import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileMenu.module.css';
 
+import User from './User';
 import Modal from './Modal';
 
 
 export default function ProfileMenu({ profile }) {
+    // FRIENDS BLOCK
+    const { friends = [] } = user || {};
+
     const [friendsElements, setFriendsElements] = useState([]);
     const [loadIndex, setLoadIndex] = useState(0);
 
-    const { friendsProfiles = [], games = [] } = profile || {};
-
     const loadMoreFriends = () => {
-        const newFriends = friendsProfiles.slice(loadIndex, loadIndex + 4);
+        if (friends == null) return;
+        const newFriends = friends.slice(loadIndex, loadIndex + 4);
         setLoadIndex(loadIndex + newFriends.length);
         setFriendsElements(prevFriends => [...prevFriends, ...newFriends]);
     };
 
     useEffect(() => {
-        if (friendsProfiles.length > 0) {
-            loadMoreFriends(); 
-        }
-    }, [friendsProfiles]);
+        loadMoreFriends();
+    }, []);
 
+    // MODAL BLOCK
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => setIsModalOpen(true);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalContent, setModalContent] = useState(null);
+
+    const openModal = (title, content) => {
+        setModalTitle(title); 
+        setModalContent(content);
+        setIsModalOpen(true);
+    };
+
     const closeModal = () => setIsModalOpen(false);
 
     return (
@@ -94,7 +104,20 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={openModal}>
+                    onClick={() => openModal('Друзі',
+                        <div className={`${positioning.row} ${positioning.wrap}`}>
+                            {friends.map(friend => (
+                                <User 
+                                    key={friend.id} 
+                                    user={friend}
+                                    style={{
+                                        width: '50%',     
+                                        minWidth: '280px',  
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    )}>
                     <div>Друзі</div>
                     <div className={text.fontWeight800}>{friendsProfiles.length}</div>
                 </div>
@@ -127,29 +150,11 @@ export default function ProfileMenu({ profile }) {
                     )}
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} onClose={closeModal} title={'Друзі'}>
-                <div className={`${positioning.row} ${positioning.wrap}`}>
-                    {friendsProfiles.map(friend => (
-                        <div 
-                            key={friend.id} 
-                            className={`${styles.friendElement} ${positioning.row} ${styles.interactive}`}
-                            style={{
-                                width: '50%',
-                                minWidth: '280px',
-                            }}
-                            onClick={() => window.location.href = `/profiles/${friend.id}`}>
-                            <div className={styles.friendAvatar}/>
-                            <div className={positioning.column}>
-                                <div>
-                                    {friend.nickname}
-                                </div>
-                                <div className={text.textSmallest}>
-                                    {friend.state}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+                title={modalTitle} >
+                {modalContent}
             </ Modal>
         </div>
     );

@@ -4,14 +4,16 @@ import text from '../../../styles/Text.module.css';
 import positioning from '../../../styles/Positioning.module.css';
 import styles from '../../../styles/profile/ProfileMenu.module.css';
 
+import User from './User';
 import Modal from './Modal';
 
 
 export default function ProfileMenu({user}) {
+    // FRIENDS BLOCK
+    const { friends = [] } = user || {};
+
     const [friendsElements, setFriendsElements] = useState([]);
     const [loadIndex, setLoadIndex] = useState(0);
-
-    const { friends = [] } = user || {};
 
     const loadMoreFriends = () => {
         if (friends == null) return;
@@ -24,9 +26,18 @@ export default function ProfileMenu({user}) {
         loadMoreFriends();
     }, []);
 
+    // MODAL BLOCK
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const openModal = () => setIsModalOpen(true);
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalContent, setModalContent] = useState(null);
+
+    const openModal = (title, content) => {
+        setModalTitle(title); 
+        setModalContent(content);
+        setIsModalOpen(true);
+    };
+
     const closeModal = () => setIsModalOpen(false);
 
     return (
@@ -117,7 +128,20 @@ export default function ProfileMenu({user}) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={openModal}>
+                    onClick={() => openModal('Друзі',
+                        <div className={`${positioning.row} ${positioning.wrap}`}>
+                            {friends.map(friend => (
+                                <User 
+                                    key={friend.id} 
+                                    user={friend}
+                                    style={{
+                                        width: '50%',     
+                                        minWidth: '280px',  
+                                    }}
+                                />
+                            ))}
+                        </div>
+                    )}>
                     <div>
                         Друзі
                     </div>
@@ -127,19 +151,7 @@ export default function ProfileMenu({user}) {
                 </div>
                 <div className={styles.friends}>
                     {friendsElements.map(friend => (
-                        <div key={friend.id} 
-                            className={`${styles.friendElement} ${positioning.row} ${styles.interactive}`}
-                            onClick={() => window.location.href = `/profile/${friend.id}`}>
-                            <div className={styles.friendAvatar}/>
-                            <div className={positioning.column}>
-                                <div>
-                                    {friend.nickname}
-                                </div>
-                                <div className={text.textSmallest}>
-                                    {friend.state}
-                                </div>
-                            </div>
-                        </div>
+                        <User user={friend}/>
                     ))}
                     <br />
                     {loadIndex < friends?.length && (
@@ -154,29 +166,12 @@ export default function ProfileMenu({user}) {
                     )}
                 </div>
             </div>
-            <Modal isOpen={isModalOpen} onClose={closeModal} title={'Друзі'}>
-                <div className={`${positioning.row} ${positioning.wrap}`}>
-                    {friends.map(friend => (
-                        <div 
-                            key={friend.id} 
-                            className={`${styles.friendElement} ${positioning.row} ${styles.interactive}`}
-                            style={{
-                                width: '50%',
-                                minWidth: '280px',
-                            }}
-                            onClick={() => window.location.href = `/profile/${friend.id}`}>
-                            <div className={styles.friendAvatar}/>
-                            <div className={positioning.column}>
-                                <div>
-                                    {friend.nickname}
-                                </div>
-                                <div className={text.textSmallest}>
-                                    {friend.state}
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+                title={modalTitle} >
+                {modalContent}
             </ Modal>
         </div>
     );
