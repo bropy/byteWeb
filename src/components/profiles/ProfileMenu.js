@@ -108,7 +108,7 @@ export default function ProfileMenu({ profile }) {
                     ${styles.interactive}`} 
                     onClick={() => openModal('Друзі',
                         <div className={`${positioning.row} ${positioning.wrap}`}>
-                            {friends.map(friend => (
+                            {friendsProfiles.map(friend => (
                                 <User 
                                     key={friend.id} 
                                     user={friend}

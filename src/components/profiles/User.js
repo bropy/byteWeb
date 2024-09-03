@@ -11,7 +11,11 @@ export default function User({user, style}) {
             className={`${styles.userElement} ${positioning.row} ${styles.interactive}`}
             style={style}
             onClick={() => window.location.href = `/profiles/${user.id}`}>
-            <div className={styles.userAvatar}/>
+            <img 
+                src={friend.avatar} 
+                alt={friend.nickname} 
+                className={styles.userAvatar}
+            />
             <div className={positioning.column}>
                 <div>
                     {user.nickname}
