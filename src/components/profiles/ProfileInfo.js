@@ -1,18 +1,14 @@
-import positioning from '../../styles/Positioning.module.css';
-import text from '../../styles/Text.module.css';
-import button from '../../styles/Button.module.css';
-import styles from '../../styles/profile/ProfileInfo.module.css';
-
 import { useRouter } from 'next/router';
 import { fetchData } from '../../pages/api/profileApi';
 
+import Button from '../layout/Button'
+
+import positioning from '../../styles/Positioning.module.css';
+import text from '../../styles/Text.module.css';
+import styles from '../../styles/profile/ProfileInfo.module.css';
+
 
 export default function ProfileInfo({profile}) {
-
-    const handleClick = () => {
-        //ToDo 
-    };
-
     return (
         <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.profileInfo}`}>
             <img 
@@ -30,7 +26,7 @@ export default function ProfileInfo({profile}) {
                     <div className={`${text.textMedium} ${text.fontWeight800}`}>
                     {profile.nickname || "No data"}
                     </div>
-                    <div className={styles.marginVertical}>
+                    <div className={positioning.minMarginVertical}>
                         Країна: {profile.country|| "No data"}
                     </div>
                     <div>
@@ -38,7 +34,7 @@ export default function ProfileInfo({profile}) {
                     </div>
                 </div>
                 <div>
-                    <div className={`${positioning.row} ${styles.marginVertical}`}>
+                    <div className={`${positioning.row} ${positioning.minMarginVertical}`}>
                         <div>
                             Статус:&nbsp;
                         </div>
@@ -46,12 +42,11 @@ export default function ProfileInfo({profile}) {
                             <p>{profile.status|| "No data"}</p>
                         </div>
                     </div>
-                    <div className={`${button.button} ${button.black} ${styles.marginVertical}`} 
-                        >
-                        <div className={`${text.textWhite} ${text.fontWeight700}`}>
+                    <Button href={'/'}>
+                        <div>
                             Редагувати профіль
                         </div>
-                    </div>
+                    </Button>
                 </div>
             </div>
         </div>

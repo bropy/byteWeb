@@ -1,13 +1,14 @@
-import positioning from '../../styles/Positioning.module.css';
-import text from '../../styles/Text.module.css';
-import styles from '../../styles/profile/ProfilePageContent.module.css';
-
 import ProfileInfo from "./ProfileInfo";
 import ProfileMenu from "./ProfileMenu";
 import ProfileActivity from "./ProfileActivity";
 import ProfileComments from "./ProfileComments";
 import FavoriteGame from "./FavoriteGame";
 import ProfileGroups from "./ProfileGroups";
+
+import positioning from '../../styles/Positioning.module.css';
+import text from '../../styles/Text.module.css';
+import styles from '../../styles/profile/ProfilePageContent.module.css';
+
 
 const userMock = {
     id: 1, 
@@ -92,7 +93,7 @@ export default function Content({ profile }) {
         <div className={`${positioning.container} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
-                    <div className={styles.marginRight}>
+                    <div className={positioning.minMarginRight}>
                         <ProfileInfo profile={profile} />
                     </div>
                     <ProfileMenu profile={profile} />
@@ -102,7 +103,7 @@ export default function Content({ profile }) {
                 </div>
             </div>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.row}`}>
-                <div className={`${positioning.column} ${styles.column} ${styles.marginRight}`}>
+                <div className={`${positioning.column} ${styles.column} ${positioning.minMarginRight}`}>
                     <ProfileComments comments={userMock.comments}/>
                 </div>
                 <div className={`${positioning.column} ${styles.column}`}>

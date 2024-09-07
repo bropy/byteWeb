@@ -1,4 +1,5 @@
-import button from '../../styles/Button.module.css';
+import Button from '../layout/Button'
+
 import text from '../../styles/Text.module.css';
 import styles from '../../styles/profile/ProfileInfo.module.css';
 import positioning from '../../styles/Positioning.module.css';
@@ -6,10 +7,6 @@ import positioning from '../../styles/Positioning.module.css';
 
 export default function ProfileInfo({user}) {
     const { nickname = 'Not Found', country = 'Not Found', about = 'Not Found', state = 'Non' } = user || {};
-
-    const handleClick = () => {
-        //ToDo 
-    };
 
     return (
         <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.profileInfo}`}>
@@ -19,7 +16,7 @@ export default function ProfileInfo({user}) {
                     <div className={`${text.textMedium} ${text.fontWeight800}`}>
                         {nickname}
                     </div>
-                    <div className={styles.marginVertical}>
+                    <div className={positioning.minMarginVertical}>
                         Країна: {country}
                     </div>
                     <div>
@@ -27,7 +24,7 @@ export default function ProfileInfo({user}) {
                     </div>
                 </div>
                 <div>
-                    <div className={`${positioning.row} ${styles.marginVertical}`}>
+                    <div className={`${positioning.row} ${positioning.minMarginVertical}`}>
                         <div>
                             Статус:&nbsp;
                         </div>
@@ -36,12 +33,11 @@ export default function ProfileInfo({user}) {
                         </div>
                     </div>
                     {user && 
-                    <div className={`${button.button} ${button.black} ${styles.marginVertical}`} 
-                        onClick={handleClick}>
-                        <div className={`${text.textWhite} ${text.fontWeight700}`}>
+                    <Button href={'/'}>
+                        <div>
                             Редагувати профіль
                         </div>
-                    </div>
+                    </Button>
                     }
                 </div>
             </div>

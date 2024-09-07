@@ -11,7 +11,7 @@ export default function ButtonDownload () {
   const { translations } = useLanguage();
 
   return (
-    <Button href="/download">
+    <Button href={'/download'}>
       <div className={positioning.row}>
         <div className={button.downloadIcon} />
         <div>{translations.download || 'Завантажити'}</div>

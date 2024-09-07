@@ -5,7 +5,7 @@ import button from '../../styles/Button.module.css';
 
 export default function Button ({ href, children }) {
   const handleClick = () => {
-    window.location.href = {href};
+    window.location.href = href;
   };
 
   return (

@@ -1,10 +1,6 @@
 .column {
     flex: 1;
-    min-width: 350px;
-}
-
-.marginRight {
-    margin-right: 20px;
+    min-width: 280px;
 }
 
 .row {
