@@ -29,7 +29,7 @@ export default function Comment({comment}) {
                         {author.nickname}
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div className={text.textGray}>
+                    <div className={text.textDarkGray}>
                         {`${formattedDate} о ${formattedTime}`}
                     </div>
                 </div>

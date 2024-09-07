@@ -15,7 +15,12 @@
     font-family: 'Mulish', sans-serif;
 }
 
-.textGray {
+.textDarkGray {
+    color: #777777;
+    font-family: 'Mulish', sans-serif;
+}
+
+.textLightGray {
     color: #999999;
     font-family: 'Mulish', sans-serif;
 }

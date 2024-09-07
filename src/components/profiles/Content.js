@@ -86,32 +86,10 @@ const userMock = {
     ]
 };
 
-/*
-<div className={`${positioning.container} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
-            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
-                <div className={`${positioning.column} ${styles.column}`}>
-                    <ProfileInfo profile={profile} />
-                    <ProfileMenu profile={profile} />
-                </div>
-                <div className={`${positioning.column} ${styles.column}`}>
-                    <ProfileActivity activity={profile.activity} />
-                </div>
-            </div>
-            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.row}`}>
-                <div className={`${positioning.column} ${styles.column}`}>
-                    <ProfileComments comments={profile.comments}/>
-                </div>
-                <div className={`${positioning.column} ${styles.column}`}>
-                    <FavoriteGame game={profile.favoriteGame} screenshots={profile.screenshots}/>
-                    <br /><br />
-                    <ProfileGroups />
-                </div>
-            </div>
-        </div>
-*/
+
 export default function Content({ profile }) {
     return (
-        <div className={`${positioning.container} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
+        <div className={`${positioning.container} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <div className={styles.marginRight}>

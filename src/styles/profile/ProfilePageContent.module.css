@@ -1,7 +1,6 @@
 .column {
     flex: 1;
     min-width: 350px;
-    background-color: none;
 }
 
 .marginRight {

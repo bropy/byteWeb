@@ -31,7 +31,7 @@ export default function Content () {
                                 </Button>
                             </div>
                             <br/>
-                            <div className={`${mainStyle.interactive} ${text.textGray} ${text.textSmall} 
+                            <div className={`${mainStyle.interactive} ${text.textLightGray} ${text.textSmall} 
                                 ${text.caseNone} ${text.fontWeight600} ${text.underline}`}
                                 onClick={() => window.location.href = '/download'}>
                                 Перейти на веб-версію додатку
