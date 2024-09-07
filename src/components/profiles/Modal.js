@@ -1,6 +1,6 @@
 import React from 'react';
 import text from '../../styles/Text.module.css';
-import styles from '../../styles/profile/Modale.module.css';
+import styles from '../../styles/profile/Modal.module.css';
 
 
 export default function FriendsModal ({ isOpen, onClose, title, children }) {
@@ -12,7 +12,7 @@ export default function FriendsModal ({ isOpen, onClose, title, children }) {
                 <button className={styles.closeButton} onClick={onClose}>
                     &times;
                 </button>
-                <div className={`${text.textBlack} ${text.textMedium} ${text.fontWeight800}`}>
+                <div className={`${text.textMedium} ${text.fontWeight800}`}>
                     {title}
                 </div>
                 <div className={styles.modalContent}>
