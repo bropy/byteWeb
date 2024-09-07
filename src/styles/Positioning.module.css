@@ -9,6 +9,38 @@
     min-width: 280px;
 }
 
+/* MARGIN */
+
+.minMargin {
+    margin: 20px;
+}
+
+.minMarginVertical {
+    margin: 20px 0;
+}
+
+.minMarginHorizontal {
+    margin: 0 20px;
+}
+
+.minMarginTop {
+    margin-top: 20px;
+}
+
+.minMarginRight {
+    margin-right: 20px;
+}
+
+.minMarginBottom {
+    margin-bottom: 20px;
+}
+
+.minMarginLeft {
+    margin-left: 20px;
+}
+
+/* GRID */
+
 .row {
     display: flex;
     flex-direction: row;

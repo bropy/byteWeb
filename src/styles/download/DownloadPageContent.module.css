@@ -1,7 +1,7 @@
 .image1 {
     min-width: 280px;
-    width: 36.5vw;
-    max-width: 694px;
+    width: 31vw;
+    max-width: 576px;
     aspect-ratio: 7 / 6;
     margin-top: 20px;
     margin-left: 5vw;
@@ -12,10 +12,9 @@
 
 .image2 {
     max-width: 690px;
-    width: 46.75vw;
     min-width: 280px;
     aspect-ratio: 46 / 25;
-    margin-right: 10vw;
+    margin-right: 20px;
     border-radius: 0 14.5% 14.5% 0;
     background-image: url(../../images/download_img_2.svg);
     background-size: cover;
@@ -23,23 +22,44 @@
 
 .image3 {
     max-width: 690px;
-    width: 46.75vw;
     min-width: 280px;
     aspect-ratio: 46 / 25;
-    margin-left: 10vw;
+    margin-left: 20px;
     border-radius: 14.5% 0 0 14.5%;
     background-image: url(../../images/download_img_3.svg);
     background-size: cover;
 }
 
-.marginVertical {
-    margin: 20px 0;
-}
-
-.marginTop {
-    margin-top: 20px;
+.button {
+    width: fit-content;
 }
 
 .marginBottom {
     margin-bottom: clamp(100px, 12.5vw, 200px);
+}
+
+@media only screen and (max-width: 645px) {
+    .image1 { 
+        width: 100%; 
+    }
+    .image2 { 
+        width: 100%; 
+    }
+    .image3 { 
+        width: 100%; 
+    }
+    .button { width: 100%;}
+
+    .downloadWindow {
+        align-items: start;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .image2 { 
+        margin: 0; 
+    }
+    .image3 { 
+        margin: 0; 
+    }
 }

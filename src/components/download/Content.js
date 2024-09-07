@@ -19,15 +19,17 @@ export default function Content () {
                     BYTE для твого пристрою
                 </div>
                 <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.marginBottom}`}>
-                    <div className={`${positioning.column} ${positioning.justifyBetween} ${positioning.dynamic} ${styles.marginTop}`}>
+                    <div className={`${positioning.column} ${positioning.justifyBetween} ${positioning.dynamic} ${positioning.minMarginTop}`}>
                         <div className={`${text.textMediumSmall}`}>
                                 Зручний додаток, доступний для завантаження на Android та Windows. Тепер ви можете легко та швидко купувати відеоігри, плагіни та програми безпосередньо зі свого пристрою.
                         </div>
                         <div>
                             <br/><br/>
-                            <Button href="/">
-                                <div>{translations.seeMore || 'Подивитись більше'}</div>
-                            </Button>
+                            <div className={styles.button}>
+                                <Button href="/">
+                                    <div>{translations.seeMore || 'Подивитись більше'}</div>
+                                </Button>
+                            </div>
                             <br/>
                             <div className={`${mainStyle.interactive} ${text.textGray} ${text.textSmall} 
                                 ${text.caseNone} ${text.fontWeight600} ${text.underline}`}
@@ -36,29 +38,32 @@ export default function Content () {
                             </div>
                         </div>
                     </div>
-                    <div className={styles.image1} />
+                    <div className={`${styles.image1} ${positioning.dynamic}`} />
                 </div>
             </div>
-            
 
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.marginBottom}`}>
-                <div className={styles.image2} />
-                <div className={`${positioning.column} ${positioning.dynamic} ${positioning.alignEnd}`}>
-                    <div className={`${text.textMedium} ${text.uppercase} ${text.alignRight} ${styles.marginVertical}`}>
+                <div className={`${styles.image2} ${positioning.dynamic}`}/>
+                <div className={`${positioning.column} ${positioning.dynamic} ${positioning.alignEnd} ${styles.downloadWindow}`}>
+                    <div className={`${text.textMedium} ${text.uppercase} ${text.alignRight} ${positioning.minMarginVertical}`}>
                         Завантажити для Windows
                     </div>
-                    <ButtonDownload />
+                    <div className={styles.button}>
+                        <ButtonDownload />
+                    </div>
                 </div>
             </div>
 
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse}`}>
                 <div className={`${positioning.column} ${positioning.dynamic}`}>
-                    <div className={`${text.textMedium} ${styles.marginVertical}`}>
+                    <div className={`${text.textMedium} ${positioning.minMarginVertical}`}>
                         Завантажити для Android
                     </div>
-                    <ButtonDownload />
+                    <div className={styles.button}>
+                        <ButtonDownload />
+                    </div>
                 </div>
-                <div className={styles.image3} />
+                <div className={`${styles.image3} ${positioning.dynamic}`} />
             </div>
         </div>
     );
