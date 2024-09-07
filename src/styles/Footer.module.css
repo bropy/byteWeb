@@ -1,8 +1,7 @@
 .footerDiv {
     height: fit-content;
     width: 70vw;
-    margin: 10vw 5vw 5vw 5vw;
-    background-color: none;
+    padding: 10vw 5vw 5vw 5vw;
 }
 
 .row {
@@ -29,9 +28,10 @@
 }
 
 .logo {
-    height: 1.5vw;
-    width: 5.7vw;
-    background-color: gray;
+    height: clamp(17px, 2.125vw, 40px);
+    width: clamp(55.44px, 6.93vw, 130.45px);
+    background-image: url(../images/logo.png);
+    background-size: contain;
 }
 
 .social {

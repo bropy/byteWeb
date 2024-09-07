@@ -1,8 +1,12 @@
 .container {
     height: fit-content;
     width: 90vw;
-    margin: 5vw;
+    margin: clamp(20px, 2.5vw, 40px) 5vw;
     background-color: none;
+}
+
+.minWidth {
+    min-width: 280px;
 }
 
 .row {

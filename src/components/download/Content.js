@@ -1,49 +1,65 @@
-import ButtonMoreAbout from '../layout/ButtonMoreAbout'
-import ButtonDownload from '../layout/ButtonDownload'
-import styles from '../../styles/DownloadPageContent.module.css'
+import mainStyle from '../../styles/MainStyle.module.css'
 import positioning from '../../styles/Positioning.module.css'
 import text from '../../styles/Text.module.css'
+import styles from '../../styles/download/DownloadPageContent.module.css'
+
+import ButtonDownload from '../layout/ButtonDownload'
+import Button from '../layout/Button'
+
+import { useLanguage } from '../../contexts/LanguageContext';
 
 
-const Content = () => {
+export default function Content () {
+    const { translations } = useLanguage();
+
     return (
-        <div className={`${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
-            <div className={styles.container}>
-                <div className={`${text.textLarge} ${text.uppercase} ${text.fontWeight800}`}>
-                    byte ДЛЯ твого ПРИСТРОЮ
+        <div className={`${positioning.container} ${text.uppercase} ${text.fontWeight800}`}>
+            <div className={`${positioning.column} ${styles.block}`}>
+                <div className={`${text.textLarge}`}>
+                    BYTE для твого пристрою
                 </div>
-                <div className={styles.row}>
-                    <div className={`${positioning.column} ${positioning.dynamic} ${positioning.justifyBetween}`}>
-                        <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
-                            зручний додаток, доступний для завантаження на Android та Windows. Тепер ви можете легко та швидко купувати відеоігри, плагіни та програми безпосередньо зі свого пристрою.
+                <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.marginBottom}`}>
+                    <div className={`${positioning.column} ${positioning.justifyBetween} ${positioning.dynamic} ${styles.marginTop}`}>
+                        <div className={`${text.textMediumSmall}`}>
+                                Зручний додаток, доступний для завантаження на Android та Windows. Тепер ви можете легко та швидко купувати відеоігри, плагіни та програми безпосередньо зі свого пристрою.
                         </div>
-                        <ButtonMoreAbout />
-                    </div>   
+                        <div>
+                            <br/><br/>
+                            <Button href="/">
+                                <div>{translations.seeMore || 'Подивитись більше'}</div>
+                            </Button>
+                            <br/>
+                            <div className={`${mainStyle.interactive} ${text.textGray} ${text.textSmall} 
+                                ${text.caseNone} ${text.fontWeight600} ${text.underline}`}
+                                onClick={() => window.location.href = '/download'}>
+                                Перейти на веб-версію додатку
+                            </div>
+                        </div>
+                    </div>
                     <div className={styles.image1} />
                 </div>
             </div>
-            <div className={`${styles.container} ${styles.row}`}>
-                <div className={styles.imageLeft} />
+            
+
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.marginBottom}`}>
+                <div className={styles.image2} />
                 <div className={`${positioning.column} ${positioning.dynamic} ${positioning.alignEnd}`}>
-                    <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800} ${text.alignRight}`}>
-                        ЗАВАНТАЖИТИ ДЛЯ windows
+                    <div className={`${text.textMedium} ${text.uppercase} ${text.alignRight} ${styles.marginVertical}`}>
+                        Завантажити для Windows
                     </div>
-                    <br />
                     <ButtonDownload />
                 </div>
             </div>
-            <div className={`${styles.container} ${styles.row}`}>
+
+            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse}`}>
                 <div className={`${positioning.column} ${positioning.dynamic}`}>
-                    <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
-                        ЗАВАНТАЖИТИ ДЛЯ ANDROID
+                    <div className={`${text.textMedium} ${styles.marginVertical}`}>
+                        Завантажити для Android
                     </div>
-                    <br />
                     <ButtonDownload />
                 </div>
-                <div className={styles.imageRight} />
+                <div className={styles.image3} />
             </div>
         </div>
     );
 }
-
-export default Content;

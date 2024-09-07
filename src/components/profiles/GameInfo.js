@@ -26,7 +26,7 @@ export default function GameInfo({game, screenshots}) {
                     alt={`${game.title} thumbnail`} 
                     className={styles.image} 
                     style={{ objectFit: 'cover' }} 
-                />
+            />
 
             <div className={`${positioning.column} ${styles.info}`}>
                 <div 

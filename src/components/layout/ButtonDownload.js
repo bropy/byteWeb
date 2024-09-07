@@ -1,22 +1,21 @@
-import button from '../../styles/Button.module.css';
+import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
+import button from '../../styles/Button.module.css';
+
+import Button from './Button';
+
 import { useLanguage } from '../../contexts/LanguageContext';
 
 
-const ButtonDownload = () => {
-  const handleClick = () => {
-    window.location.href = '/download';
-  };
+export default function ButtonDownload () {
   const { translations } = useLanguage();
 
-
   return (
-    <div className={`${button.button} ${button.black} ${button.widthFitContent}`} 
-      onClick={handleClick}>
-      <div className={button.downloadIcon} />
-      <div className={`${text.textWhite} ${text.fontWeight700}`}>{translations.download || 'Завантажити'}</div>
-    </div>
+    <Button href="/download">
+      <div className={positioning.row}>
+        <div className={button.downloadIcon} />
+        <div>{translations.download || 'Завантажити'}</div>
+      </div>
+    </Button>
   );
 };
-
-export default ButtonDownload;

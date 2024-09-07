@@ -1,0 +1,8 @@
+.style {
+    background-color: #252525;
+    color: #FFFFFF;
+}
+
+.interactive:hover {
+    cursor: pointer;
+}

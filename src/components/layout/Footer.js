@@ -1,12 +1,14 @@
-import styles from '../../styles/Footer.module.css';
 import text from '../../styles/Text.module.css';
+import styles from '../../styles/Footer.module.css';
+
 import { useLanguage } from '../../contexts/LanguageContext';
 
-const Footer = () => {
+
+export default function Footer () {
     const { translations } = useLanguage();
 
     return (
-        <div className={`${styles.footerDiv} ${styles.row} ${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
+        <div className={`${styles.footerDiv} ${styles.row} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={styles.column}>
                 <div className={`${styles.logo} ${styles.interactive}`} 
                 onClick={() => window.location.href = '/'}></div>
@@ -91,5 +93,3 @@ const Footer = () => {
         </div>
     );
 };
-
-export default Footer;
