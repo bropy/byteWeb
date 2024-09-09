@@ -7,7 +7,7 @@ import text from '../../styles/Text.module.css';
 
 const Content = () => {
     return (
-        <div className={`${text.textBlack} ${text.textSmall} ${text.fontWeight600}`}>
+        <div className={`${text.textSmall} ${text.fontWeight600}`}>
             <Prompt />
             <AboutProject />
             <div className={`${styles.elementLeft} ${styles.row}`}>

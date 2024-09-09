@@ -7,7 +7,7 @@ import ProfileGroups from "./ProfileGroups";
 
 import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
-import styles from '../../styles/profile/ProfilePageContent.module.css';
+import styles from '../../styles/profile/Content.module.css';
 
 
 const userMock = {

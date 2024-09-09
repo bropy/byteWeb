@@ -1,12 +1,12 @@
-import mainStyle from '../../styles/MainStyle.module.css'
-import positioning from '../../styles/Positioning.module.css'
-import text from '../../styles/Text.module.css'
-import styles from '../../styles/download/DownloadPageContent.module.css'
+import { useLanguage } from '../../contexts/LanguageContext';
 
 import ButtonDownload from '../layout/ButtonDownload'
 import Button from '../layout/Button'
 
-import { useLanguage } from '../../contexts/LanguageContext';
+import mainStyle from '../../styles/MainStyle.module.css'
+import positioning from '../../styles/Positioning.module.css'
+import text from '../../styles/Text.module.css'
+import styles from '../../styles/download/Content.module.css'
 
 
 export default function Content () {

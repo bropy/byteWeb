@@ -1,13 +1,13 @@
-import positioning from '../../styles/Positioning.module.css';
-import text from '../../styles/Text.module.css';
-import styles from '../../styles/profile/ProfilePageContent.module.css';
-
 import ProfileInfo from "./ProfileInfo";
 import ProfileMenu from "./ProfileMenu";
 import ProfileActivity from "./ProfileActivity";
 import ProfileComments from "./ProfileComments";
 import FavoriteGame from "./FavoriteGame";
 import ProfileGroups from "./ProfileGroups";
+
+import positioning from '../../styles/Positioning.module.css';
+import text from '../../styles/Text.module.css';
+import styles from '../../styles/profile/Content.module.css';
 
 
 const userMock = {

@@ -16,7 +16,9 @@
     width: 66%;
     aspect-ratio: 1 / 1;
     border-radius: 0 5.2vw 5.2vw 0;
-    background-color: gray;
+    background-image: url(../images/bulbasaur-happy.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .imageRight {
