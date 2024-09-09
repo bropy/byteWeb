@@ -7,12 +7,12 @@ export default function Content ({ title, description, image, href }) {
     return (
         <div className={`${styles.card} ${mainStyle.interactive}`}
             onClick={() => window.location.href = href || '/'}>
-            <img src={image} alt={title || ''} className={styles.image} />
+            <img src={image} alt={title} className={styles.image} />
             <div className={`${text.uppercase} ${text.fontWeight800}`}>
-                {title || ''}
+                {title}
             </div>
             <div>
-                {description || ''}
+                {description || 'Ось що вам потрібно знати.'}
             </div>
         </div>
     );

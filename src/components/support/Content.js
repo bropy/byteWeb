@@ -36,25 +36,59 @@ export default function Content () {
 
                 </div>
                 <div className={`${styles.cards} ${styles.marginBottom5}`}>
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
+                    <Card 
+                        title={'Обговорення'} 
+                        image={'/images/roeper_icon.svg'}  />
+                    <Card 
+                        title={'Основи byte'} 
+                        description={'Почніть з тієї ноги!'} 
+                        image={'/images/document_icon.svg'} />
+                    <Card 
+                        title={'Налаштування аккаунта'} 
+                        description={'Все про ваш аккаунт.'} 
+                        image={'/images/gear_icon.svg'} />
+                    <Card 
+                        title={'Ігри, програми тощо'} 
+                        image={'/images/gamepad_icon.svg'} />
+                    <Card 
+                        title={'Обмін'} 
+                        image={'/images/exchange_icon.svg'} />
+                    <Card 
+                        title={'Покупки'} 
+                        image={'/images/cart_icon.svg'} />
+                    <Card 
+                        title={'Спільнота byte'} 
+                        image={'/images/community_icon.svg'} />
+                    <Card 
+                        title={'Безпека і конфіденційність'} 
+                        image={'/images/security_icon.svg'} />
+                    <Card 
+                        title={'Помилки та їх усунення(відомі)'} 
+                        image={'/images/error_icon.svg'} />
+                    <Card 
+                        title={'Програми та дії'} 
+                        image={'/images/stabilization_icon.svg'} />
+                    <Card 
+                        title={'Обладнання'} 
+                        image={'/images/laptop_icon.svg'} />
+                    <Card 
+                        title={'Клієнт Byte'} 
+                        image={'/images/hat_icon.svg'} />
                 </div>
                 <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800} ${text.alignCenter}`}>
                     Інші способи пошуку допомоги
                 </div>
                 <div className={styles.cards}>
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
-                    <Card title={'Обговорення'} description={'Ось що вам потрібно знати.'} image={'/images/roeper_icon.svg'} />
+                    <Card 
+                        title={'Reddit'} 
+                        description={'Є швидке запитання? Напишіть у Reddit!'} 
+                        image={'/images/reddit_icon.svg'}
+                        href={'https://www.reddit.com/'} />
+                    <Card 
+                        title={'Twitter(x)'} 
+                        description={'Є швидке запитання? Напишіть нам у Twitter(X)!'} 
+                        image={'/images/twitter_icon.svg'}
+                        href={'https://www.x.com/'} />
                 </div>
             </div>
         </div>
