@@ -7,11 +7,11 @@ import Button from './Button';
 import { useLanguage } from '../../contexts/LanguageContext';
 
 
-export default function ButtonDownload () {
+export default function ButtonDownload ({ style }) {
   const { translations } = useLanguage();
 
   return (
-    <Button href={'/download'}>
+    <Button href={'/download'} style={style}>
       <div className={positioning.row}>
         <div className={button.downloadIcon} />
         <div>{translations.download || 'Завантажити'}</div>

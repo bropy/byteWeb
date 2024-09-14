@@ -1,11 +1,12 @@
 import Prompt from './Prompt';
 import AboutProject from './AboutProject';
 import DownloadNow from './DownloadNow';
-import styles from '../../styles/MainPageContent.module.css';
+
 import text from '../../styles/Text.module.css';
+import styles from '../../styles/MainPageContent.module.css';
 
 
-const Content = () => {
+export default function Content () {
     return (
         <div className={`${text.textSmall} ${text.fontWeight600}`}>
             <Prompt />
@@ -122,5 +123,3 @@ const Content = () => {
         </div>
     );
 };
-
-export default Content;

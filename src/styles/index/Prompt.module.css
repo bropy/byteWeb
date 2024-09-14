@@ -1,0 +1,30 @@
+.decorativeSquares {
+  aspect-ratio: 52 / 31;
+  max-width: 160px;
+  width: 10.375vw; 
+  min-width: 52px;
+  background-image: url('../../images/squares.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.smallerHeigth {
+  height: 31px;
+}
+
+.and {
+  height: 12px;
+  margin-left: 258px;
+}
+
+.image {
+  aspect-ratio: 260 / 83;
+  max-width: 1300px;
+  width: 78.2%;
+  min-width: 280px;
+  margin-left: 1vw;
+  border-radius: 5.2vw 0 0 5.2vw;
+  background-image: url('../../images/banner.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
