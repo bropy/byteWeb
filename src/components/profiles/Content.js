@@ -93,7 +93,7 @@ export default function Content({ profile }) {
         <div className={`${positioning.container} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
-                    <div className={positioning.minMarginRight}>
+                    <div className={positioning.marginRight20}>
                         <ProfileInfo profile={profile} />
                     </div>
                     <ProfileMenu profile={profile} />
@@ -103,7 +103,7 @@ export default function Content({ profile }) {
                 </div>
             </div>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.row}`}>
-                <div className={`${positioning.column} ${styles.column} ${positioning.minMarginRight}`}>
+                <div className={`${positioning.column} ${styles.column} ${positioning.marginRight20}`}>
                     <ProfileComments comments={userMock.comments}/>
                 </div>
                 <div className={`${positioning.column} ${styles.column}`}>

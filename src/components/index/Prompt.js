@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
 import ButtonDowload from '../layout/ButtonDownload';
 
 import positioning from '../../styles/Positioning.module.css'
@@ -7,22 +5,7 @@ import text from '../../styles/Text.module.css';
 import styles from '../../styles//index/Prompt.module.css';
 
 
-export default function Prompt () {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  const handleResize = () => {
-    setIsDesktop(window.innerWidth > 520); 
-  };
-
-  useEffect(() => {
-    handleResize(); 
-    window.addEventListener('resize', handleResize); 
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
+export default function Prompt ({ isDesktop }) {
   return (
     <div className={`${positioning.container} ${positioning.column}`}>
       {isDesktop ? (
@@ -53,7 +36,7 @@ export default function Prompt () {
         </div>
       )}
 
-      <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.minMarginTop}`}>
+      <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.marginTop20}`}>
         <div className={`${positioning.column} ${positioning.alignStart} ${positioning.justifyBetween}`}>
           <div style={{ marginBottom: `10px`}}>
             <div className={`${text.fontWeight800} ${styles.left}`} style={{ marginBottom: `10px`}}>

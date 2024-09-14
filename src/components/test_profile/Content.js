@@ -95,7 +95,7 @@ export default function Content () {
         <div className={`${positioning.container} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
-                    <div className={positioning.minMarginRight}>
+                    <div className={positioning.marginRight20}>
                         <ProfileInfo user={userMock} />
                     </div>
                     <ProfileMenu user={userMock} />
@@ -105,7 +105,7 @@ export default function Content () {
                 </div>
             </div>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.row}`}>
-                <div className={`${positioning.column} ${styles.column} ${positioning.minMarginRight}`}>
+                <div className={`${positioning.column} ${styles.column} ${positioning.marginRight20}`}>
                     <ProfileComments comments={userMock.comments}/>
                 </div>
                 <div className={`${positioning.column} ${styles.column}`}>

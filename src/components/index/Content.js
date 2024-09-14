@@ -1,19 +1,42 @@
+import React, { useState, useEffect } from 'react';
+
 import Prompt from './Prompt';
 import AboutProject from './AboutProject';
+import News from './News';
 import DownloadNow from './DownloadNow';
 
+import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
-import styles from '../../styles/MainPageContent.module.css';
+import styles from '../../styles/index/Content.module.css';
 
 
 export default function Content () {
+    const [isDesktop, setIsDesktop] = useState(false);
+
+    const handleResize = () => {
+        setIsDesktop(window.innerWidth > 520); 
+    };
+
+    useEffect(() => {
+        handleResize(); 
+        window.addEventListener('resize', handleResize); 
+
+        return () => {
+        window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div className={`${text.textSmall} ${text.fontWeight600}`}>
-            <Prompt />
-            <AboutProject />
-            <div className={`${styles.elementLeft} ${styles.row}`}>
+            <Prompt isDesktop={isDesktop} />
+            <div className={styles.space} />
+
+            <AboutProject isDesktop={isDesktop} />
+            <div className={styles.space} />
+
+            <div className={`${positioning.container} ${styles.feature} ${positioning.justifyStart}`}>
                 <div className={styles.imageLeft} />
-                <div className={`${styles.textLeft} ${styles.alignSelfEnd}`}>
+                <div className={`${styles.textLeft}`}>
                     <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Великий вибір ігор                    
                     </div>
@@ -23,15 +46,19 @@ export default function Content () {
                     </div>
                 </div>
             </div>
+            <div className={styles.space} />
+
             <div>
-                <iframe className={styles.video}
+                <iframe className={`${positioning.container} ${styles.video}`}
                 src="https://www.youtube.com/embed/uV0zfAwazcs?si=T-tl1hCfMjR2WhCi" 
                 title="YouTube video player" frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
-            <div className={`${styles.elementRight} ${styles.row}`}>
-                <div className={`${styles.textRight} ${styles.alignSelfEnd}`}>
+            <div className={styles.space} />
+
+            <div className={`${positioning.container} ${styles.feature} ${positioning.justifyEnd}`}>
+                <div className={`${styles.textRight}`}>
                     <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Зручність використання
                     </div>
@@ -42,9 +69,11 @@ export default function Content () {
                 </div>
                 <div className={styles.imageRight} />
             </div>
-            <div className={`${styles.elementLeft} ${styles.row}`}>
+            <div className={styles.space} />
+
+            <div className={`${positioning.container} ${styles.feature} ${positioning.justifyStart}`}>
                 <div className={styles.imageLeft} />
-                <div className={`${styles.textLeft} ${styles.alignSelfEnd}`}>
+                <div className={`${styles.textLeft}`}>
                     <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Підтримка спільноти
                     </div>
@@ -54,72 +83,15 @@ export default function Content () {
                     </div>
                 </div>
             </div>
-            <div className={styles.container}>
-                <div className={styles.row}>
-                    <div className={`${text.textMedium} ${text.fontWeight800} ${styles.text1}`}>
-                        Lorem ipsum
-                    </div>
-                    <div className={`${styles.row} ${styles.alignSelfEnd}`}>
-                        <div>
-                            Lorem ipsum amet consectetur.
-                        </div>
-                        <div className={`${styles.arrowRight} ${styles.alignSelfCenter}`} />
-                    </div>
-                </div>
-                <br />
-                <div className={styles.row}>
-                    <div className={styles.elementThick}>
-                        <div className={styles.row}>
-                            <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
-                                Точна дата релізу S.T.A.L.K.E.R 2
-                            </div>
-                            <div className={`${text.textMedium} ${text.fontWeight200}`}>
-                                01
-                            </div>
-                        </div>
-                        <br />
-                        <div>
-                            Досліджуйте Чорнобильську Зону Відчуження повну небезпечних ворогів, смертельних аномалій та поту...
-                        </div>
-                        <br />
-                        <div className={styles.image1} />
-                    </div>
-                    <div className={styles.elementThin}>
-                        <div className={`${text.textMedium} ${text.fontWeight200}`}>
-                            02
-                        </div>
-                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
-                            Kingdom Come: <br/> Deliverance II 
-                        </div>
-                    </div>
-                    <div className={styles.elementThin}>
-                        <div className={`${text.textMedium} ${text.fontWeight200}`}>
-                            03
-                        </div>
-                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
-                            Manor Lords
-                        </div>
-                    </div>
-                    <div className={styles.elementThin}>
-                        <div className={`${text.textMedium} ${text.fontWeight200}`}>
-                            04
-                        </div>
-                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
-                            Dwarf Fortress
-                        </div>
-                    </div>
-                    <div className={styles.elementThin}>
-                        <div className={`${text.textMedium} ${text.fontWeight200}`}>
-                            05
-                        </div>
-                        <div className={`${text.vertical} ${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
-                            Metal Gear Rising: <br/> Revengeance
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <AboutProject />
-            <DownloadNow />
+            <div className={styles.space} />
+
+            <News isDesktop={isDesktop} />
+            <div className={styles.space} />
+
+            <AboutProject isDesktop={isDesktop} />
+            <div className={styles.space} />
+
+            <DownloadNow isDesktop={isDesktop} />
         </div>
     );
 };

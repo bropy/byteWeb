@@ -26,7 +26,7 @@ export default function ProfileInfo({profile}) {
                     <div className={`${text.textMedium} ${text.fontWeight800}`}>
                     {profile.nickname || "No data"}
                     </div>
-                    <div className={positioning.minMarginVertical}>
+                    <div className={positioning.marginVertical20}>
                         Країна: {profile.country|| "No data"}
                     </div>
                     <div>
@@ -34,7 +34,7 @@ export default function ProfileInfo({profile}) {
                     </div>
                 </div>
                 <div>
-                    <div className={`${positioning.row} ${positioning.minMarginVertical}`}>
+                    <div className={`${positioning.row} ${positioning.marginVertical20}`}>
                         <div>
                             Статус:&nbsp;
                         </div>

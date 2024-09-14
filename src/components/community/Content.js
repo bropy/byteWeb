@@ -8,10 +8,10 @@ export default function Content () {
         <div className={`${positioning.container} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={`${text.textLarge} ${text.fontWeight800} ${text.uppercase}`}>Діяльність</div>
             <div className={`${positioning.row} ${positioning.justifyBetween}`}>
-                <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.uppercase} ${positioning.minMarginRight}`}>
+                <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.uppercase} ${positioning.marginRight20}`}>
                     Контент від спільноти та розробників для всіх ігор і програм у Byte.
                 </div>
-                <div className={`${text.textLarge} ${text.fontWeight800} ${text.uppercase} ${positioning.minMarginLeft}`}>Спільноти</div>
+                <div className={`${text.textLarge} ${text.fontWeight800} ${text.uppercase} ${positioning.marginLeft20}`}>Спільноти</div>
             </div>
             <form className={styles.form}>
                 <button type='submit'>

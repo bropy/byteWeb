@@ -10,31 +10,59 @@
 
 /* MARGIN */
 
-.minMargin {
+.margin10 {
+    margin: 10px;
+}
+
+.marginVertical10 {
+    margin: 10px 0;
+}
+
+.marginHorizontal10 {
+    margin: 0 10px;
+}
+
+.marginTop10 {
+    margin-top: 10px;
+}
+
+.marginRight10 {
+    margin-right: 10px;
+}
+
+.marginBottom10 {
+    margin-bottom: 10px;
+}
+
+.marginLeft10 {
+    margin-left: 10px;
+}
+
+.margin20 {
     margin: 20px;
 }
 
-.minMarginVertical {
+.marginVertical20 {
     margin: 20px 0;
 }
 
-.minMarginHorizontal {
+.marginHorizontal20 {
     margin: 0 20px;
 }
 
-.minMarginTop {
+.marginTop20 {
     margin-top: 20px;
 }
 
-.minMarginRight {
+.marginRight20 {
     margin-right: 20px;
 }
 
-.minMarginBottom {
+.marginBottom20 {
     margin-bottom: 20px;
 }
 
-.minMarginLeft {
+.marginLeft20 {
     margin-left: 20px;
 }
 

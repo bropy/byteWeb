@@ -19,7 +19,7 @@ export default function Content () {
                     BYTE для твого пристрою
                 </div>
                 <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.marginBottom}`}>
-                    <div className={`${positioning.column} ${positioning.justifyBetween} ${positioning.dynamic} ${positioning.minMarginTop}`}>
+                    <div className={`${positioning.column} ${positioning.justifyBetween} ${positioning.dynamic} ${positioning.marginTop20}`}>
                         <div className={`${text.textMediumSmall}`}>
                                 Зручний додаток, доступний для завантаження на Android та Windows. Тепер ви можете легко та швидко купувати відеоігри, плагіни та програми безпосередньо зі свого пристрою.
                         </div>
@@ -45,7 +45,7 @@ export default function Content () {
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.marginBottom}`}>
                 <div className={`${styles.image2} ${positioning.dynamic}`}/>
                 <div className={`${positioning.column} ${positioning.dynamic} ${positioning.alignEnd} ${styles.downloadWindow}`}>
-                    <div className={`${text.textMedium} ${text.uppercase} ${text.alignRight} ${positioning.minMarginVertical}`}>
+                    <div className={`${text.textMedium} ${text.uppercase} ${text.alignRight} ${positioning.marginVertical20}`}>
                         Завантажити для Windows
                     </div>
                     <div className={styles.button}>
@@ -56,7 +56,7 @@ export default function Content () {
 
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse}`}>
                 <div className={`${positioning.column} ${positioning.dynamic}`}>
-                    <div className={`${text.textMedium} ${positioning.minMarginVertical}`}>
+                    <div className={`${text.textMedium} ${positioning.marginVertical20}`}>
                         Завантажити для Android
                     </div>
                     <div className={styles.button}>
