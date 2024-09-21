@@ -1,0 +1,65 @@
+.marginTop {
+    margin-top: 100px;
+}
+
+.filters {
+    width: 480px;
+}
+
+.filters label {
+    display: block;
+    position: relative;
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 60px;
+    cursor: pointer;
+}
+
+.filters label input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkmark {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid white;
+    border-radius: 6px;
+    background-color: none;
+}
+
+.checkmark:after {
+    display: none;
+    position: absolute;
+    content: "";
+}
+
+.filters label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.filters label .checkmark:after {
+    height: 20px;
+    width: 12px;
+    top: 4px;
+    left: 13px;
+    border: solid #FA3992;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.gameList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.gameItem {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}

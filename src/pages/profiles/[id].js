@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { fetchData } from '../api/profileApi';
 
-import Navbar from "../../components/layout/Navbar";
+import Navbar from "../../components/layouts/Navbar";
 import Content from '@/components/profiles/Content';
-import Footer from "../../components/layout/Footer";
+import Footer from "../../components/layouts/Footer";
 
 import mainStyle from '../../styles/MainStyle.module.css'
 

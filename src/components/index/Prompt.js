@@ -1,4 +1,4 @@
-import ButtonDowload from '../layout/ButtonDownload';
+import ButtonDowload from '../layouts/ButtonDownload';
 
 import positioning from '../../styles/Positioning.module.css'
 import text from '../../styles/Text.module.css';

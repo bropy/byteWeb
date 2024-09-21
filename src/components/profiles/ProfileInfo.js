@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { fetchData } from '../../pages/api/profileApi';
 
-import Button from '../layout/Button'
+import Button from '../layouts/Button'
 
 import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';

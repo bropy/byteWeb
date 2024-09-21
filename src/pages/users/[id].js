@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { fetchData } from '../api/profileApi';
 
-import Navbar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer";
+import Navbar from "../../components/layouts/Navbar";
+import Footer from "../../components/layouts/Footer";
 
 import mainStyle from '../../styles/MainStyle.module.css'
 

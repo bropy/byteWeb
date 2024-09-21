@@ -1,5 +1,6 @@
 import positioning from '../../styles/Positioning.module.css'
 import text from '../../styles/Text.module.css'
+import search from '../../styles/layouts/Search.module.css'
 import styles from '../../styles/community/Content.module.css'
 
 
@@ -13,12 +14,12 @@ export default function Content () {
                 </div>
                 <div className={`${text.textLarge} ${text.fontWeight800} ${text.uppercase} ${positioning.marginLeft20}`}>Спільноти</div>
             </div>
-            <form className={styles.form}>
+            <form className={search.form}>
                 <button type='submit'>
-                    <div className={styles.searchIcon} />
+                    <div className={search.searchIcon} />
                 </button>
                 <input type='text' id='support_input' name='support_input' 
-                    placeholder='Пошук (центр спільноти/люди)' className={styles.input} />
+                    placeholder='Пошук (центр спільноти/люди)' className={search.input} />
             </form>
         </div>
     );

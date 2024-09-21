@@ -1,7 +1,7 @@
 import { useLanguage } from '../../contexts/LanguageContext';
 
-import ButtonDownload from '../layout/ButtonDownload'
-import Button from '../layout/Button'
+import ButtonDownload from '../layouts/ButtonDownload'
+import Button from '../layouts/Button'
 
 import mainStyle from '../../styles/MainStyle.module.css'
 import positioning from '../../styles/Positioning.module.css'

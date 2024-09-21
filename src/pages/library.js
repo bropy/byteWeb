@@ -1,11 +1,11 @@
 import Navbar from "../components/layouts/Navbar";
-import Content from "../components/test_profile/Content";
+import Content from "../components/library/Content";
 import Footer from "@/components/layouts/Footer";
 
 import MainStyle from '../styles/MainStyle.module.css';
 
 
-export default function Test_Profile(){
+export default function Library(){
     return(
         <div className={MainStyle.style}>
             <Navbar />

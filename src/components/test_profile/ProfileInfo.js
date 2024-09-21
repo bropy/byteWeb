@@ -1,4 +1,4 @@
-import Button from '../layout/Button'
+import Button from '../layouts/Button'
 
 import text from '../../styles/Text.module.css';
 import styles from '../../styles/profile/ProfileInfo.module.css';

@@ -87,10 +87,8 @@ const userMock = {
     ]
 };
 
- 
 
 export default function Content () {
-
     return (
         <div className={`${positioning.container} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
