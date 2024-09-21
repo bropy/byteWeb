@@ -3,7 +3,9 @@
 }
 
 .filters {
-    width: 480px;
+    max-width: 480px;
+    width: 25vw;
+    min-width: 280px;
 }
 
 .filters label {
@@ -53,13 +55,22 @@
 
 .gameList {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
   gap: 20px;
 }
 
 .gameItem {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
+    max-width: 100%;
+}
+
+.gameImage {
+    aspect-ratio: 420 / 560;
+    border-radius: 2vw;
+    background-color: white;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 645px) {
+    .filters { display: none; }
+    
 }

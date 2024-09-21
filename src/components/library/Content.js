@@ -1,7 +1,8 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react'
 
 import CollapsibleFilter from './CollapsibleFilter'
 
+import mainStyle from '../../styles/MainStyle.module.css'
 import positioning from '../../styles/Positioning.module.css'
 import text from '../../styles/Text.module.css'
 import search from '../../styles/layouts/Search.module.css'
@@ -16,7 +17,9 @@ const productsMock = [
         genre: ['Рольові'],
         players: ['Самітна гра'],
         hardwareSupport: [''],
-        playTime: '669'
+        playTime: '669',
+        image: '',
+        url: '/app/1'
     },
     {
         id: 2,
@@ -25,7 +28,9 @@ const productsMock = [
         genre: ['Рольові', 'Пригоди'],
         players: ['Самітна гра'],
         hardwareSupport: ['Повна підтримка контроллерів'],
-        playTime: '1450'
+        playTime: '1450',
+        image: '',
+        url: '/app/2'
     },
     {
         id: 3,
@@ -34,7 +39,9 @@ const productsMock = [
         genre: ['Спортивні'],
         players: ['Багатокористувацька гра'],
         hardwareSupport: ['Повна підтримка контроллерів'],
-        playTime: '340'
+        playTime: '340',
+        image: '',
+        url: '/app/3'
     },
     {
         id: 4,
@@ -43,7 +50,9 @@ const productsMock = [
         genre: ['Симулятор', 'Інді'],
         players: ['Самітна гра', 'Кооперативна гра'],
         hardwareSupport: ['Бажано мати контроллер'],
-        playTime: '960'
+        playTime: '960',
+        image: '',
+        url: '/app/4'
     },
     {
         id: 5,
@@ -52,7 +61,9 @@ const productsMock = [
         genre: ['Кооперативні', 'Соціальні'],
         players: ['Багатокористувацька гра'],
         hardwareSupport: ['ВР'],
-        playTime: '3200'
+        playTime: '3200',
+        image: '',
+        url: '/app/5'
     },
     {
         id: 6,
@@ -61,7 +72,9 @@ const productsMock = [
         genre: [''],
         players: [''],
         hardwareSupport: [''],
-        playTime: '240'
+        playTime: '240',
+        image: '',
+        url: '/app/6'
     },
     {
         id: 7,
@@ -70,7 +83,9 @@ const productsMock = [
         genre: ['Перегони', 'Симулятор'],
         players: ['Багатокористувацька гра'],
         hardwareSupport: ['Бажано мати контроллер'],
-        playTime: '520'
+        playTime: '520',
+        image: '',
+        url: '/app/7'
     },
     {
         id: 8,
@@ -79,7 +94,9 @@ const productsMock = [
         genre: ['Спортивні', 'Перегони'],
         players: ['Багатокористувацька гра', 'Кооперативна гра'],
         hardwareSupport: ['Повна підтримка контроллерів'],
-        playTime: '780'
+        playTime: '780',
+        image: '',
+        url: '/app/8'
     },
     {
         id: 9,
@@ -88,7 +105,9 @@ const productsMock = [
         genre: ['Бойовик'],
         players: ['Багатокористувацька гра'],
         hardwareSupport: [''],
-        playTime: '1350'
+        playTime: '1350',
+        image: '',
+        url: '/app/9'
     },
     {
         id: 10,
@@ -97,7 +116,9 @@ const productsMock = [
         genre: ['Стратегія'],
         players: ['Самітна гра', 'Багатокористувацька гра'],
         hardwareSupport: [''],
-        playTime: '1100'
+        playTime: '1100',
+        image: '',
+        url: '/app/10'
     }
 ];
 
@@ -151,26 +172,65 @@ export default function Content () {
                         placeholder='Пошук' className={search.input} />
                 </form>
             </div>
-            <div className={`${positioning.border} ${positioning.row} ${styles.marginTop}`}>
-                <div className={`${positioning.border} ${positioning.column} ${positioning.dynamic}`}>
-                    News and Games
-                    <div className={styles.gameList}>
-                        {filteredGames.length ? (
-                        filteredGames.map((game) => (
-                            <div key={game.id} className={styles.gameItem}>
-                                <h4>{game.title}</h4>
-                                <p>Genre: {game.genre.join(', ')}</p>
-                                <p>Players: {game.players.join(', ')}</p>
-                                <p>Hardware Support: {game.hardwareSupport.join(', ')}</p>
-                                <p>Play Time: {game.playTime} minutes</p>
-                            </div>
-                        ))
-                        ) : (
-                        <p>No games match the selected filters.</p>
-                        )}
+            <div className={`${positioning.row} ${styles.marginTop}`}>
+                <div className={`${positioning.column} ${positioning.dynamic} ${positioning.marginRight20}`}>
+                    <div className={`${positioning.column} ${positioning.border} ${text.alignCenter}`}>
+                        <br/><br/><br/>
+                        NEWS
+                        <br/><br/><br/><br/>
                     </div>
+                    <div className={`${positioning.column} ${styles.marginTop}`}>
+                        <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
+                            Усі
+                        </div>
+                        <div className={`${positioning.row} ${positioning.justifyBetween} 
+                            ${positioning.marginVertical20} ${positioning.border}`}>
+                            <div className={positioning.row}>
+                                <div className={`${positioning.marginRight20} ${text.textSmall} ${text.uppercase} 
+                                    ${text.fontWeight800}`}>
+                                    Сортувати за:
+                                </div>
+                                <div className={positioning.row}>
+                                    <div className={`${positioning.marginRight20} ${text.textSmall} ${text.fontWeight600}`}>
+                                        за алфавітом
+                                    </div>
+                                    <div>
+                                        ▼
+                                    </div>
+                                </div>   
+                            </div>
+                            <div className={positioning.row}>
+                                <div className={positioning.marginRight20}>
+                                    □
+                                </div>
+                                <div>
+                                    ≡
+                                </div>
+                                <div className={positioning.marginLeft20}>
+                                    Collapsed Filter
+                                </div>
+                            </div>
+                        </div>
+                        <div className={`${positioning.marginTop20} ${styles.gameList}`}>
+                            {filteredGames.length && (filteredGames.map((game) => (
+                                <div key={game.id} className={`${styles.gameItem} ${mainStyle.interactive}`}
+                                    onClick={() => window.location.href = game.url}>
+                                    <div className={styles.gameImage}
+                                        style={{backgroundImage: `url(${game.image})`}}/>
+                                    <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.truncate}`}>
+                                        {game.title}
+                                    </div>
+                                </div>
+                            )))}
+                            <div key={0} className={`${styles.gameItem} ${mainStyle.interactive}`}
+                                    onClick={() => window.location.href = '/store'}>
+                                    <div className={styles.gameImage} 
+                                        style={{backgroundImage: `url('images/move_to_store.svg')`}}/>
+                            </div>
+                        </div>
+                    </div>            
                 </div>
-                <div className={`${positioning.border} ${positioning.column} ${text.textSmall} 
+                <div className={`${positioning.column} ${text.textSmall} 
                     ${text.fontWeight600} ${styles.filters}`}>
                     <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
                         Фільтри

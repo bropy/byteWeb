@@ -17,7 +17,7 @@ export default function CollapsibleFilter ({ title, items, handleFilterChange, i
                 <div className={`${positioning.marginVertical20} ${text.uppercase} ${text.fontWeight800}`}>
                     {title}
                 </div>
-                <div>
+                <div className={positioning.border}>
                     {isCollapsed ? '▼' : '▲'}
                 </div>
             </div>
