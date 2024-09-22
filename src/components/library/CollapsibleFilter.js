@@ -7,7 +7,7 @@ import styles from '../../styles/library/Content.module.css'
 
 
 export default function CollapsibleFilter ({ title, items, handleFilterChange, itemsFilter, setItemsFilter }) {
-    const [isCollapsed, setIsCollapsed] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(true);
     const toggleCollapse = () => setIsCollapsed(!isCollapsed);
 
     return (
@@ -17,9 +17,7 @@ export default function CollapsibleFilter ({ title, items, handleFilterChange, i
                 <div className={`${positioning.marginVertical20} ${text.uppercase} ${text.fontWeight800}`}>
                     {title}
                 </div>
-                <div className={positioning.border}>
-                    {isCollapsed ? '▼' : '▲'}
-                </div>
+                <div className={`${styles.collapsibleSign} ${!isCollapsed && styles.rotate}`} />
             </div>
             {!isCollapsed && (
                 <div>

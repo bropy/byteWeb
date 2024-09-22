@@ -94,7 +94,7 @@ const productsMock = [
         genre: ['Спортивні', 'Перегони'],
         players: ['Багатокористувацька гра', 'Кооперативна гра'],
         hardwareSupport: ['Повна підтримка контроллерів'],
-        playTime: '780',
+        playTime: '0',
         image: '',
         url: '/app/8'
     },
@@ -129,7 +129,17 @@ export default function Content () {
     const [playersFilter, setPlayersFilter] = useState([]);
     const [hardwareSupportFilter, setHardwareSupportFilter] = useState([]);
     const [gameStateFilter, setGameStateFilter] = useState([]);
-    const [isCollapsed, setIsCollapsed] = useState(false);
+
+    const uniqueTypes = useMemo(() => [...new Set(productsMock.map(product => product.type))], [productsMock]);
+    const uniqueGenres = useMemo(() => {
+        return [...new Set(productsMock.flatMap(product => product.genre).filter(Boolean))];
+    }, [productsMock]);
+    const uniquePlayers = useMemo(() => {
+        return [...new Set(productsMock.flatMap(product => product.players).filter(Boolean))];
+    }, [productsMock]);
+    const uniqueHardwareSupport = useMemo(() => {
+        return [...new Set(productsMock.flatMap(product => product.hardwareSupport).filter(Boolean))];
+    }, [productsMock]);
 
     const typeCounts = useMemo(() => {
         return productsMock.reduce((acc, item) => {
@@ -153,13 +163,12 @@ export default function Content () {
             (hardwareSupportFilter.length === 0 || game.hardwareSupport.some(hw => hardwareSupportFilter.includes(hw))) &&
             (gameStateFilter.length === 0 
                 || (gameStateFilter.includes('Зіграні') && game.playTime > 0) 
-                || (gameStateFilter.includes('Не зіграні') && game.playTime === 0))
+                || (gameStateFilter.includes('Не зіграні') && game.playTime == 0))
         );
     });
 
-    const toggleCollapse = () => {
-        setIsCollapsed(!isCollapsed);
-    };
+    const [isTile, setIsTile] = useState(true);
+
 
     return (
         <div className={`${positioning.container}`}>
@@ -184,35 +193,53 @@ export default function Content () {
                             Усі
                         </div>
                         <div className={`${positioning.row} ${positioning.justifyBetween} 
-                            ${positioning.marginVertical20} ${positioning.border}`}>
-                            <div className={positioning.row}>
+                            ${positioning.marginVertical20}`}>
+                            <div className={`${positioning.row} ${positioning.alignCenter}`}>
                                 <div className={`${positioning.marginRight20} ${text.textSmall} ${text.uppercase} 
                                     ${text.fontWeight800}`}>
                                     Сортувати за:
                                 </div>
-                                <div className={positioning.row}>
+                                <div className={`${positioning.row} ${positioning.alignCenter} ${mainStyle.interactive} ${positioning.border}`}>
                                     <div className={`${positioning.marginRight20} ${text.textSmall} ${text.fontWeight600}`}>
                                         за алфавітом
                                     </div>
-                                    <div>
-                                        ▼
-                                    </div>
+                                    <div className={`${styles.collapsibleSign}`} />
                                 </div>   
                             </div>
-                            <div className={positioning.row}>
-                                <div className={positioning.marginRight20}>
-                                    □
+                            <div className={`${positioning.row} ${positioning.alignCenter} ${positioning.border}`}>
+                                <div className={`${mainStyle.interactive} ${positioning.marginRight20}`}
+                                    onClick={() => setIsTile(true)}>
+                                    <svg className={`${styles.presentationSign} ${isTile && styles.presentationSignActive}`} 
+                                        viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.9227 1.53906H1.53809V16.9237H16.9227V1.53906Z" 
+                                            stroke-miterlimit="10" stroke-linejoin="round"/>
+                                        <path d="M16.9227 23.0762H1.53809V38.4608H16.9227V23.0762Z" 
+                                            stroke-miterlimit="10" stroke-linejoin="round"/>
+                                        <path d="M38.4618 1.53906H23.0771V16.9237H38.4618V1.53906Z" 
+                                            stroke-miterlimit="10" stroke-linejoin="round"/>
+                                        <path d="M38.4618 23.0762H23.0771V38.4608H38.4618V23.0762Z" 
+                                            stroke-miterlimit="10" stroke-linejoin="round"/>         
+                                    </svg>
                                 </div>
-                                <div>
-                                    ≡
+                                <div className={`${mainStyle.interactive}`}
+                                    onClick={() => setIsTile(false)}>
+                                    <svg className={`${styles.presentationSign} ${!isTile && styles.presentationSignActive}`} 
+                                        viewBox="0 0 40 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 1H41" />
+                                        <path d="M1 1H6" />
+                                        <path d="M11 16H41" />
+                                        <path d="M1 16H6" />
+                                        <path d="M11 31H41" />
+                                        <path d="M1 31H6" />
+                                    </svg>
                                 </div>
-                                <div className={positioning.marginLeft20}>
+                                <div className={`${positioning.marginLeft20}`}>
                                     Collapsed Filter
                                 </div>
                             </div>
                         </div>
                         <div className={`${positioning.marginTop20} ${styles.gameList}`}>
-                            {filteredGames.length && (filteredGames.map((game) => (
+                            {filteredGames.length > 0 && (filteredGames.map((game) => (
                                 <div key={game.id} className={`${styles.gameItem} ${mainStyle.interactive}`}
                                     onClick={() => window.location.href = game.url}>
                                     <div className={styles.gameImage}
@@ -225,7 +252,10 @@ export default function Content () {
                             <div key={0} className={`${styles.gameItem} ${mainStyle.interactive}`}
                                     onClick={() => window.location.href = '/store'}>
                                     <div className={styles.gameImage} 
-                                        style={{backgroundImage: `url('images/move_to_store.svg')`}}/>
+                                        style={{
+                                            backgroundImage: `url('images/move_to_store.svg')`,
+                                            backgroundColor: 'white'
+                                        }}/>
                             </div>
                         </div>
                     </div>            
@@ -236,7 +266,7 @@ export default function Content () {
                         Фільтри
                     </div>
                     <div className={positioning.marginTop20}>
-                        {['Ігри', 'Програми', 'Інструменти'].map(type => (
+                        {uniqueTypes.map(type => (
                             <label key={type}>
                                 <div className={`${positioning.row} ${positioning.justifyBetween}`}>
                                     <div>
@@ -257,8 +287,7 @@ export default function Content () {
                     <hr/>
                     <CollapsibleFilter 
                         title='Жанр'
-                        items={['Бойовик', 'Пригоди', 'Казуальні ігри', 'Інді', 'Кооперативні', 'Перегони', 'Рольові', 
-                            'Симулятор', 'Спортивні', 'Стратегія']}
+                        items={uniqueGenres}
                         handleFilterChange={handleFilterChange}
                         itemsFilter={genreFilter}
                         setItemsFilter={setGenreFilter}
@@ -266,7 +295,7 @@ export default function Content () {
                     <hr/>
                     <CollapsibleFilter 
                         title='Гравці'
-                        items={['Самітна гра', 'Багатокористувацька гра', 'Кооперативна гра']}
+                        items={uniquePlayers}
                         handleFilterChange={handleFilterChange}
                         itemsFilter={playersFilter}
                         setItemsFilter={setPlayersFilter}
@@ -274,7 +303,7 @@ export default function Content () {
                     <hr/>
                     <CollapsibleFilter 
                         title='Підтримка пристроїв'
-                        items={['Бажано мати контроллер', 'Повна підтримка контроллерів', 'ВР']}
+                        items={uniqueHardwareSupport}
                         handleFilterChange={handleFilterChange}
                         itemsFilter={hardwareSupportFilter}
                         setItemsFilter={setHardwareSupportFilter}
