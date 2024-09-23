@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 
 import CollapsibleFilter from './CollapsibleFilter'
-import GamePresentationTile from './gamePresentationTile'
+import GamePresentationTile from './GamePresentationTile'
 import GamePresentationTable from './GamePresentationTable'
 
 import mainStyle from '../../styles/MainStyle.module.css'
