@@ -1,6 +1,8 @@
 import { useState, useMemo } from 'react'
 
 import CollapsibleFilter from './CollapsibleFilter'
+import GamePresentationTile from './gamePresentationTile'
+import GamePresentationTable from './GamePresentationTable'
 
 import mainStyle from '../../styles/MainStyle.module.css'
 import positioning from '../../styles/Positioning.module.css'
@@ -206,7 +208,7 @@ export default function Content () {
                                     <div className={`${styles.collapsibleSign}`} />
                                 </div>   
                             </div>
-                            <div className={`${positioning.row} ${positioning.alignCenter} ${positioning.border}`}>
+                            <div className={`${positioning.row} ${positioning.alignCenter}`}>
                                 <div className={`${mainStyle.interactive} ${positioning.marginRight20}`}
                                     onClick={() => setIsTile(true)}>
                                     <svg className={`${styles.presentationSign} ${isTile && styles.presentationSignActive}`} 
@@ -233,30 +235,30 @@ export default function Content () {
                                         <path d="M1 31H6" />
                                     </svg>
                                 </div>
-                                <div className={`${positioning.marginLeft20}`}>
+                                <div className={`${positioning.marginLeft20} ${positioning.border}`}>
                                     Collapsed Filter
                                 </div>
                             </div>
                         </div>
-                        <div className={`${positioning.marginTop20} ${styles.gameList}`}>
+                        <div className={`${positioning.marginTop20} 
+                            ${isTile ? styles.gameListTile : styles.gameListTable}`}>
                             {filteredGames.length > 0 && (filteredGames.map((game) => (
-                                <div key={game.id} className={`${styles.gameItem} ${mainStyle.interactive}`}
-                                    onClick={() => window.location.href = game.url}>
-                                    <div className={styles.gameImage}
-                                        style={{backgroundImage: `url(${game.image})`}}/>
-                                    <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.truncate}`}>
-                                        {game.title}
-                                    </div>
+                                <div key={game.id}>
+                                    {isTile ? 
+                                    <GamePresentationTile game={game} /> : 
+                                    <GamePresentationTable game={game} /> 
+                                    }
                                 </div>
                             )))}
-                            <div key={0} className={`${styles.gameItem} ${mainStyle.interactive}`}
+                            {isTile ? 
+                                <GamePresentationTile game={{title: '', 
+                                    image: 'images/move_to_store.svg', href: '/store'}} /> : 
+                                <div className={`${mainStyle.interactive}`}
                                     onClick={() => window.location.href = '/store'}>
-                                    <div className={styles.gameImage} 
-                                        style={{
-                                            backgroundImage: `url('images/move_to_store.svg')`,
-                                            backgroundColor: 'white'
-                                        }}/>
-                            </div>
+                                    <div className={`${styles.gameImage} ${styles.gameImageTable} ${styles.storeElement}`}
+                                        style={{backgroundImage: `url(${'images/move_to_store.svg'})`}}/>
+                                </div>
+                            }
                         </div>
                     </div>            
                 </div>

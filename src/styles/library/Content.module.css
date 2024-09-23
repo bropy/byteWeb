@@ -84,21 +84,37 @@
     transform: rotate(45deg);
 }
 
-.gameList {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
-  gap: 20px;
+.gameListTile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
+    gap: 20px;
 }
 
-.gameItem {
-    max-width: 100%;
+.gameListTable {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 20px;
 }
 
 .gameImage {
     aspect-ratio: 420 / 560;
     border-radius: 2vw;
-    background-color: #777777;
-    background-size: cover;
+    background-color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gameImageTable {
+    max-height: 170px;
+    height: 8.8vw;
+    min-height: 74px;
+}
+
+.storeElement {
+    aspect-ratio: none;
+    min-height: 115px;
+    width: 100%;
 }
 
 @media only screen and (max-width: 645px) {
