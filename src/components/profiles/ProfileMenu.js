@@ -10,7 +10,7 @@ import Modal from './Modal';
 
 export default function ProfileMenu({ profile }) {
     // FRIENDS BLOCK
-    const { friends = [] } = user || {};
+    const { friends = [] } = User || {};
 
     const [friendsElements, setFriendsElements] = useState([]);
     const [loadIndex, setLoadIndex] = useState(0);
@@ -50,7 +50,7 @@ export default function ProfileMenu({ profile }) {
                     ${styles.interactive}`} 
                     onClick={() => window.location.href = '/profile/games'}>
                     <div>Ігри</div>
-                    <div className={text.fontWeight800}>{games.length}</div>
+                    <div className={text.fontWeight800}>{profile.games.length}</div>
                 </div>
                 <div className={`
                     ${positioning.row} 
@@ -119,14 +119,14 @@ export default function ProfileMenu({ profile }) {
                         </div>
                     )}>
                     <div>Друзі</div>
-                    <div className={text.fontWeight800}>{friendsProfiles.length}</div>
+                    <div className={text.fontWeight800}>{profile.friendsProfiles.length}</div>
                 </div>
                 <div className={styles.friends}>
                     {friendsElements.map(friend => (
                         <User key={friend.id} user={friend}/>
                     ))}
                     <br />
-                    {loadIndex < friendsProfiles.length && (
+                    {loadIndex < profile.friendsProfiles.length && (
                         <div className={`
                             ${text.fontWeight800} 
                             ${text.uppercase} 

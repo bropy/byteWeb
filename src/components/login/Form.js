@@ -16,7 +16,7 @@ const Form = () => {
                     <h1>Увійдіть у свій обліковий запис BYTE</h1>
                 </div>
                 <form> 
-                    <input type="email" id="email" name="email" className={styles.inputContainer} placeholder='Введіть свою електронну адресу' />
+                    <input type="login" id="login" name="login" className={styles.inputContainer} placeholder='Введіть свій логін' />
                     <input type="password" id="password" name="password" className={styles.inputContainer} placeholder='Введіть ваш пароль' />
                     <button type='submit'className={styles.Submit}>УВІЙТИ</button>
                 </form>

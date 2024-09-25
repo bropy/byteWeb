@@ -1,3 +1,5 @@
+--ВЖЕ НЕ ЮЗАЄМО СІДЕРИ
+
 -- Roles
 INSERT INTO roles (name) VALUES 
 ('user'), 

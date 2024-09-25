@@ -60,6 +60,7 @@ gap: 10px;
 flex-shrink: 0;
 border-radius: 20px;
 background: #1C1C1C;
+color: white;
 }
 .decDiv{
     margin-top: 40px;
@@ -165,8 +166,19 @@ line-height: 100%; /* 18px */
 }
 .divSelect .inputContainer{
     width: 31%;
-    margin-right: 35px;
+    margin-right: 30px;
 }
+.error {
+    border: 2px solid red;
+}
+
+.errorText {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
 .customSelect {
     appearance: none;
     background-image: url('../images/select-arrow.svg');
