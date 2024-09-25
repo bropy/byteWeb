@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer";
 import { fetchData } from '../api/profileApi';
+
 
 export default function Profile() {
     const [profile, setProfile] = useState(null);
@@ -43,11 +42,11 @@ export default function Profile() {
     if (!profile) return <div>No profile found</div>;
 
     return (
-        <div>
-            <Navbar />
-            <Content profile={profile} isOwnProfile={isOwnProfile} />
-            <Footer />
-        </div>
+      <div>
+        <Navbar />
+        <Content profile={profile} />
+        <Footer />
+      </div>
     );
 }
 

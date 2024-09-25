@@ -1,11 +1,13 @@
-import Navbar from "../components/layout/Navbar";
+import Navbar from "../components/layouts/Navbar";
 import Content from "../components/download/Content";
-import Footer from "@/components/layout/Footer";
+import Footer from "@/components/layouts/Footer";
+
+import mainStyle from '../styles/MainStyle.module.css';
 
 
 export default function Download(){
     return(
-        <div>
+        <div className={mainStyle.style}>
             <Navbar />
             <Content />
             <Footer/>

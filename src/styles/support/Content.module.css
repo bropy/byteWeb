@@ -1,0 +1,26 @@
+.promptText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.promptTextContent {
+    width: 60%;
+    min-width: 280px;
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.marginBottom10 {
+    margin-bottom: 10vw;
+}
+
+.marginBottom5 {
+    margin-bottom: 5vw;
+}

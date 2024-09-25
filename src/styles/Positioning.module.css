@@ -1,9 +1,76 @@
 .container {
     height: fit-content;
     width: 90vw;
-    margin: 5vw;
-    background-color: none;
+    margin: clamp(20px, 2.5vw, 40px) 5vw;
 }
+
+.minWidth {
+    min-width: 280px;
+}
+
+.border {
+    border: 1px solid lime;
+}
+
+/* MARGIN */
+
+.margin10 {
+    margin: 10px;
+}
+
+.marginVertical10 {
+    margin: 10px 0;
+}
+
+.marginHorizontal10 {
+    margin: 0 10px;
+}
+
+.marginTop10 {
+    margin-top: 10px;
+}
+
+.marginRight10 {
+    margin-right: 10px;
+}
+
+.marginBottom10 {
+    margin-bottom: 10px;
+}
+
+.marginLeft10 {
+    margin-left: 10px;
+}
+
+.margin20 {
+    margin: 20px;
+}
+
+.marginVertical20 {
+    margin: 20px 0;
+}
+
+.marginHorizontal20 {
+    margin: 0 20px;
+}
+
+.marginTop20 {
+    margin-top: 20px;
+}
+
+.marginRight20 {
+    margin-right: 20px;
+}
+
+.marginBottom20 {
+    margin-bottom: 20px;
+}
+
+.marginLeft20 {
+    margin-left: 20px;
+}
+
+/* GRID */
 
 .row {
     display: flex;
@@ -23,6 +90,9 @@
     justify-content: center;
 }
 
+.alignStart {
+    align-items: flex-start;
+}
 
 .justifyEnd {
     justify-content: flex-end;
@@ -32,8 +102,8 @@
     justify-content: space-between;
 }
 
-.alignStart {
-    align-items: flex-start;
+.justifyEvenly {
+    justify-content: space-evenly;
 }
 
 .alignCenter {

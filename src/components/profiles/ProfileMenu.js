@@ -10,21 +10,23 @@ import Modal from './Modal';
 
 export default function ProfileMenu({ profile }) {
     // FRIENDS BLOCK
-    const { friends = [] } = User || {};
+    const { friends = [] } = user || {};
 
     const [friendsElements, setFriendsElements] = useState([]);
     const [loadIndex, setLoadIndex] = useState(0);
 
     const loadMoreFriends = () => {
-        if (friends == null) return;
-        const newFriends = friends.slice(loadIndex, loadIndex + 4);
+        if (friendsProfiles == null) return;
+        const newFriends = friendsProfiles.slice(loadIndex, loadIndex + 4);
         setLoadIndex(loadIndex + newFriends.length);
         setFriendsElements(prevFriends => [...prevFriends, ...newFriends]);
     };
 
     useEffect(() => {
-        loadMoreFriends();
-    }, []);
+        if (friendsProfiles.length > 0) {
+            loadMoreFriends(); 
+        }
+    }, [friendsProfiles]);
 
     // MODAL BLOCK
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,8 +43,8 @@ export default function ProfileMenu({ profile }) {
     const closeModal = () => setIsModalOpen(false);
 
     return (
-        <div className={`${positioning.row} ${positioning.justifyBetween}`}>
-            <div className={`${positioning.column} ${styles.column} ${styles.upperLine} ${styles.marginRight}`}>
+        <div className={`${positioning.row} ${positioning.wrap}`}>
+            <div className={`${positioning.column} ${styles.column} ${styles.upperLine}`}>
                 <div className={`
                     ${positioning.row} 
                     ${positioning.justifyBetween} 
@@ -106,7 +108,7 @@ export default function ProfileMenu({ profile }) {
                     ${styles.interactive}`} 
                     onClick={() => openModal('Друзі',
                         <div className={`${positioning.row} ${positioning.wrap}`}>
-                            {friends.map(friend => (
+                            {friendsProfiles.map(friend => (
                                 <User 
                                     key={friend.id} 
                                     user={friend}
@@ -138,6 +140,7 @@ export default function ProfileMenu({ profile }) {
                     )}
                 </div>
             </div>
+
             <Modal 
                 isOpen={isModalOpen} 
                 onClose={closeModal} 

@@ -1,8 +1,6 @@
 .column {
-    width: 50%;
-}
-
-.marginRight {
+    flex: 1;
+    min-width: 280px;
     margin-right: 20px;
 }
 

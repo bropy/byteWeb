@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
+
 import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileGroups.module.css';
+
 import Group from './Group';
+import Modal from './Modal';
 
 
 export default function ProfileGroups({groups}) {
+    // GROUPS BLOCK
     const [groupsElements, setGroupsElements] = useState([]);
     const [loadIndex, setLoadIndex] = useState(0);
 
@@ -20,6 +24,20 @@ export default function ProfileGroups({groups}) {
         loadMoreGroups();
     }, []);
 
+    // MODAL BLOCK
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [modalTitle, setModalTitle] = useState('');
+    const [modalContent, setModalContent] = useState(null);
+
+    const openModal = (title, content) => {
+        setModalTitle(title); 
+        setModalContent(content);
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <div className={`${positioning.column}`}>
             <div className={`
@@ -27,7 +45,17 @@ export default function ProfileGroups({groups}) {
                 ${positioning.justifyBetween} 
                 ${styles.category} 
                 ${styles.interactive}`} 
-                onClick={() => window.location.href = '/profile/groups'}>
+                onClick={() => openModal('Групи',
+                    <div className={`${positioning.row} ${positioning.wrap}`}>
+                        {groups.map(group => (
+                            <div 
+                                key={group.id}
+                                className={styles.group}> 
+                                <Group group={group} />
+                            </div>
+                        ))}
+                    </div>
+                )}>
                 <div>
                     Групи
                 </div>
@@ -42,20 +70,26 @@ export default function ProfileGroups({groups}) {
                         className={styles.group}> 
                         <Group group={group} />
                     </div>
-
                 ))}  
             </div>
             <br />
-                {loadIndex < groups?.length && (
-                    <div className={`
-                        ${text.fontWeight800} 
-                        ${text.uppercase} 
-                        ${text.alignCenter} 
-                        ${styles.interactive}`}
-                        onClick={loadMoreGroups}>
-                        Завантажити більше...
-                    </div>
-                )}
+            {loadIndex < groups?.length && (
+                <div className={`
+                    ${text.fontWeight800} 
+                    ${text.uppercase} 
+                    ${text.alignCenter} 
+                    ${styles.interactive}`}
+                    onClick={loadMoreGroups}>
+                    Завантажити більше...
+                </div>
+            )}
+
+            <Modal 
+                isOpen={isModalOpen} 
+                onClose={closeModal} 
+                title={modalTitle} >
+                {modalContent}
+            </ Modal>
         </div>
     );
 };

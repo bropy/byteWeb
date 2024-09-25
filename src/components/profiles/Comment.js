@@ -1,5 +1,5 @@
-import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
+import text from '../../styles/Text.module.css';
 import styles from '../../styles/profile/Comment.module.css';
 
 
@@ -29,7 +29,7 @@ export default function Comment({comment}) {
                         {author.nickname}
                     </div>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div className={text.textGray}>
+                    <div className={text.textDarkGray}>
                         {`${formattedDate} о ${formattedTime}`}
                     </div>
                 </div>

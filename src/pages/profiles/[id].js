@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import Navbar from "../../components/layout/Navbar";
-import Footer from "../../components/layout/Footer";
 import { fetchData } from '../api/profileApi';
 
+import Navbar from "../../components/layouts/Navbar";
 import Content from '@/components/profiles/Content';
+import Footer from "../../components/layouts/Footer";
+
+import mainStyle from '../../styles/MainStyle.module.css'
+
 
 export default function Profile() {
     const [profile, setProfile] = useState(null);
@@ -34,7 +37,7 @@ export default function Profile() {
     if (!profile) return <div>No profile found</div>;
 
     return (
-      <div>
+      <div className={mainStyle.style}>
         <Navbar />
         <Content profile={profile} />
         <Footer />

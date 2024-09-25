@@ -1,14 +1,13 @@
-//import { Inter } from "next/font/google";
-import Navbar from '../components/layout/Navbar';
+import Navbar from '../components/layouts/Navbar';
 import Content from '../components/index/Content';
-import Footer from '../components/layout/Footer';
+import Footer from '../components/layouts/Footer';
 
-//const inter = Inter({ subsets: ["latin", "cyrillic", "greek"] });
+import mainStyle from '../styles/MainStyle.module.css';
+
 
 export default function Home() {
-
   return (
-    <div className={''/*inter.className*/}>
+    <div className={mainStyle.style}>
       <Navbar />
       <Content />
       <Footer />

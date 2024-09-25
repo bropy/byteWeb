@@ -1,0 +1,123 @@
+.marginTop {
+    margin-top: 100px;
+}
+
+.filters {
+    max-width: 480px;
+    width: 25vw;
+    min-width: 280px;
+}
+
+.collapsibleSign {
+    aspect-ratio: 13 / 6;
+    height: fit-content;
+    max-width: 24px;
+    width: 1.25vw;
+    min-width: 15px;
+    background-image: url('../../images/collapsible_sign.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+.presentationSign {
+    max-height: 40px;
+    height: 2vw;
+    min-height: 20px;
+    max-width: 40px;
+    width: 2vw;
+    min-width: 20px;
+    stroke: white;
+    stroke-width: 2px;
+    stroke-linecap: round;
+}
+
+.presentationSignActive {
+    stroke: #FA3992 ;
+}
+
+.filters label {
+    display: block;
+    position: relative;
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 60px;
+    cursor: pointer;
+}
+
+.filters label input {
+    position: absolute;
+    opacity: 0;
+}
+
+.checkmark {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid white;
+    border-radius: 6px;
+    background-color: none;
+}
+
+.checkmark:after {
+    display: none;
+    position: absolute;
+    content: "";
+}
+
+.filters label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.filters label .checkmark:after {
+    height: 20px;
+    width: 12px;
+    top: 4px;
+    left: 13px;
+    border: solid #FA3992;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.gameListTile {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
+    gap: 20px;
+}
+
+.gameListTable {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 20px;
+}
+
+.gameImage {
+    aspect-ratio: 420 / 560;
+    border-radius: 2vw;
+    background-color: white;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.gameImageTable {
+    max-height: 170px;
+    height: 8.8vw;
+    min-height: 74px;
+}
+
+.storeElement {
+    aspect-ratio: none;
+    min-height: 115px;
+    width: 100%;
+}
+
+@media only screen and (max-width: 645px) {
+    .filters { display: none; }
+    
+}

@@ -1,0 +1,61 @@
+.space {
+    max-height: 160px;
+    height: 16.25vw;
+    min-height: 80px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: row;
+}
+
+.imageLeft {
+    flex: 1;
+    max-height: 420px;
+    min-height: 280px;
+    max-width: 860px;
+    min-width: 280px;
+    aspect-ratio: 1 / 1;
+    border-radius: 0 clamp(72.54px, 9vw, 100px) clamp(72.54px, 9vw, 100px) 0;
+    background-image: url(../../images/bulbasaur-happy.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.textLeft {
+    flex: 1;
+    max-width: 580px;
+    min-width: 280px;
+    margin-left: 20px;
+}
+
+.imageRight {
+    flex: 1;
+    max-height: 420px;
+    min-height: 280px;
+    max-width: 860px;
+    min-width: 280px;
+    aspect-ratio: 1 / 1;
+    border-radius: clamp(72.54px, 9vw, 100px) 0 0 clamp(72.54px, 9vw, 100px);
+    background-image: url(../../images/bulbasaur-happy.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.textRight {
+    flex: 1;
+    max-width: 580px;
+    min-width: 280px;
+    margin-right: 20px;
+}
+
+@media only screen and (max-width: 630px) {
+    .feature { flex-direction: column; }
+    .textLeft { margin: 20px 0 0 0; }
+    .textRight { margin: 20px 0 0 0; }
+}
+
+.video {
+    aspect-ratio: 16 / 9;
+    border-radius: clamp(10px, 1.875vw, 20px);
+}

@@ -1,6 +1,9 @@
-import Head from 'next/head';
-import '@/styles/globals.css'; // Import global styles
 import { LanguageProvider } from '../contexts/LanguageContext';
+
+import Head from 'next/head';
+
+import '@/styles/globals.css'; // Import global styles
+
 
 export default function App({ Component, pageProps }) {
   return (

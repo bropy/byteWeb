@@ -1,10 +1,12 @@
-import Footer from "@/components/layout/Footer";
-import Navbar from "../components/layout/Navbar";
+import Navbar from "../components/layouts/Navbar";
 import Form from "@/components/login/Form";
 
-export default function Download(){
+import mainStyle from '../styles/MainStyle.module.css';
+
+
+export default function Login(){
     return(
-        <div>
+        <div className={mainStyle.style}>
             <Navbar/>
             <Form/>
         </div>

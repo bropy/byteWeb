@@ -1,0 +1,60 @@
+.container {
+    max-width: 1010px;
+}
+.arrowRight {
+    display: flex;
+    flex-direction: column;
+    height: 1vw;
+    width: 4vw;
+    margin-left: 1.5vw;
+    background-image: url('../../images/arrow1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.textNews {
+    flex: 1;
+    text-align: center;
+}
+
+.elementThin {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1 / 3.5;
+    width: 15%;
+    padding: 1vw;
+    background-color: #1A1A1A;
+    border-radius: 1vw;
+    text-transform: uppercase;  
+    align-items: center;
+    justify-content: space-between;
+}
+
+.elementThick {
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 6.7 / 11;
+    width: 32%;
+    padding: 1vw;
+    background-color: #1A1A1A;
+    border-radius: 1vw;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.image1 {
+    width: 88%;
+    aspect-ratio: 295 / 284;
+    border-radius: 1vw;
+    background-image: url('../../images/stalker.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.alignSelfCenter {
+    align-self: center;
+}
+
+.alignSelfEnd {
+    align-self: end;
+}
