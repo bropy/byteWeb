@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 
 import CollapsibleFilter from './CollapsibleFilter'
+import Select from '../layouts/Select'
 import GamePresentationTile from './GamePresentationTile'
 import GamePresentationTable from './GamePresentationTable'
 
@@ -126,6 +127,7 @@ const productsMock = [
 
 
 export default function Content () {
+    // Filter
     const [typeFilter, setTypeFilter] = useState([]);
     const [genreFilter, setGenreFilter] = useState([]);
     const [playersFilter, setPlayersFilter] = useState([]);
@@ -133,12 +135,15 @@ export default function Content () {
     const [gameStateFilter, setGameStateFilter] = useState([]);
 
     const uniqueTypes = useMemo(() => [...new Set(productsMock.map(product => product.type))], [productsMock]);
+
     const uniqueGenres = useMemo(() => {
         return [...new Set(productsMock.flatMap(product => product.genre).filter(Boolean))];
     }, [productsMock]);
+
     const uniquePlayers = useMemo(() => {
         return [...new Set(productsMock.flatMap(product => product.players).filter(Boolean))];
     }, [productsMock]);
+
     const uniqueHardwareSupport = useMemo(() => {
         return [...new Set(productsMock.flatMap(product => product.hardwareSupport).filter(Boolean))];
     }, [productsMock]);
@@ -169,6 +174,20 @@ export default function Content () {
         );
     });
 
+    // Sort
+    const [sortOrder, setSortOrder] = useState('alphabetical'); 
+
+    const sortedGames = useMemo(() => {
+        const sorted = [...filteredGames];
+        if (sortOrder === 'alphabetical') {
+            return sorted.sort((a, b) => a.title.localeCompare(b.title));
+        } else if (sortOrder === 'playtime') {
+            return sorted.sort((a, b) => parseInt(b.playTime) - parseInt(a.playTime)); 
+        }
+        return sorted;
+    }, [filteredGames, sortOrder]);
+
+    // Games Presentation
     const [isTile, setIsTile] = useState(true);
 
 
@@ -201,12 +220,16 @@ export default function Content () {
                                     ${text.fontWeight800}`}>
                                     Сортувати за:
                                 </div>
-                                <div className={`${positioning.row} ${positioning.alignCenter} ${mainStyle.interactive} ${positioning.border}`}>
-                                    <div className={`${positioning.marginRight20} ${text.textSmall} ${text.fontWeight600}`}>
-                                        за алфавітом
-                                    </div>
-                                    <div className={`${styles.collapsibleSign}`} />
-                                </div>   
+                                 <Select
+                                    options={[
+                                        { label: 'за алфавітом', value: 'alphabetical' },
+                                        { label: 'за часом гри', value: 'playtime' },
+                                    ]}
+                                    value={sortOrder}
+                                    onChange={(selectedValue) => {
+                                        setSortOrder(selectedValue);
+                                    }}
+                                />
                             </div>
                             <div className={`${positioning.row} ${positioning.alignCenter}`}>
                                 <div className={`${mainStyle.interactive} ${positioning.marginRight20}`}
@@ -242,7 +265,7 @@ export default function Content () {
                         </div>
                         <div className={`${positioning.marginTop20} 
                             ${isTile ? styles.gameListTile : styles.gameListTable}`}>
-                            {filteredGames.length > 0 && (filteredGames.map((game) => (
+                            {sortedGames.length > 0 && (sortedGames.map((game) => (
                                 <div key={game.id}>
                                     {isTile ? 
                                     <GamePresentationTile game={game} /> : 
@@ -262,6 +285,7 @@ export default function Content () {
                         </div>
                     </div>            
                 </div>
+
                 <div className={`${positioning.column} ${text.textSmall} 
                     ${text.fontWeight600} ${styles.filters}`}>
                     <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
