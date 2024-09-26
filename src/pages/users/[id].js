@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { fetchData } from '../api/profileApi';
 
+import Navbar from "../../components/layouts/Navbar";
+import Footer from "../../components/layouts/Footer";
+
 
 export default function Profile() {
     const [profile, setProfile] = useState(null);

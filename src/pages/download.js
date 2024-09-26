@@ -1,6 +1,6 @@
 import Navbar from "../components/layouts/Navbar";
 import Content from "../components/download/Content";
-import Footer from "@/components/layouts/Footer";
+import Footer from "../components/layouts/Footer";
 
 import mainStyle from '../styles/MainStyle.module.css';
 
