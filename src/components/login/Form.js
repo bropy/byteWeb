@@ -12,7 +12,7 @@ const Form = () => {
                 <div className={`${styles.logo}`}>
 
                 </div>
-                <div className={`${styles.h1} ${text.fontWeight800}`}>
+                <div className={`${styles.h1} ${text.fontWeight800}`} >
                     <h1>Увійдіть у свій обліковий запис BYTE</h1>
                 </div>
                 <form> 

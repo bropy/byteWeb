@@ -13,20 +13,21 @@
     align-items: center;
     flex-shrink: 0;
 }
-.logo{
+.logo {
     width: 214px;
+    height: 61px;
+    flex-shrink: 0;
+    background-image: url('../images/logo.png');
+    background-size: contain; /* Ensures the image fits within the element and maintains aspect ratio */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center center; /* Centers the image in the container */
     text-align: center;
-height: 61px;
-flex-shrink: 0;
-background: #777;
-margin-bottom: 20px;
-@media (max-width: 996px) {
-    
-}
-}
+    margin-bottom: 20px;
+  }
+  
 .h1{
     width: 860px;
-    color: #1C1C1C;
+    color: #ffffff;
 text-align: center;
 font-size: 45px;
 margin-top: 20px;
@@ -44,8 +45,8 @@ gap: 10px;
 flex-shrink: 0;
 margin-top: 15px;
 border-radius: 20px;
-border: 2px solid #1C1C1C;
-color: #1C1C1C !important;
+border: 2px solid #ffffff;
+color: #ffffff !important;
 
 }
 .Submit{
@@ -59,17 +60,17 @@ align-items: center;
 gap: 10px;
 flex-shrink: 0;
 border-radius: 20px;
-background: #1C1C1C;
-color: white;
+background: #ffffff;
+color: rgb(0, 0, 0);
 }
 .decDiv{
     margin-top: 40px;
     width: 308px;
     height: 2px;
-    background: #777;
+    background: #ffffff;
 }
 .abo{
-    color: #000;
+    color: #ffffff;
     margin-top: 30px;
     margin-left: 15px;
     margin-right: 15px;
