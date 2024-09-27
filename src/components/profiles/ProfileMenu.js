@@ -10,7 +10,7 @@ import Modal from './Modal';
 
 export default function ProfileMenu({ profile }) {
     // FRIENDS BLOCK
-    const { friends = [] } = user || {};
+    const { friends = [] } = User || {};
 
     const [friendsElements, setFriendsElements] = useState([]);
     const [loadIndex, setLoadIndex] = useState(0);
@@ -23,10 +23,10 @@ export default function ProfileMenu({ profile }) {
     };
 
     useEffect(() => {
-        if (friendsProfiles.length > 0) {
+        if (profile.friendsProfiles.length > 0) {
             loadMoreFriends(); 
         }
-    }, [friendsProfiles]);
+    }, [profile.friendsProfiles]);
 
     // MODAL BLOCK
     const [isModalOpen, setIsModalOpen] = useState(false);

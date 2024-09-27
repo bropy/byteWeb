@@ -1,4 +1,5 @@
 import { LanguageProvider } from '../contexts/LanguageContext';
+import { UserProvider } from '../contexts/UserContext';
 
 import Head from 'next/head';
 
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }) {
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mulish" />
       </Head>
       <LanguageProvider>
+        <UserProvider>
         <Component {...pageProps} />
+        </UserProvider>
       </LanguageProvider>
     </>
   );

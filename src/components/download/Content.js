@@ -33,7 +33,7 @@ export default function Content () {
                             <br/>
                             <div className={`${mainStyle.interactive} ${text.textLightGray} ${text.textSmall} 
                                 ${text.caseNone} ${text.fontWeight600} ${text.underline}`}
-                                onClick={() => window.location.href = '/download'}>
+                                onClick={() => window.location.href = '/library'}>
                                 Перейти на веб-версію додатку
                             </div>
                         </div>
