@@ -35,7 +35,7 @@ export default function Content () {
             <div className={styles.space} />
 
             <div className={`${positioning.container} ${styles.feature} ${positioning.justifyStart}`}>
-                <div className={styles.imageLeft} />
+                <div className={styles.imageLeft1} />
                 <div className={`${styles.textLeft}`}>
                     <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                         Великий вибір ігор                    
@@ -67,7 +67,7 @@ export default function Content () {
                         Інтуїтивно зрозумілий інтерфейс, який дозволяє швидко знаходити потрібну інформацію та легко керувати вашою бібліотекою ігор.
                     </div>
                 </div>
-                <div className={styles.imageRight} />
+                <div className={styles.imageRight2} />
             </div>
             <div className={styles.space} />
 

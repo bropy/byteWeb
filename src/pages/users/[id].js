@@ -20,7 +20,7 @@ export default function Profile() {
                     setProfile(profileData);
 
                     // Check if the profile belongs to the logged-in user
-                    const response = await fetch('/api/auth/user', { credentials: 'include' });
+                    const response = await fetch('https://byteserver-b28593dfb543.herokuapp.com/auth/user', { credentials: 'include' });
                     if (response.ok) {
                         const userData = await response.json();
                         setIsOwnProfile(userData.id === id);

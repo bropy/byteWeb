@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useState, useRef, useEffect } from 'react';
-
+import Image from 'next/image';
+import logo from '../../images/logo.png'
 const Navbar = () => {
   const { lang, setLang, translations } = useLanguage();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -32,23 +33,32 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="flex items-center w-full justify-between px-4 py-4 bg-white">
-      <Link href="/" className="block w-10 h-10 bg-gray-400">
-      </Link>
+    <header className="flex items-center w-full justify-between px-4 py-4 custom-black">
+    <Link href="/" className="block">
+    <Image
+  src={logo}
+  alt="Logo"
+  width={160}
+  height={40}
+  className="object-contain"
+  quality={100}  
+/>
+
+    </Link>
       
       <nav className="hidden md:block flex-grow">
         <ul className="flex justify-center space-x-6">
-          <li><Link href="/download" className="text-gray-700 hover:text-gray-900">{translations.download || 'Завантаження'}</Link></li>
-          <li><Link href="/community" className="text-gray-700 hover:text-gray-900">{translations.community || 'Спільнота'}</Link></li>
-          <li><Link href="/support" className="text-gray-700 hover:text-gray-900">{translations.support || 'Підтримка'}</Link></li>
+          <li><Link href="/download" className="text-white hover:text-white">{translations.download || 'Завантаження'}</Link></li>
+          <li><Link href="/community" className="text-white hover:text-white">{translations.community || 'Спільнота'}</Link></li>
+          <li><Link href="/support" className="text-white hover:text-white">{translations.support || 'Підтримка'}</Link></li>
         </ul>
       </nav>
       
       <div className="flex items-center space-x-4">
-      <Link href="/login" className="text-gray-700 hover:text-gray-900">
+      <Link href="/login" className="text-white hover:text-white">
         <span className="hidden md:inline">{translations.login || 'Логін'}</span>
         <svg className="w-6 h-6 md:hidden" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="12" fill="black"/>
+          <circle cx="12" cy="12" r="12" fill="white"/>
           <path d="M12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z" fill="white"/>
           <path d="M17 15C17 16.6569 17 18 12 18C7 18 7 16.6569 7 15C7 13.3431 9.23858 12 12 12C14.7614 12 17 13.3431 17 15Z" fill="white"/>
         </svg>
@@ -57,7 +67,7 @@ const Navbar = () => {
         <div className="relative" ref={dropdownRef}>
           <button 
             onClick={toggleDropdown}
-            className="flex items-center space-x-1 text-gray-900 hover:text-gray-900 focus:outline-none"
+            className="flex items-center space-x-1 text-white hover:text-white focus:outline-none"
           >
             <span>{lang.toUpperCase()}</span>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

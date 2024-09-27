@@ -17,7 +17,19 @@
     min-width: 280px;
     aspect-ratio: 1 / 1;
     border-radius: 0 clamp(72.54px, 9vw, 100px) clamp(72.54px, 9vw, 100px) 0;
-    background-image: url(../../images/bulbasaur-happy.gif);
+    background-image: url('https://sm.ign.com/ign_in/news/h/how-covid-/how-covid-19-virtualized-gaming-events-and-local-communities_9ghw.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.imageLeft1 {
+    flex: 1;
+    max-height: 420px;
+    min-height: 280px;
+    max-width: 860px;
+    min-width: 280px;
+    aspect-ratio: 1 / 1;
+    border-radius: 0 clamp(72.54px, 9vw, 100px) clamp(72.54px, 9vw, 100px) 0;
+    background-image: url('https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/16:9/w_2560%2Cc_limit/100-best-games-hp-b.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -37,11 +49,22 @@
     min-width: 280px;
     aspect-ratio: 1 / 1;
     border-radius: clamp(72.54px, 9vw, 100px) 0 0 clamp(72.54px, 9vw, 100px);
-    background-image: url(../../images/bulbasaur-happy.gif);
+    background-image: url('https://sm.ign.com/ign_in/news/h/how-covid-/how-covid-19-virtualized-gaming-events-and-local-communities_9ghw.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
-
+.imageRight2 {
+    flex: 1;
+    max-height: 420px;
+    min-height: 280px;
+    max-width: 860px;
+    min-width: 280px;
+    aspect-ratio: 1 / 1;
+    border-radius: clamp(72.54px, 9vw, 100px) 0 0 clamp(72.54px, 9vw, 100px);
+    background-image: url('https://img.freepik.com/premium-photo/young-gamer-playing-video-games-home-he-is-sitting-comfortable-chair-using-keyboard-mouse_14117-107215.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 .textRight {
     flex: 1;
     max-width: 580px;
