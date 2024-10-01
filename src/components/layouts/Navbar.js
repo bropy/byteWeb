@@ -3,7 +3,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useUser } from '../../contexts/UserContext';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import logo from '../../images/logo.png';
+import logo from '../../images/logo.png'; // Your logo
 
 const Navbar = () => {
   const { lang, setLang, translations } = useLanguage();
@@ -20,7 +20,9 @@ const Navbar = () => {
     setLang(newLang);
     setIsDropdownOpen(false);
   };
-
+  useEffect(() => {
+    console.log('User object:', user); // Debug the user object
+  }, [user]);
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -36,7 +38,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="flex items-center w-full justify-between px-4 py-4 bg-custom-blacdk">
+    <header className="flex items-center w-full justify-between px-4 py-4 bg-custohm-black">
       <Link href="/" className="block">
         <Image
           src={logo}
@@ -73,7 +75,7 @@ const Navbar = () => {
           <>
             <Link href={`/profiles/${user.id}`} className="text-white hover:text-gray-300">
               <Image
-                src={user.avatar || {logo}}
+                src={`${user.avatar}`} // Use default avatar if user.avatar is not available
                 alt={`${user.nickname} Avatar`}
                 width={40}
                 height={40}

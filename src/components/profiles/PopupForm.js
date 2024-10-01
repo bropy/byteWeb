@@ -1,18 +1,18 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Button from '../layouts/Button';
-import styles from '../../styles/profile/PopupForm.module.css'; // Add styles as needed
+import styles from '../../styles/profile/ProfileInfo.module.css';
 
-export default function PopupForm({ profile, onClose }) {
-    const [nickname, setNickname] = useState(profile.nickname);
-    const [country, setCountry] = useState(profile.country);
-    const [description, setDescription] = useState(profile.description);
-    const [status, setStatus] = useState(profile.status);
+export default function PopupForm({ profile, onClose, onSave }) {
+    const [nickname, setNickname] = useState(profile.nickname || '');
+    const [country, setCountry] = useState(profile.country || '');
+    const [description, setDescription] = useState(profile.description || '');
+    const [status, setStatus] = useState(profile.status || '');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle the profile update logic here
-        console.log({ nickname, country, description, status });
-        onClose(); // Close the popup after submission
+        const updatedProfile = { ...profile, nickname, country, description, status };
+        await onSave(updatedProfile);
+        onClose();
     };
 
     return (
@@ -56,7 +56,7 @@ export default function PopupForm({ profile, onClose }) {
                     <Button type="submit">
                         <div>Зберегти</div>
                     </Button>
-                    <Button onClick={onClose}>
+                    <Button onClick={onClose} type="button">
                         <div>Закрити</div>
                     </Button>
                 </form>
