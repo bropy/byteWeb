@@ -220,16 +220,18 @@ export default function Content () {
                                     ${text.fontWeight800}`}>
                                     Сортувати за:
                                 </div>
-                                 <Select
-                                    options={[
-                                        { label: 'за алфавітом', value: 'alphabetical' },
-                                        { label: 'за часом гри', value: 'playtime' },
-                                    ]}
-                                    value={sortOrder}
-                                    onChange={(selectedValue) => {
-                                        setSortOrder(selectedValue);
-                                    }}
-                                />
+                                <div className={styles.select}>
+                                    <Select
+                                        options={[
+                                            { label: 'за алфавітом', value: 'alphabetical' },
+                                            { label: 'за часом гри', value: 'playtime' },
+                                        ]}
+                                        value={sortOrder}
+                                        onChange={(selectedValue) => {
+                                            setSortOrder(selectedValue);
+                                        }}
+                                    />
+                                </div>  
                             </div>
                             <div className={`${positioning.row} ${positioning.alignCenter}`}>
                                 <div className={`${mainStyle.interactive} ${positioning.marginRight20}`}
