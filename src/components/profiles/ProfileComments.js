@@ -7,14 +7,10 @@ import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileComments.module.css';
 import commentStyles from '../../styles/profile/Comment.module.css';
-<<<<<<< HEAD
-
-=======
 import Comment from './Comment';
 import { useUser } from '../../contexts/UserContext';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
->>>>>>> 1ae8c56ce1bbbf345d8520a7a00498ddd2baedcc
 
 export default function ProfileComments({ profileId }) {
     const [commentList, setCommentList] = useState([]);
