@@ -14,7 +14,7 @@ export default function DownloadNow ({ isDesktop }) {
         <ButtonDowload />
         <div className={`${mainStyle.interactive} ${positioning.marginTop20} ${text.textWhite} ${text.textSmall} 
             ${text.fontWeight600} ${text.underline}`}
-            onClick={() => window.location.href = '/download'}>
+            onClick={() => window.location.href = '/store'}>
             Перейти на веб-версію додатку
         </div>
     </div>

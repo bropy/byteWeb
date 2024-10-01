@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
+
+import Comment from './Comment';
+
 import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileComments.module.css';
 import commentStyles from '../../styles/profile/Comment.module.css';
-import Comment from './Comment';
+
 
 export default function ProfileComments({ profileId }) {
     const [commentList, setCommentList] = useState([]);

@@ -2,12 +2,12 @@ import Navbar from "../components/layouts/Navbar2";
 import Content from "../components/library/Content";
 import Footer from "../components/layouts/Footer";
 
-import MainStyle from '../styles/MainStyle.module.css';
+import mainStyle from '../styles/MainStyle.module.css';
 
 
 export default function Library(){
     return(
-        <div className={MainStyle.style}>
+        <div className={mainStyle.style}>
             <Navbar />
             <Content />
             <Footer/>
