@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import React, { useState, useEffect, useCallback } from 'react';
+import { useUser } from '../../contexts/UserContext';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import Comment from './Comment';
 
@@ -7,10 +10,7 @@ import text from '../../styles/Text.module.css';
 import positioning from '../../styles/Positioning.module.css';
 import styles from '../../styles/profile/ProfileComments.module.css';
 import commentStyles from '../../styles/profile/Comment.module.css';
-import Comment from './Comment';
-import { useUser } from '../../contexts/UserContext';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+
 
 export default function ProfileComments({ profileId }) {
     const [commentList, setCommentList] = useState([]);
