@@ -19,20 +19,21 @@ const Form = () => {
         const response = await axios.post('https://byteserver-b28593dfb543.herokuapp.com/auth/login', {
             login,
             password
-        }, { withCredentials: true }); // Ensure credentials are sent
+        }, { withCredentials: true });
 
-        const { user } = response.data; // Get the user data from the response
+        const { user } = response.data;
 
         if (user && user.id) {
-            setUser(user); // Save user data in the context
-            // Redirect to the profile page with the user's ID
-            router.push(`/profiles/${user.id}`);
+            setUser(user); // Save user data in context
+            localStorage.setItem('user', JSON.stringify(user)); // Persist user in localStorage
+            router.push(`/profiles/${user.id}`); // Redirect to the profile page
         }
     } catch (err) {
         setError('Invalid login or password');
         console.error('Login error:', err.response || err);
     }
 };
+
 
 
 
