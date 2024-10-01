@@ -204,11 +204,11 @@ export default function Content () {
             </div>
             <div className={`${positioning.row} ${styles.marginTop}`}>
                 <div className={`${positioning.column} ${positioning.dynamic} ${positioning.marginRight20}`}>
-                    <div className={`${positioning.column} ${positioning.border} ${text.alignCenter}`}>
+                    {/*<div className={`${positioning.column} ${positioning.border} ${text.alignCenter}`}>
                         <br/><br/><br/>
                         NEWS
                         <br/><br/><br/><br/>
-                    </div>
+                    </div>*/}
                     <div className={`${positioning.column} ${styles.marginTop}`}>
                         <div className={`${text.textMedium} ${text.uppercase} ${text.fontWeight800}`}>
                             Усі
@@ -220,16 +220,18 @@ export default function Content () {
                                     ${text.fontWeight800}`}>
                                     Сортувати за:
                                 </div>
-                                 <Select
-                                    options={[
-                                        { label: 'за алфавітом', value: 'alphabetical' },
-                                        { label: 'за часом гри', value: 'playtime' },
-                                    ]}
-                                    value={sortOrder}
-                                    onChange={(selectedValue) => {
-                                        setSortOrder(selectedValue);
-                                    }}
-                                />
+                                <div className={styles.select}>
+                                    <Select
+                                        options={[
+                                            { label: 'за алфавітом', value: 'alphabetical' },
+                                            { label: 'за часом гри', value: 'playtime' },
+                                        ]}
+                                        value={sortOrder}
+                                        onChange={(selectedValue) => {
+                                            setSortOrder(selectedValue);
+                                        }}
+                                    />
+                                </div>  
                             </div>
                             <div className={`${positioning.row} ${positioning.alignCenter}`}>
                                 <div className={`${mainStyle.interactive} ${positioning.marginRight20}`}
@@ -258,9 +260,9 @@ export default function Content () {
                                         <path d="M1 31H6" />
                                     </svg>
                                 </div>
-                                <div className={`${positioning.marginLeft20} ${positioning.border}`}>
+                                {/*<div className={`${positioning.marginLeft20} ${positioning.border}`}>
                                     Collapsed Filter
-                                </div>
+                                </div>*/}
                             </div>
                         </div>
                         <div className={`${positioning.marginTop20} 

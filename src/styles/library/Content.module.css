@@ -2,6 +2,8 @@
     margin-top: 100px;
 }
 
+/* Filters */
+
 .filters {
     max-width: 480px;
     width: 25vw;
@@ -21,22 +23,6 @@
 
 .rotate {
     transform: rotate(180deg);
-}
-
-.presentationSign {
-    max-height: 40px;
-    height: 2vw;
-    min-height: 20px;
-    max-width: 40px;
-    width: 2vw;
-    min-width: 20px;
-    stroke: white;
-    stroke-width: 2px;
-    stroke-linecap: round;
-}
-
-.presentationSignActive {
-    stroke: #FA3992 ;
 }
 
 .filters label {
@@ -84,6 +70,24 @@
     transform: rotate(45deg);
 }
 
+/* Game Presentation */
+
+.presentationSign {
+    max-height: 40px;
+    height: 2vw;
+    min-height: 20px;
+    max-width: 40px;
+    width: 2vw;
+    min-width: 20px;
+    stroke: white;
+    stroke-width: 2px;
+    stroke-linecap: round;
+}
+
+.presentationSignActive {
+    stroke: #FA3992 ;
+}
+
 .gameListTile {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(31%, 1fr));
@@ -115,6 +119,12 @@
     aspect-ratio: none;
     min-height: 115px;
     width: 100%;
+}
+
+/* Select */
+
+.select {
+    width: 190px;
 }
 
 @media only screen and (max-width: 645px) {
