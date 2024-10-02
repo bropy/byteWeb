@@ -31,7 +31,7 @@
     grid-row: 1 / 4;
     aspect-ratio: 140 / 79;
     border-radius: clamp(20px, 5.2vw, 100px);
-    background-color: #777777;
+    background-color: white;
     overflow: hidden;
 }
 

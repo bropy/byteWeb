@@ -2,10 +2,8 @@ import { useState, useMemo, useEffect } from 'react';
 
 import Button from '../layouts/Button'
 
-import mainStyle from '../../styles/MainStyle.module.css'
 import positioning from '../../styles/Positioning.module.css'
 import text from '../../styles/Text.module.css'
-import search from '../../styles/layouts/Search.module.css'
 import styles from '../../styles/store/Recommended.module.css'
 
 
@@ -68,7 +66,8 @@ export default function Recommended () {
                     Ігнорувати
                 </Button>
             </div>
-            <div className={styles.gameImage}></div>
+            <div className={styles.gameImage}
+                style={{backgroundImage: `url(${game.image})`}} />
             <div className={`${styles.pagination} ${positioning.row} ${positioning.justifyCenter}`}>
                 {Array.from({ length: totalPages }, (_, index) => (
                     <div

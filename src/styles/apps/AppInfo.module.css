@@ -1,0 +1,50 @@
+.game {
+    display: grid;
+    width: 100%;
+    gap: 43px;
+}
+
+.gameInfo {
+    display: grid;
+    grid-template-columns: 3fr 1fr; 
+    gap: 20px;
+}
+
+.media {
+    display: grid;
+    gap: 20px;
+    border: 1px solid lime;
+}
+
+.video {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: clamp(20px, 5.2vw, 100px);
+    overflow: hidden;
+}
+
+.info {
+    display: grid;
+    max-width: 420px;
+    min-width: 280px;
+    gap: 40px;
+}
+
+.logo {
+    aspect-ratio: 70 / 27;
+    max-width:inherit;
+    background-color: white;
+}
+
+.gap20 {
+    display: grid;
+    gap: 20px;
+}
+
+@media (max-width: 800px) {
+    .gameInfo {
+        grid-template-columns: 1fr; 
+    }
+
+    .info {max-width: none;}
+}
