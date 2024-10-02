@@ -86,6 +86,9 @@ const Navbar = () => {
             <button onClick={logout} className="text-white hover:text-gray-300">
               {translations.logout || 'Вийти'}
             </button>
+            <Link href="/add-game" className="text-white hover:text-gray-300">
+              {translations.addGame || 'Додати гру'}
+            </Link>
           </>
         ) : (
           <>
