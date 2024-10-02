@@ -67,7 +67,7 @@ export default function Recommended () {
                 </Button>
             </div>
             <div className={styles.gameImage}
-                style={{backgroundImage: `url(${game.image})`}} />
+                style={{backgroundImage: `url(${games.image})`}} />
             <div className={`${styles.pagination} ${positioning.row} ${positioning.justifyCenter}`}>
                 {Array.from({ length: totalPages }, (_, index) => (
                     <div
