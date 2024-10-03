@@ -16,8 +16,7 @@ export default function AppInfo ({app}) {
             'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             'https://images.pexels.com/photos/8885140/pexels-photo-8885140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             'https://images.pexels.com/photos/15763947/pexels-photo-15763947/free-photo-of-game-boy-pocket-console.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'], 
-        price = 0, 
-        relaseDate = new Date().toLocaleDateString(), reviews = [],  } = app || {};
+        price = 0, relaseDate = new Date().toLocaleDateString(), reviews = [],  } = app || {};
 
     const [currentMedia, setCurrentMedia] = useState(trailerUrl);
 
