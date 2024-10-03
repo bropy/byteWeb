@@ -11,7 +11,7 @@ export default function Button ({ href, children, style }) {
   return (
     <div className={`${button.button}`} 
           style={style}
-          onClick={handleClick}>
+          onClick={href && handleClick}>
           <div className={`${text.textSmall} ${text.fontWeight700} ${text.noWrap}`}>
             {children}
           </div>

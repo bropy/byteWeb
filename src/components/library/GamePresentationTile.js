@@ -6,7 +6,7 @@ import styles from '../../styles/library/Content.module.css'
 export default function GamePresentationTile ({game}) {
     return(
         <div className={`${mainStyle.interactive}`}
-            onClick={() => window.location.href = game.url}>
+            onClick={() => window.location.href = `/apps/${game.id}`}>
             <div className={styles.gameImage}
                 style={{backgroundImage: `url(${game.image})`}}/>
             <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.truncate}`}>

@@ -32,6 +32,18 @@ export default function AppInfo ({app}) {
         document.getElementById('mediaScroll').scrollBy({left: 300, behavior: 'smooth'});
     };
 
+    const handleAddToCart = () => {
+        // TODO
+    }
+
+    const handleAddToWishlist = () => {
+        // TODO
+    }
+
+    const handleAddFollow = () => {
+        // TODO
+    }
+
     return (
         <div className={`${styles.game}`}>
             <div className={`${text.textMedium} ${text.fontWeight800}`}>
@@ -95,11 +107,16 @@ export default function AppInfo ({app}) {
                         </div>
                     </div>
                     <div className={`${styles.gap20}`}>
-                        <Button href={'/'}>Додати до кошика</Button>
-                        <Button href={'/'} style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}>
+                        <Button href={'/cart'}
+                            onClick={handleAddToCart}>
+                            Додати до кошика
+                        </Button>
+                        <Button style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}
+                            onClick={handleAddToWishlist}>
                             Додати до бажаного
                         </Button>
-                        <Button href={'/'} style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}>
+                        <Button style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}
+                            onClick={handleAddFollow}>
                             Відстежувати
                         </Button>
                     </div>

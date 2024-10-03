@@ -22,7 +22,7 @@ const productsMock = [
         hardwareSupport: [''],
         playTime: '669',
         image: '',
-        url: '/app/1'
+        url: '/apps/1'
     },
     {
         id: 2,
@@ -33,7 +33,7 @@ const productsMock = [
         hardwareSupport: ['Повна підтримка контроллерів'],
         playTime: '1450',
         image: '',
-        url: '/app/2'
+        url: '/apps/2'
     },
     {
         id: 3,
@@ -44,7 +44,7 @@ const productsMock = [
         hardwareSupport: ['Повна підтримка контроллерів'],
         playTime: '340',
         image: '',
-        url: '/app/3'
+        url: '/apps/3'
     },
     {
         id: 4,
@@ -55,7 +55,7 @@ const productsMock = [
         hardwareSupport: ['Бажано мати контроллер'],
         playTime: '960',
         image: '',
-        url: '/app/4'
+        url: '/apps/4'
     },
     {
         id: 5,
@@ -66,7 +66,7 @@ const productsMock = [
         hardwareSupport: ['ВР'],
         playTime: '3200',
         image: '',
-        url: '/app/5'
+        url: '/apps/5'
     },
     {
         id: 6,
@@ -77,7 +77,7 @@ const productsMock = [
         hardwareSupport: [''],
         playTime: '240',
         image: '',
-        url: '/app/6'
+        url: '/apps/6'
     },
     {
         id: 7,
@@ -88,7 +88,7 @@ const productsMock = [
         hardwareSupport: ['Бажано мати контроллер'],
         playTime: '520',
         image: '',
-        url: '/app/7'
+        url: '/apps/7'
     },
     {
         id: 8,
@@ -99,7 +99,7 @@ const productsMock = [
         hardwareSupport: ['Повна підтримка контроллерів'],
         playTime: '0',
         image: '',
-        url: '/app/8'
+        url: '/apps/8'
     },
     {
         id: 9,
@@ -110,7 +110,7 @@ const productsMock = [
         hardwareSupport: [''],
         playTime: '1350',
         image: '',
-        url: '/app/9'
+        url: '/apps/9'
     },
     {
         id: 10,
@@ -121,7 +121,7 @@ const productsMock = [
         hardwareSupport: [''],
         playTime: '1100',
         image: '',
-        url: '/app/10'
+        url: '/apps/10'
     }
 ];
 
@@ -279,7 +279,7 @@ export default function Content () {
                                 <GamePresentationTile game={{title: '', 
                                     image: 'images/move_to_store.svg', url: '/store'}} /> : 
                                 <div className={`${mainStyle.interactive}`}
-                                    onClick={() => window.location.href = '/store2'}>
+                                    onClick={() => window.location.href = '/store'}>
                                     <div className={`${styles.gameImage} ${styles.gameImageTable} ${styles.storeElement}`}
                                         style={{backgroundImage: `url(${'images/move_to_store.svg'})`}}/>
                                 </div>
