@@ -13,14 +13,59 @@
 .media {
     display: grid;
     gap: 20px;
-    border: 1px solid lime;
+}
+
+.mediaDisplay {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    border-radius: clamp(20px, 5.2vw, 100px);
+    background-size: cover;
+    overflow: hidden;
 }
 
 .video {
     aspect-ratio: 16 / 9;
     width: 100%;
-    border-radius: clamp(20px, 5.2vw, 100px);
-    overflow: hidden;
+}
+
+.mediaPanel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.mediaPanel::-webkit-scrollbar {
+    display: none; 
+}
+
+.mediaItem {
+    aspect-ratio: 105 / 59;
+    max-width: 420px;
+    width: 21.875vw;
+    min-width: 204px;
+    background-color: white;
+    background-size: cover;
+    border-radius: clamp(20px, 2.6vw, 50px);
+    cursor: pointer;
+}
+
+
+.scrollButtonLeft {
+    aspect-ratio: 8 / 1;
+    width: 126px;
+    background-image: url('../../images/arrow2.svg');
+    background-size: cover;
+    cursor: pointer;
+}
+
+.scrollButtonRight {
+    aspect-ratio: 8 / 1;
+    width: 126px;
+    background-image: url('../../images/arrow3.svg');
+    background-size: cover;
+    cursor: pointer;
 }
 
 .info {

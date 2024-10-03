@@ -48,12 +48,12 @@ export default function Footer () {
                         <div className={styles.interactive} onClick={() => window.location.href = '/support'}>
                             {translations.support || 'Підтримка'}
                         </div>
-                        <div className={styles.interactive} onClick={() => window.location.href = '/test_profile'}>
+                        {/*<div className={styles.interactive} onClick={() => window.location.href = '/test_profile'}>
                             {translations.profile || 'Профіль'}
                         </div>
                         <div className={styles.interactive} onClick={() => window.location.href = '/library'}>
                             {translations.library || 'Бібліотека'}
-                        </div>
+                        </div>*/}
                     </div>
                 </div>
             </div>

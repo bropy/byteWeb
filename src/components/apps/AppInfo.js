@@ -10,8 +10,28 @@ import styles from '../../styles/apps/AppInfo.module.css'
 
 export default function AppInfo ({app}) {
     const { title = 'Title Not Found', description = 'Descriptiom Not Found', 
-        logo = '', trailer = '', screenshots = [], price = 0, 
+        logo = '', trailerUrl = 'https://www.youtube.com/embed/3fLCwaA9qpw', screenshots = [
+            'https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
+            'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+            'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+            'https://images.pexels.com/photos/8885140/pexels-photo-8885140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+            'https://images.pexels.com/photos/15763947/pexels-photo-15763947/free-photo-of-game-boy-pocket-console.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'], 
+        price = 0, 
         relaseDate = new Date().toLocaleDateString(), reviews = [],  } = app || {};
+
+    const [currentMedia, setCurrentMedia] = useState(trailerUrl);
+
+    const handleMediaClick = (url) => {
+        setCurrentMedia(url);
+    };
+
+    const scrollLeft = () => {
+        document.getElementById('mediaScroll').scrollBy({left: -300, behavior: 'smooth'});
+    };
+
+    const scrollRight = () => {
+        document.getElementById('mediaScroll').scrollBy({left: 300, behavior: 'smooth'});
+    };
 
     return (
         <div className={`${styles.game}`}>
@@ -20,13 +40,32 @@ export default function AppInfo ({app}) {
             </div>
             <div className={`${styles.gameInfo}`}>
                 <div className={`${styles.media}`}>
-                <div>
-                    <iframe className={`${styles.video}`}
-                    src="https://www.youtube.com/embed/uV0zfAwazcs?si=T-tl1hCfMjR2WhCi" 
-                    title="YouTube video player" frameBorder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-                </div>
+                    <div className={`${styles.mediaDisplay}`}
+                        style={{backgroundImage: `url(${currentMedia})`}}>
+                        {currentMedia == trailerUrl &&<iframe className={`${styles.video}`}
+                        src={trailerUrl} 
+                        title="YouTube video player" frameBorder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
+                    </div>
+                    <div id="mediaScroll" className={`${styles.mediaPanel}`}>
+                        <img src={logo} className={styles.mediaItem} 
+                            onClick={() => handleMediaClick(trailerUrl)} />
+                        {screenshots.map((screenshot, idx) => (
+                            <img 
+                                key={idx} 
+                                src={screenshot} 
+                                className={styles.mediaItem}
+                                onClick={() => handleMediaClick(screenshot)} 
+                            />
+                        ))}
+                    </div>
+                    <div className={`${positioning.row} ${positioning.justifyBetween}`}>
+                        <button className={styles.scrollButtonLeft} 
+                            onClick={scrollLeft} />
+                        <button className={styles.scrollButtonRight} 
+                            onClick={scrollRight} />
+                    </div>
                 </div>
                 <div className={`${styles.info}`}>
                     <div className={styles.logo}/>
