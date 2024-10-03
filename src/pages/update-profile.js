@@ -15,7 +15,7 @@ export default function UpdateProfile() {
     return (
         <div className={mainStyle.style}>
             <Navbar />
-            <Form publisherId={user.id} /> {/* Use user.id */}
+            <Form userId={user.id} /> {/* Use user.id */}
             <Footer />
         </div>
     );

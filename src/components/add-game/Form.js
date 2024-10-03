@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { format } from 'date-fns';
 
 import styles from '../../styles/AddGameForm.module.css'
-
 
 export default function AddGameForm ({ publisherId }) {
     const router = useRouter();
@@ -18,14 +16,19 @@ export default function AddGameForm ({ publisherId }) {
         price: '',
         approved: false,
         developer: publisherId,
-        achievements: []
+        achievements: [],
+        category: '',
+        genre: '',
+        players: '',
+        deviceSupport: '',
     });
 
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
+    const [isCategorySelected, setIsCategorySelected] = useState(false);
 
     useEffect(() => {
-        console.log('Publisher ID:', publisherId); // Check if the ID is being passed correctly
+        console.log('Publisher ID:', publisherId);
     }, [publisherId]);
 
     const handleInputChange = (e) => {
@@ -35,15 +38,23 @@ export default function AddGameForm ({ publisherId }) {
             [name]: value
         }));
     };
-    
-    const handleHeaderImageChange = (e) => {
-        const file = e.target.files[0];
-        setFormData((prevData) => ({ ...prevData, headerImage: file }));
+
+    const handleAchievementChange = (index, e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => {
+            const updatedAchievements = [...prevData.achievements];
+            updatedAchievements[index][name] = value;
+            return { ...prevData, achievements: updatedAchievements };
+        });
     };
 
-    const handleLogoImageChange = (e) => {
+    const handleAchievementImageChange = (index, e) => {
         const file = e.target.files[0];
-        setFormData((prevData) => ({ ...prevData, logoImage: file }));
+        setFormData((prevData) => {
+            const updatedAchievements = [...prevData.achievements];
+            updatedAchievements[index].image = file;
+            return { ...prevData, achievements: updatedAchievements };
+        });
     };
 
     const addAchievement = () => {
@@ -53,80 +64,72 @@ export default function AddGameForm ({ publisherId }) {
         }));
     };
 
-    const handleAchievementChange = (index, e) => {
-        const { name, value } = e.target;
-        const newAchievements = [...formData.achievements];
-        newAchievements[index][name] = value;
-        setFormData((prevData) => ({
-            ...prevData,
-            achievements: newAchievements
-        }));
-    };
-
-    const handleAchievementImageChange = (index, e) => {
-        const file = e.target.files[0];
-        const newAchievements = [...formData.achievements];
-        newAchievements[index].image = file;
-        setFormData((prevData) => ({
-            ...prevData,
-            achievements: newAchievements
-        }));
-    };
-
     const removeAchievement = (index) => {
-        const newAchievements = formData.achievements.filter((_, i) => i !== index);
         setFormData((prevData) => ({
             ...prevData,
-            achievements: newAchievements
+            achievements: prevData.achievements.filter((_, i) => i !== index)
         }));
+    };
+
+    const handleSelectChange = (e) => {
+        const { name, value } = e.target;
+        if (!isCategorySelected) {
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: value
+            }));
+            setIsCategorySelected(true);
+        }
     };
 
     const validateForm = () => {
         const newErrors = {};
-    
         if (!formData.title.trim()) newErrors.title = 'Назва гри є обов\'язковою';
         if (!formData.description.trim()) newErrors.description = 'Опис гри є обов\'язковим';
         if (!formData.headerImage) newErrors.headerImage = 'Зображення гри є обов\'язковим';
         if (!formData.source.trim()) newErrors.source = 'Джерело гри є обов\'язковим';
         if (!formData.releaseDate.trim()) newErrors.releaseDate = 'Дата релізу є обов\'язковою';
         if (!formData.price.trim() || isNaN(formData.price)) newErrors.price = 'Ціна гри має бути числом';
-    
-        // Ensure at least one achievement is added
-        /*if (formData.achievements.length === 0) {
-            newErrors.achievements = 'Мінімум одне досягнення є обов\'язковим';
-        } else {*/
-            formData.achievements.forEach((achievement, index) => {
-                if (!achievement.name.trim()) newErrors[`achievement${index}Name`] = 'Назва досягнення є обов\'язковою';
-                if (!achievement.description.trim()) newErrors[`achievement${index}Description`] = 'Опис досягнення є обов\'язковим';
-                if (!achievement.image) newErrors[`achievement${index}Image`] = 'Зображення досягнення є обов\'язковим';
-            });
-        /*}*/
-    
+        if (!formData.category) newErrors.category = 'Категорія є обов\'язковою';
+        if (!formData.genre) newErrors.genre = 'Жанр є обов\'язковим';
+        if (!formData.players) newErrors.players = 'Тип гри є обов\'язковим';
+        if (!formData.deviceSupport) newErrors.deviceSupport = 'Підтримка пристроїв є обов\'язковою';
+
+        formData.achievements.forEach((achievement, index) => {
+            if (!achievement.name.trim()) newErrors[`achievement${index}Name`] = 'Назва досягнення є обов\'язковою';
+            if (!achievement.description.trim()) newErrors[`achievement${index}Description`] = 'Опис досягнення є обов\'язковим';
+            if (!achievement.image) newErrors[`achievement${index}Image`] = 'Зображення досягнення є обов\'язковим';
+        });
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
-    
+
+    const handleHeaderImageChange = (e) => {
+        const file = e.target.files[0];
+        setFormData((prevData) => ({ ...prevData, headerImage: file }));
+    };
+
     const uploadImage = async (file) => {
+        if (!file) return null;
+    
         const formData = new FormData();
         formData.append('image', file);
-
-        try {
-            const res = await fetch('/api/upload', {
-                method: 'POST',
-                body: formData,
-            });
-
-            if (!res.ok) {
-                throw new Error('Image upload failed');
-            }
-
-            const data = await res.json();
-            return data.url;
-        } catch (error) {
-            console.error('Error during image upload:', error);
-            throw error;
+    
+        const response = await fetch('/api/upload', {
+            method: 'POST',
+            body: formData,
+        });
+    
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || 'Failed to upload image');
         }
+    
+        const { url } = await response.json();
+        return url;
     };
+    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -135,9 +138,7 @@ export default function AddGameForm ({ publisherId }) {
         setLoading(true);
     
         try {
-            // Upload the headerImage and achievement images
             const headerImageUrl = await uploadImage(formData.headerImage);
-    
             const achievementsWithUploadedImages = await Promise.all(
                 formData.achievements.map(async (achievement) => {
                     const imageUrl = await uploadImage(achievement.image);
@@ -145,35 +146,19 @@ export default function AddGameForm ({ publisherId }) {
                 })
             );
     
-            // Prepare the game data payload
             const gameData = {
-                title: formData.title,
-                description: formData.description,
+                ...formData,
                 headerImage: headerImageUrl,
-                source: formData.source,
-                releaseDate: formData.releaseDate,
-                price: formData.price,
-                developer: publisherId,
                 achievements: achievementsWithUploadedImages,
-                approved: formData.approved,
             };
     
-            // Log the payload before sending it to the server
-            console.log('Payload to be sent:', JSON.stringify(gameData, null, 2));
-    
-            // Send the game data to the backend
             const response = await fetch('https://byteserver-b28593dfb543.herokuapp.com/games', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(gameData),
             });
     
-            if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || 'Failed to create game');
-            }
+            if (!response.ok) throw new Error('Failed to create game');
     
             console.log('Game created successfully');
             router.push('/');
@@ -184,6 +169,7 @@ export default function AddGameForm ({ publisherId }) {
             setLoading(false);
         }
     };
+    
     
     return (
         <div className={styles.container}>
@@ -243,21 +229,61 @@ export default function AddGameForm ({ publisherId }) {
                         onChange={handleHeaderImageChange}/>
                 {errors.headerImage && <p style={{ color: 'red' }}>{errors.headerImage}</p>}
                 </label>
+                <select
+                    name="genre"
+                    value={formData.genre}
+                    onChange={handleInputChange} // Функція для обробки зміни значення
+                >
+                    <option value="">Оберіть жанр</option>
+                    <option value="Role-playing">Рольові</option>
+                    <option value="Adventure">Пригоди</option>
+                    <option value="Sports">Спортивні</option>
+                    <option value="Simulation">Симулятор</option>
+                    <option value="Indie">Інді</option>
+                    <option value="Cooperative">Кооперативні</option>
+                    <option value="Social">Соціальні</option>
+                    <option value="Racing">Перегони</option>
+                    <option value="Action">Бойовик</option>
+                    <option value="Strategy">Стратегія</option>
+                </select>
 
-                <label name='logoImage'>
-                    Зображення лого гри
-                    <input
-                        type="file"
-                        name="logoImage"
-                        style={{ height: '0px', padding: '0px', visibility: 'hidden'}}
-                        onChange={handleLogoImageChange}/>
-                {errors.logoImage && <p style={{ color: 'red' }}>{errors.logoImage}</p>}
-                </label>
-
-                
+                {errors.genre && <p style={{ color: 'red' }}>{errors.category}</p>}
+                <select
+                    name="type"
+                    value={formData.type}
+                    onChange={handleInputChange} // Функція для обробки зміни значення
+                >
+                    <option value="">Оберіть тип софту</option>
+                    <option value="Game">Гра</option>
+                    <option value="Propgram">Програма</option>
+                    <option value="Instrument">Інструмент</option>
+                </select>
+                {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
+                <select
+                    name="players"
+                    value={formData.players}
+                    onChange={handleInputChange} // Функція для обробки зміни значення
+                >
+                    <option value="">Оберіть тип гри</option>
+                    <option value="Single Player">Самітна гра</option>
+                    <option value="Multiplayer">Багатокористувацька гра</option>
+                    <option value="Cooperative">Кооперативна гра</option>
+                </select>
+                {errors.players && <p style={{ color: 'red' }}>{errors.category}</p>}
+                {/* Селект для підтримки пристроїв */}
+                <select
+                    name="deviceSupport"
+                    value={formData.deviceSupport}
+                    onChange={handleInputChange} // Функція для обробки зміни значення
+                >
+                    <option value="">Оберіть підтримку пристроїв</option>
+                    <option value="Full Controller Support">Повна підтримка контроллерів</option>
+                    <option value="Controller Recommended">Бажано мати контроллер</option>
+                    <option value="VR">ВР</option>
+                </select>
 
                 <div>
-                    {/*<h3>Досягнення необхідно створити мінімум одне</h3>*/}
+                    <h3>Досягнення необхідно створити, мінімум одне</h3>
                     {formData.achievements.map((achievement, index) => (
                         <div key={index} style={{ marginTop: '20px', padding: '0 20px 20px 20px', border: '2px solid white' }}>
                             <input

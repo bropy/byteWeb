@@ -57,3 +57,47 @@
     justify-content: center;
 }
 
+/* Style for the select fields */
+.form select {
+    display: flex;
+    flex-shrink: 0;
+    width: 860px;
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 20px;
+    background-color: #252525; /* Background color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    appearance: none; /* Remove default arrow */
+    position: relative; /* For pseudo-element positioning */
+}
+
+/* Custom arrow for the select fields */
+.form select::after {
+    content: '▼'; /* Down arrow */
+    position: absolute;
+    right: 20px;
+    top: calc(50% - 10px); /* Center the arrow */
+    color: white; /* Arrow color */
+    pointer-events: none; /* Prevent interaction */
+}
+
+/* Add focus and hover effects */
+.form select:hover,
+.form select:focus {
+    border-color: #FA3992; /* Change border color on hover/focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Optional: styling for the dropdown */
+.form select option {
+    background-color: #252525; /* Background color for options */
+    color: white; /* Text color for options */
+}
+
+/* Style for disabled select */
+.form select:disabled {
+    background-color: #777; /* Dark gray background for disabled */
+    color: #aaa; /* Light gray text for disabled */
+}
