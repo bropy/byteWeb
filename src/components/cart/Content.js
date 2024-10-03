@@ -53,60 +53,7 @@ export default function Content ({cart}) {
                 {isConfirmed ? 'ПІДТВЕРДЖЕННЯ' : 'ВАШ КОШИК'}
             </div>
             <div className={`${styles.container}`}>
-                <div className={`${positioning.column} ${positioning.dynamic} ${positioning.marginRight20}`}>
-                    <br /><hr /><br />
-                    <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.uppercase}`}>
-                        Спосіб оплати
-                    </div>
-                    <br />
-                    <div className={`${text.fontWeight800} ${text.uppercase}`}>
-                        Банківська картка
-                    </div>
-                    <br />
-                    <form className={`${styles.details}`}>
-                        <div className={`${positioning.row} ${positioning.justifyBetween}`}>
-                            <div className={`${text.textMediumSmall} ${text.fontWeight800}`}>
-                                Реквізити картки
-                            </div>
-                            <div className={`${styles.gap20}`}>
-                                <div className={`${styles.mastercard}`}/>
-                                <div className={`${styles.visa}`}/>
-                            </div>
-                        </div>
-                        <div className={`${styles.width65}`}>
-                            <input type='text' inputmode='numeric' pattern='[0-9\s]{13,19}'
-                                autocomplete='cc-number' maxlength='19' id='card_number' 
-                                name='card_number' placeholder='* Номер картки' className={styles.input} />
-                        </div>
-                        <div className={`${styles.width65}`}>
-                            <input type='text' maxlength='7' id='card_expire' name='card_expire' 
-                                placeholder='* Термін дії' className={styles.input} />
-                            <input type='text' inputmode='numeric' maxlength='3' id='card_cvv' 
-                                name='card_cvv' placeholder='* CVV' className={styles.input} />
-                        </div>
-                        <div>
-                            *Обов’язково: зберегти цей спосіб оплати для майбутніх покупок?
-                        </div>
-                        <div className={`${styles.gap20} ${positioning.border}`}>
-                            <div>
-                                <input type="radio" id="saveYes" name="savePayment" value="true" />
-                                <label htmlFor="saveYes" className={`${positioning.marginLeft10}`}>Так</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="saveNo" name="savePayment" value="false" />
-                                <label htmlFor="saveNo" className={`${positioning.marginLeft10}`}>Ні</label>
-                            </div>
-                        </div>
-                        <div style={{fontSize: '12px'}}>
-                            Якщо зберегти вашу платіжну інформацію, цей спосіб оплати буде обрано за замовчуванням 
-                            для всіх покупок, здійснених за допомогою оплати Byte. Ви можете будь-коли видалити 
-                            збережену платіжну інформацію на цьому платіжному екрані або увійшовши у свій обліковий 
-                            запис Byte і вибравши керування платежами в налаштуваннях облікового запису. 
-                            Дізнайтесь більше.
-                        </div> 
-                    </form>
-                </div> 
-                {/*isConfirmed ? 
+                {isConfirmed ? 
                     <div className={`${positioning.column} ${positioning.dynamic} ${positioning.marginRight20}`}>
                         <br /><hr /><br />
                         <div className={`${text.textMediumSmall} ${text.fontWeight800} ${text.uppercase}`}>
@@ -117,10 +64,48 @@ export default function Content ({cart}) {
                             Банківська картка
                         </div>
                         <br />
-                        <div className={`${styles.details}`}>
-                            <div>
+                        <form className={`${styles.details}`}>
+                            <div className={`${positioning.row} ${positioning.justifyBetween}`}>
+                                <div className={`${text.textMediumSmall} ${text.fontWeight800}`}>
+                                    Реквізити картки
+                                </div>
+                                <div className={`${styles.gap20}`}>
+                                    <div className={`${styles.mastercard}`}/>
+                                    <div className={`${styles.visa}`}/>
+                                </div>
                             </div>
-                        </div>
+                            <div className={`${styles.width65}`}>
+                                <input type='text' inputmode='numeric' pattern='[0-9\s]{13,19}'
+                                    autocomplete='cc-number' maxlength='19' id='card_number' 
+                                    name='card_number' placeholder='* Номер картки' className={styles.input} />
+                            </div>
+                            <div className={`${styles.width65}`}>
+                                <input type='text' maxlength='7' id='card_expire' name='card_expire' 
+                                    placeholder='* Термін дії' className={styles.input} />
+                                <input type='text' inputmode='numeric' maxlength='3' id='card_cvv' 
+                                    name='card_cvv' placeholder='* CVV' className={styles.input} />
+                            </div>
+                            <div>
+                                *Обов’язково: зберегти цей спосіб оплати для майбутніх покупок?
+                            </div>
+                            <div className={`${styles.gap20} ${positioning.border}`}>
+                                <div>
+                                    <input type="radio" id="saveYes" name="savePayment" value="true" />
+                                    <label htmlFor="saveYes" className={`${positioning.marginLeft10}`}>Так</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="saveNo" name="savePayment" value="false" />
+                                    <label htmlFor="saveNo" className={`${positioning.marginLeft10}`}>Ні</label>
+                                </div>
+                            </div>
+                            <div style={{fontSize: '12px'}}>
+                                Якщо зберегти вашу платіжну інформацію, цей спосіб оплати буде обрано за замовчуванням 
+                                для всіх покупок, здійснених за допомогою оплати Byte. Ви можете будь-коли видалити 
+                                збережену платіжну інформацію на цьому платіжному екрані або увійшовши у свій обліковий 
+                                запис Byte і вибравши керування платежами в налаштуваннях облікового запису. 
+                                Дізнайтесь більше.
+                            </div> 
+                        </form>
                     </div> 
                     : 
                     <div className={`${positioning.column} ${positioning.dynamic} ${positioning.marginRight20}`}>
@@ -134,7 +119,7 @@ export default function Content ({cart}) {
                             )))}  
                         </div>
                     </div>
-                */}
+                }
 
                 <div className={`${styles.total} ${positioning.column}`}>
                     <br /><hr /><br />
