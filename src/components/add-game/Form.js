@@ -1,25 +1,24 @@
 import { useState } from 'react';
-import styles from '../../styles/Form.module.css';
-import text from '../../styles/Text.module.css';
 import { useRouter } from 'next/router';
+import { format } from 'date-fns';
+import { useEffect } from 'react';
 
-const AddGameForm = () => {
+const AddGameForm = ({ publisherId }) => {
     const router = useRouter();
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        avatar: '', 
-        file: '', 
+        avatar: null,
         source: '',
         releaseDate: '',
         price: '',
         approved: false,
-        developers: [],
-        publisher: ''
+        developer: publisherId,
+        achievements: []
     });
 
     const [errors, setErrors] = useState({});
-    const [loading, setLoading] = useState(false); // For the image upload process
+    const [loading, setLoading] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -28,182 +27,273 @@ const AddGameForm = () => {
             [name]: value
         }));
     };
-
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        setFormData((prevData) => ({ ...prevData, file }));
+    useEffect(() => {
+        console.log('Publisher ID:', publisherId); // Check if the ID is being passed correctly
+    }, [publisherId]);
+    const handleAchievementChange = (index, e) => {
+        const { name, value } = e.target;
+        const newAchievements = [...formData.achievements];
+        newAchievements[index][name] = value;
+        setFormData((prevData) => ({
+            ...prevData,
+            achievements: newAchievements
+        }));
     };
 
+    const handleAchievementImageChange = (index, e) => {
+        const file = e.target.files[0];
+        const newAchievements = [...formData.achievements];
+        newAchievements[index].image = file;
+        setFormData((prevData) => ({
+            ...prevData,
+            achievements: newAchievements
+        }));
+    };
 
-const uploadImage = async () => {
-    const formDataImage = new FormData();
-    formDataImage.append('image', formData.file);
-  
-    setLoading(true);
-  
-    try {
-      const res = await fetch('/api/upload', {
-        method: 'POST',
-        body: formDataImage,
-      });
-  
-      if (!res.ok) {
-        const errorResponse = await res.json();
-        console.error('Error from API:', errorResponse);
-        throw new Error(errorResponse.error || 'Image upload failed');
-      }
-  
-      const data = await res.json(); 
-      setLoading(false);
-  
-      return data.url; // URL
-    } catch (error) {
-      setLoading(false);
-      console.error('Error during image upload:', error);
-      throw new Error('Image upload failed');
-    }
-  };
-      
-      
-    
+    const addAchievement = () => {
+        setFormData((prevData) => ({
+            ...prevData,
+            achievements: [...prevData.achievements, { name: '', instruction: '', image: null }]
+        }));
+    };
 
+    const removeAchievement = (index) => {
+        const newAchievements = formData.achievements.filter((_, i) => i !== index);
+        setFormData((prevData) => ({
+            ...prevData,
+            achievements: newAchievements
+        }));
+    };
+
+    const handleAvatarChange = (e) => {
+        const file = e.target.files[0];
+        setFormData((prevData) => ({ ...prevData, avatar: file }));
+    };
     const validateForm = () => {
         const newErrors = {};
-
+    
         if (!formData.title.trim()) newErrors.title = 'Назва гри є обов\'язковою';
         if (!formData.description.trim()) newErrors.description = 'Опис гри є обов\'язковим';
         if (!formData.source.trim()) newErrors.source = 'Джерело гри є обов\'язковим';
         if (!formData.releaseDate.trim()) newErrors.releaseDate = 'Дата релізу є обов\'язковою';
         if (!formData.price.trim() || isNaN(formData.price)) newErrors.price = 'Ціна гри має бути числом';
-        if (!formData.file) newErrors.file = 'Зображення є обов\'язковим';
-
+        if (!formData.avatar) newErrors.avatar = 'Зображення гри є обов\'язковим';
+    
+        // Ensure at least one achievement is added
+        if (formData.achievements.length === 0) {
+            newErrors.achievements = 'Мінімум одне досягнення є обов\'язковим';
+        } else {
+            formData.achievements.forEach((achievement, index) => {
+                if (!achievement.name.trim()) newErrors[`achievement${index}Name`] = 'Назва досягнення є обов\'язковою';
+                if (!achievement.instruction.trim()) newErrors[`achievement${index}Instruction`] = 'Інструкція є обов\'язковою';
+                if (!achievement.image) newErrors[`achievement${index}Image`] = 'Зображення досягнення є обов\'язковим';
+            });
+        }
+    
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
+    };
+    
+
+    const uploadImage = async (file) => {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+            const res = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!res.ok) {
+                throw new Error('Image upload failed');
+            }
+
+            const data = await res.json();
+            return data.url;
+        } catch (error) {
+            console.error('Error during image upload:', error);
+            throw error;
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (validateForm()) {
-            try {
-                // First, upload the image and get the Cloudinary URL
-                const avatarUrl = await uploadImage();
-
-                // Now prepare the payload with the image URL
-                const payload = {
-                    title: formData.title,
-                    description: formData.description,
-                    avatar: avatarUrl, // Cloudinary image URL
-                    source: formData.source,
-                    releaseDate: formData.releaseDate,
-                    price: parseFloat(formData.price),
-                    approved: formData.approved,
-                    developers: formData.developers,
-                    publisher: formData.publisher
-                };
-
-                console.log('Payload:', payload);
-
-                // Send the game data to your backend
-                const response = await fetch('https://byteserver-b28593dfb543.herokuapp.com/games', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log('Game added successfully:', data);
-                    router.push('/games'); // Redirect to the games page
-                } else {
-                    const error = await response.text();
-                    console.error('Server response:', error);
-                }
-            } catch (error) {
-                console.error('Image upload or form submission failed:', error);
+        if (!validateForm()) return;
+    
+        setLoading(true);
+    
+        try {
+            // Upload the avatar image and achievement images
+            const avatarUrl = await uploadImage(formData.avatar);
+    
+            const achievementsWithUploadedImages = await Promise.all(
+                formData.achievements.map(async (achievement) => {
+                    const imageUrl = await uploadImage(achievement.image);
+                    return { ...achievement, image: imageUrl };
+                })
+            );
+    
+            // Prepare the game data payload
+            const gameData = {
+                title: formData.title,
+                description: formData.description,
+                source: formData.source,
+                releaseDate: formData.releaseDate,
+                price: formData.price,
+                approved: formData.approved,
+                avatar: avatarUrl,
+                developer: publisherId,
+                achievements: achievementsWithUploadedImages
+            };
+    
+            // Log the payload before sending it to the server
+            console.log('Payload to be sent:', JSON.stringify(gameData, null, 2));
+    
+            // Send the game data to the backend
+            const response = await fetch('https://byteserver-b28593dfb543.herokuapp.com/games', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(gameData),
+            });
+    
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to create game');
             }
+    
+            console.log('Game created successfully');
+            router.push('/');
+        } catch (error) {
+            console.error('Error:', error);
+            setErrors({ submit: error.message });
+        } finally {
+            setLoading(false);
         }
     };
-
+    
     return (
-        <div className={styles.smain}>
-            <div className={styles.main}>
-                <div className={`${styles.h1} ${text.fontWeight800}`}>
-                    <h1>Додати нову гру</h1>
+        <div style={{ maxWidth: '600px', margin: '0 auto', padding: '20px' }}>
+            <h1>Додати нову гру</h1>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Назва гри"
+                    value={formData.title}
+                    onChange={handleInputChange}
+                    style={{ display: 'block', width: '100%', marginBottom: '10px' }}
+                />
+                {errors.title && <p style={{ color: 'red' }}>{errors.title}</p>}
+
+                <textarea
+                    name="description"
+                    placeholder="Опис гри"
+                    value={formData.description}
+                    onChange={handleInputChange}
+                    style={{ display: 'block', width: '100%', marginBottom: '10px' }}
+                />
+                {errors.description && <p style={{ color: 'red' }}>{errors.description}</p>}
+
+                <input
+                    type="text"
+                    name="source"
+                    placeholder="Джерело"
+                    value={formData.source}
+                    onChange={handleInputChange}
+                    style={{ display: 'block', width: '100%', marginBottom: '10px' }}
+                />
+                {errors.source && <p style={{ color: 'red' }}>{errors.source}</p>}
+
+                <input
+                    type="date"
+                    name="releaseDate"
+                    value={formData.releaseDate}
+                    onChange={handleInputChange}
+                    style={{ display: 'block', width: '100%', marginBottom: '10px' }}
+                />
+                {errors.releaseDate && <p style={{ color: 'red' }}>{errors.releaseDate}</p>}
+
+                <input
+                    type="number"
+                    name="price"
+                    placeholder="Ціна"
+                    value={formData.price}
+                    onChange={handleInputChange}
+                    style={{ display: 'block', width: '100%', marginBottom: '10px' }}
+                />
+                {errors.price && <p style={{ color: 'red' }}>{errors.price}</p>}
+
+                <input
+                    type="file"
+                    name="avatar"
+                    onChange={handleAvatarChange}
+                    style={{ display: 'block', marginBottom: '10px' }}
+                />
+                {errors.avatar && <p style={{ color: 'red' }}>{errors.avatar}</p>}
+
+                <div>
+                    <h3>Досягнення необхідно створити мінімум одне</h3>
+                    {formData.achievements.map((achievement, index) => (
+                        <div key={index} style={{ marginBottom: '20px', padding: '10px', border: '1px solid #ccc' }}>
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Назва досягнення"
+                                value={achievement.name}
+                                onChange={(e) => handleAchievementChange(index, e)}
+                                style={{ display: 'block', width: '100%', marginBottom: '10px' }}
+                            />
+                            {errors[`achievement${index}Name`] && <p style={{ color: 'red' }}>{errors[`achievement${index}Name`]}</p>}
+
+                            <input
+                                type="text"
+                                name="instruction"
+                                placeholder="Інструкція"
+                                value={achievement.instruction}
+                                onChange={(e) => handleAchievementChange(index, e)}
+                                style={{ display: 'block', width: '100%', marginBottom: '10px' }}
+                            />
+                            {errors[`achievement${index}Instruction`] && <p style={{ color: 'red' }}>{errors[`achievement${index}Instruction`]}</p>}
+
+                            <input
+                                type="file"
+                                name="image"
+                                onChange={(e) => handleAchievementImageChange(index, e)}
+                                style={{ display: 'block', marginBottom: '10px' }}
+                            />
+                            {errors[`achievement${index}Image`] && <p style={{ color: 'red' }}>{errors[`achievement${index}Image`]}</p>}
+
+                            <button
+                                type="button"
+                                onClick={() => removeAchievement(index)}
+                                style={{ backgroundColor: 'red', color: 'white', border: 'none', padding: '5px 10px', cursor: 'pointer' }}
+                            >
+                                Видалити досягнення
+                            </button>
+                        </div>
+                    ))}
+                    <button
+                        type="button"
+                        onClick={addAchievement}
+                        style={{ backgroundColor: 'green', color: 'white', border: 'none', padding: '5px 10px', cursor: 'pointer', marginBottom: '20px' }}
+                    >
+                        + Додати досягнення
+                    </button>
                 </div>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="title"
-                        className={`${styles.inputContainer} ${errors.title && styles.error}`}
-                        placeholder="Назва гри"
-                        value={formData.title}
-                        onChange={handleInputChange}
-                    />
-                    {errors.title && <p className={styles.errorText}>{errors.title}</p>}
 
-                    <textarea
-                        name="description"
-                        className={`${styles.inputContainer} ${errors.description && styles.error}`}
-                        placeholder="Опис гри"
-                        value={formData.description}
-                        onChange={handleInputChange}
-                    />
-                    {errors.description && <p className={styles.errorText}>{errors.description}</p>}
+                {errors.submit && <p style={{ color: 'red' }}>{errors.submit}</p>}
 
-                    <input
-                        type="file"
-                        accept="image/*"
-                        className={`${styles.inputContainer} ${errors.file && styles.error}`}
-                        onChange={handleFileChange}
-                    />
-                    {errors.file && <p className={styles.errorText}>{errors.file}</p>}
-                    {loading && <p>Завантаження зображення...</p>}
-
-                    <input
-                        type="text"
-                        name="source"
-                        className={`${styles.inputContainer} ${errors.source && styles.error}`}
-                        placeholder="Джерело гри"
-                        value={formData.source}
-                        onChange={handleInputChange}
-                    />
-                    {errors.source && <p className={styles.errorText}>{errors.source}</p>}
-
-                    <input
-                        type="date"
-                        name="releaseDate"
-                        className={`${styles.inputContainer} ${errors.releaseDate && styles.error}`}
-                        placeholder="Дата релізу"
-                        value={formData.releaseDate}
-                        onChange={handleInputChange}
-                    />
-                    {errors.releaseDate && <p className={styles.errorText}>{errors.releaseDate}</p>}
-
-                    <input
-                        type="number"
-                        name="price"
-                        className={`${styles.inputContainer} ${errors.price && styles.error}`}
-                        placeholder="Ціна гри"
-                        value={formData.price}
-                        onChange={handleInputChange}
-                    />
-                    {errors.price && <p className={styles.errorText}>{errors.price}</p>}
-
-                    <input
-                        type="text"
-                        name="publisher"
-                        className={styles.inputContainer}
-                        placeholder="ID або ім'я видавця"
-                        value={formData.publisher}
-                        onChange={handleInputChange}
-                    />
-
-                    <button type='submit' className={styles.Submit}>ДОДАТИ ГРУ</button>
-                </form>
-            </div>
+                <button
+                    type="submit"
+                    disabled={loading}
+                    style={{ padding: '10px 20px', backgroundColor: 'blue', color: 'white', border: 'none', cursor: 'pointer' }}
+                >
+                    {loading ? 'Додавання...' : 'ДОДАТИ ГРУ'}
+                </button>
+            </form>
         </div>
     );
 };

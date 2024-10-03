@@ -1,5 +1,6 @@
+// pages/api/upload.js
 import { v2 as cloudinary } from 'cloudinary';
-import formidable from 'formidable';
+import multer from 'multer';
 import fs from 'fs';
 
 cloudinary.config({
@@ -7,6 +8,8 @@ cloudinary.config({
   api_key: '276536332263392',
   api_secret: 'Kj1vBpMSceB3IGQP-XV8FmsQF84',
 });
+
+const upload = multer({ dest: './public/uploads/' });
 
 export const config = {
   api: {
@@ -16,32 +19,20 @@ export const config = {
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
-    const form = new formidable.IncomingForm();
-    form.uploadDir = './';
-    form.keepExtensions = true;
-    form.maxFileSize = 10 * 1024 * 1024; // 10MB
-
-    form.parse(req, async (err, fields, files) => {
+    upload.single('image')(req, res, async (err) => {
       if (err) {
         console.error('Error parsing the file:', err);
         return res.status(500).json({ error: 'Error parsing the file' });
       }
 
-      const filePath = files.image?.filepath;
-
-      if (!filePath) {
-        console.error('No file path found!');
-        return res.status(400).json({ error: 'No file provided' });
-      }
-
       try {
-        const uploadResponse = await cloudinary.uploader.upload(filePath, {
+        const uploadResponse = await cloudinary.uploader.upload(req.file.path, {
           upload_preset: 'bytedata',
         });
         console.log('Cloudinary upload response:', uploadResponse);
 
         // Delete the uploaded file from the server
-        fs.unlinkSync(filePath);
+        fs.unlinkSync(req.file.path);
 
         return res.status(200).json({ url: uploadResponse.secure_url });
       } catch (uploadError) {
