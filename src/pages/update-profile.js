@@ -4,11 +4,12 @@ import Form from "../components/add-game/Form";
 import Footer from "@/components/layouts/Footer";
 import mainStyle from '../styles/MainStyle.module.css';
 import Loading from '@/components/layouts/Loading';
-export default function AddGame() {
+
+export default function UpdateProfile() {
     const { user } = useUser(); // Use custom hook to access user context
 
     if (!user) {
-        return <Loading />; // Handle loading or redirection
+        return <Loading />; // Handle loading 
     }
 
     return (

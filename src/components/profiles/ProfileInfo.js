@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { fetchData } from '../../pages/api/profileApi';
 import Button from '../layouts/Button';
 import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
@@ -9,6 +7,13 @@ import styles from '../../styles/profile/ProfileInfo.module.css';
 export default function ProfileInfo({ profile, currentUser }) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedProfile, setEditedProfile] = useState(profile);
+
+    console.log("ProfileInfo component - profile:", profile, "currentUser:", currentUser);
+
+    useEffect(() => {
+        console.log("ProfileInfo component - useEffect triggered");
+        setEditedProfile(profile);
+    }, [profile]);
 
     const handleEditChange = (e) => {
         const { name, value } = e.target;
@@ -24,8 +29,13 @@ export default function ProfileInfo({ profile, currentUser }) {
             },
             body: JSON.stringify(editedProfile),
         });
-        setIsEditing(false); // Close the popup after saving changes
+        setIsEditing(false);
     };
+
+    const isOwnProfile = currentUser && currentUser.id === profile.id;
+
+    console.log("ProfileInfo component - isOwnProfile:", isOwnProfile);
+    console.log("ProfileInfo component - currentUser.id:", currentUser?.id, "profile.id:", profile.id);
 
     return (
         <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.profileInfo}`}>
@@ -56,7 +66,7 @@ export default function ProfileInfo({ profile, currentUser }) {
                             <p>{profile.status || "No data"}</p>
                         </div>
                     </div>
-                    {currentUser && currentUser.id === profile.userId ? (
+                    {isOwnProfile ? (
                         <Button onClick={() => setIsEditing(true)}>
                             <div>Редагувати профіль</div>
                         </Button>
@@ -75,7 +85,7 @@ export default function ProfileInfo({ profile, currentUser }) {
                         <input
                             type="text"
                             name="nickname"
-                            value={editedProfile.nickname}
+                             value={editedProfile.nickname}
                             onChange={handleEditChange}
                             placeholder="Nickname"
                         />

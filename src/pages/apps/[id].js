@@ -5,7 +5,7 @@ import { fetchData } from '../api/gameApi';
 import Navbar from "../../components/layouts/Navbar";
 import Content from '../../components/apps/Content';
 import Footer from "../../components/layouts/Footer";
-
+import Loading from '@/components/layouts/Loading';
 import mainStyle from '../../styles/MainStyle.module.css'
 
 
@@ -32,7 +32,7 @@ export default function App() {
       }
     }, [id]);
 
-    if (loading) return <div>Loading...</div>;
+    if (loading) return <div><Loading/></div>;
     //if (!app) return <div>No app found</div>;
     //if (error) return <div>Error: {error}</div>;
 

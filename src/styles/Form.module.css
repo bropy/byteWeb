@@ -169,9 +169,7 @@ line-height: 100%; /* 18px */
     width: 31%;
     margin-right: 30px;
 }
-.error {
-    border: 2px solid red;
-}
+
 
 .errorText {
     color: red;
