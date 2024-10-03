@@ -1,0 +1,59 @@
+.container {
+    width: 860px;
+    margin: 0px auto;
+}
+
+.container h1 {
+    width: 860px;
+    margin: 40px 0 20px 0;
+    color: white;
+    font-size: 45px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    max-width: 860px;
+    align-items: center;
+}
+
+.form input, 
+.form textarea, 
+.form label,
+.form button {
+    display: flex;
+    flex-shrink: 0;
+    width: 860px;
+    margin-top: 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 20px;
+    align-items: center;
+    color: #252525;
+}
+
+.form textarea {
+    height: 320px;
+}
+
+/*.form input::file-selector-button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 20px;
+    color: #252525;
+}*/
+
+.form label,
+.form button {
+    color: white;
+    text-wrap: nowrap;
+}
+
+.form button {
+    justify-content: center;
+}
+

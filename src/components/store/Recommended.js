@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect } from 'react';
 
 import Button from '../layouts/Button'
 
+import mainStyle from '../../styles/MainStyle.module.css'
 import positioning from '../../styles/Positioning.module.css'
 import text from '../../styles/Text.module.css'
 import styles from '../../styles/store/Recommended.module.css'
@@ -45,7 +46,8 @@ export default function Recommended () {
                 ВІДІБРАНЕ І РЕКОМЕНДАЦІЇ
             </div>
             <div className={styles.gameInfoContainer}>
-                <div className={`${text.textMediumSmall} ${text.fontWeight800}`}>
+                <div className={`${mainStyle.interactive} ${text.textMediumSmall} ${text.fontWeight800}`}
+                    onClick={() => window.location.href = `/apps/${currentGame.id}`}>
                     {currentGame.name}
                 </div>
                 <div className={`${text.textMedium} ${text.fontWeight200}`}>
@@ -66,8 +68,9 @@ export default function Recommended () {
                     Ігнорувати
                 </Button>
             </div>
-            <div className={styles.gameImage}
-                style={{backgroundImage: `url(${games.image})`}} />
+            <div className={`${styles.gameImage} ${mainStyle.interactive}`}
+                style={{backgroundImage: `url(${currentGame.image})`}} 
+                onClick={() => window.location.href = `/apps/${currentGame.id}`}/>
             <div className={`${styles.pagination} ${positioning.row} ${positioning.justifyCenter}`}>
                 {Array.from({ length: totalPages }, (_, index) => (
                     <div

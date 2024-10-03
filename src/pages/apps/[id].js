@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { fetchData } from '../api/gameApi';
 
-import Navbar from "../../components/layouts/Navbar";
+import Navbar from "../../components/layouts/Navbar2";
 import Content from '../../components/apps/Content';
 import Footer from "../../components/layouts/Footer";
 import Loading from '@/components/layouts/Loading';

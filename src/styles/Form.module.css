@@ -6,6 +6,7 @@
     align-items: center;
     
 }
+
 .main{
     max-width: 860px;
     display: flex;
@@ -13,6 +14,7 @@
     align-items: center;
     flex-shrink: 0;
 }
+
 .logo {
     width: 214px;
     height: 61px;
@@ -23,46 +25,48 @@
     background-position: center center; /* Centers the image in the container */
     text-align: center;
     margin-bottom: 20px;
-  }
+}
   
 .h1{
     width: 860px;
     color: #ffffff;
-text-align: center;
-font-size: 45px;
-margin-top: 20px;
-line-height: 120%; 
-text-transform: uppercase;
-margin-bottom: 10px;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 20px;
+    line-height: 120%; 
+    text-transform: uppercase;
+    margin-bottom: 10px;
 }
+
 .inputContainer{
     display: flex;
-width: 860px;
-height: 80px;
-padding: 20px;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-margin-top: 15px;
-border-radius: 20px;
-border: 2px solid #ffffff;
-color: #000000 !important;
-
+    width: 860px;
+    height: 80px;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-top: 15px;
+    border-radius: 20px;
+    border: 2px solid #ffffff;
+    color: #000000 !important;
 }
+
 .Submit{
     margin-top: 40px;
     display: flex;
-width: 858px;
-height: 80px;
-padding: 20px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-flex-shrink: 0;
-border-radius: 20px;
-background: #ffffff;
-color: rgb(0, 0, 0);
+    width: 858px;
+    height: 80px;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
 }
+
 .decDiv{
     margin-top: 40px;
     width: 308px;
