@@ -1,31 +1,20 @@
-import { useState, useEffect } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
-import { fetchData } from '../../pages/api/profileApi';
 import Button from '../layouts/Button';
 import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
 import styles from '../../styles/profile/ProfileInfo.module.css';
 
 export default function ProfileInfo({ profile, currentUser }) {
-    const [isEditing, setIsEditing] = useState(false);
-    const [editedProfile, setEditedProfile] = useState(profile);
+    const router = useRouter();
 
-    const handleEditChange = (e) => {
-        const { name, value } = e.target;
-        setEditedProfile((prev) => ({ ...prev, [name]: value }));
+    const openEditForm = (e) => {
+        e.preventDefault();
+        // Перенаправлення на сторінку редагування профілю
+        router.push(`/update-profile`);
     };
 
-    const handleSaveChanges = async () => {
-        // Call API to update profile
-        await fetch(`/profiles/${profile.id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(editedProfile),
-        });
-        setIsEditing(false); // Close the popup after saving changes
-    };
+    const isOwnProfile = currentUser && currentUser.id === profile.id;
 
     return (
         <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap} ${styles.profileInfo}`}>
@@ -56,51 +45,18 @@ export default function ProfileInfo({ profile, currentUser }) {
                             <p>{profile.status || "No data"}</p>
                         </div>
                     </div>
-                    {currentUser && currentUser.id === profile.userId ? (
-                        <Button onClick={() => setIsEditing(true)}>
+                    {isOwnProfile && (
+                        <Button onClick={openEditForm}>
                             <div>Редагувати профіль</div>
                         </Button>
-                    ) : (
+                    )}
+                    {!isOwnProfile && (
                         <Button>
                             <div>Слідкувати</div>
                         </Button>
                     )}
                 </div>
             </div>
-
-            {isEditing && (
-                <div className={styles.editPopup}>
-                    <div className={styles.popupContent}>
-                        <h3>Редагувати профіль</h3>
-                        <input
-                            type="text"
-                            name="nickname"
-                            value={editedProfile.nickname}
-                            onChange={handleEditChange}
-                            placeholder="Nickname"
-                        />
-                        <input
-                            type="text"
-                            name="country"
-                            value={editedProfile.country}
-                            onChange={handleEditChange}
-                            placeholder="Country"
-                        />
-                        <textarea
-                            name="description"
-                            value={editedProfile.description}
-                            onChange={handleEditChange}
-                            placeholder="Description"
-                        />
-                        <Button onClick={handleSaveChanges}>
-                            <div>Зберегти зміни</div>
-                        </Button>
-                        <Button onClick={() => setIsEditing(false)}>
-                            <div>Закрити</div>
-                        </Button>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }

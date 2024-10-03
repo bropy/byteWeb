@@ -88,13 +88,15 @@ const userMock = {
 };
 
 
-export default function Content({ profile }) {
+export default function Content({ profile, currentUser }) {
+    console.log("Content component - profile:", profile, "currentUser:", currentUser);
+
     return (
         <div className={`${positioning.container} ${text.textSmall} ${text.fontWeight600}`}>
             <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrap}`}>
                 <div className={`${positioning.column} ${styles.column}`}>
                     <div className={positioning.marginRight20}>
-                        <ProfileInfo profile={profile} />
+                        <ProfileInfo profile={profile} currentUser={currentUser} />
                     </div>
                     <ProfileMenu profile={profile} />
                 </div>
