@@ -79,6 +79,7 @@
     aspect-ratio: 70 / 27;
     max-width:inherit;
     background-color: white;
+    overflow: hidden;
 }
 
 .gap20 {

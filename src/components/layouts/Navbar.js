@@ -57,8 +57,8 @@ const Navbar = () => {
       <nav className="hidden md:block flex-grow">
         <ul className="flex justify-center space-x-6">
           <li>
-            <Link href="/store" className="text-white hover:text-gray-300">
-              {translations.store || 'Крамниця'}
+            <Link href="/download" className="text-white hover:text-gray-300">
+              {translations.download || 'Завантаження'}
             </Link>
           </li>
           <li>
@@ -67,8 +67,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/library" className="text-white hover:text-gray-300">
-              {translations.library || 'Бібліотека'}
+            <Link href="/support" className="text-white hover:text-gray-300">
+              {translations.support || 'Підтримка'}
             </Link>
           </li>
         </ul>
