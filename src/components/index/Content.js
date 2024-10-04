@@ -50,8 +50,8 @@ export default function Content () {
 
             <div>
                 <iframe className={`${positioning.container} ${styles.video}`}
-                src="https://www.youtube.com/embed/uV0zfAwazcs?si=T-tl1hCfMjR2WhCi" 
-                title="YouTube video player" frameBorder="0" 
+                src="https://www.youtube.com/embed/F9tprUGf45k" 
+                title="Byte - промо-ролік" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             </div>
