@@ -33,7 +33,11 @@ export default function New() {
                     <div key={game.id} className={styles.gameCard}>
                         <img src={game.avatar} alt={game.title} className={styles.gameImage} />
                         <div className={styles.gameDetails}>
-                            <h3 className={styles.gameTitle}>{game.title || 'Title not available'}</h3>
+                        <div
+                            className={`${styles.gameTitle}`}
+                            onClick={() => window.location.href = `/apps/${game.id}`}>
+                            {game.title}
+                        </div>
                             <p className={styles.gamePrice}>
                                 {game.price === 0 ? 'Вільний доступ' : `${game.price}₴`}
                             </p>
