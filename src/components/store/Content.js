@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import Recommended from './Recommended';
-
-import mainStyle from '../../styles/MainStyle.module.css';
+import New from './New';
 import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
 import search from '../../styles/layouts/Search.module.css';
 import styles from '../../styles/store/Content.module.css';
+import Adventure from './Adventure';
 
 export default function Content() {
     const [games, setGames] = useState([]);
@@ -45,10 +45,10 @@ export default function Content() {
                 <Recommended games={games} /> 
             </div>
             <div className={`${positioning.row} ${styles.marginTop}`}>
-                New               
+                <New games={games}/>               
             </div>
             <div className={`${positioning.row} ${styles.marginTop}`}>
-                Categories              
+                <Adventure games={games}/>              
             </div>
         </div>
     );

@@ -1,0 +1,55 @@
+.latestGamesContainer {
+    margin-top: 20px;
+}
+
+.gamesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gameCard {
+    border-radius: 50px;
+    color: white; /* Set text color to white for better contrast */
+    position: relative;
+    width: 200px; /* Set a fixed width for the game card */
+}
+
+.gameImage {
+    height: 360px;             
+    width: 320px;  
+        border-radius: 20px;         
+    background-size: cover;     
+    object-fit: cover;
+}
+
+
+.gameDetails {
+    padding: 5px;
+}
+
+.gameTitle {
+    font-size: 1.2rem; 
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.gamePrice {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.gameDiscount {
+    position: absolute;
+    top: 10px; /* Position discount label */
+    left: 10px;
+    background-color: red; /* Highlight the discount */
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.h1{
+    font-size: 56px;
+}
