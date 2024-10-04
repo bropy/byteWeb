@@ -2,7 +2,16 @@
     margin-top: 100px;
 }
 
+.panel {
+    display: flex;
+    flex-direction: row;
+}
+
 /* Filters */
+
+.filterSign {
+    display: none;
+}
 
 .filters {
     max-width: 480px;
@@ -128,6 +137,13 @@
 }
 
 @media only screen and (max-width: 645px) {
-    .filters { display: none; }
-    
+    .panel { flex-direction: column; }
+
+    .filters { 
+        display: none; 
+        max-width: none;
+        width: 100%;
+    }
+
+    .filterSign { display: block; }
 }
