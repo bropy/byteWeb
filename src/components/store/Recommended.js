@@ -1,15 +1,19 @@
-import { useState, useMemo, useEffect } from 'react';
+import { useEffect } from 'react';
 
-import Button from '../layouts/Button'
+import Button from '../layouts/Button';
+import { useState } from 'react';
+import mainStyle from '../../styles/MainStyle.module.css';
+import positioning from '../../styles/Positioning.module.css';
+import text from '../../styles/Text.module.css';
+import styles from '../../styles/store/Recommended.module.css';
 
-import mainStyle from '../../styles/MainStyle.module.css'
-import positioning from '../../styles/Positioning.module.css'
-import text from '../../styles/Text.module.css'
-import styles from '../../styles/store/Recommended.module.css'
+export default function Recommended({ games }) {
+    // Log the passed games to the console
+    useEffect(() => {
+        console.log('Received games:', games);
+    }, [games]);
 
-
-export default function Recommended () {
-    const games = [
+    const gamesj = [
         { id: 1, name: 'ELDEN RING', price: '1 799₴', description: 'THE NEW FANTASY ACTION RPG. Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.', releaseDate: '25 лют. 2022' },
         { id: 2, name: 'HORIZON FORBIDDEN WEST', price: '1 999₴', description: 'Join Aloy as she braves the Forbidden West, a dangerous frontier filled with mysterious new machines and cultures.', releaseDate: '18 лют. 2022' },
         { id: 3, name: 'GOD OF WAR RAGNAROK', price: '2 399₴', description: 'Follow Kratos and Atreus on a perilous journey as they face the end of days in Norse mythology.', releaseDate: '9 листопада 2022' },
@@ -41,23 +45,26 @@ export default function Recommended () {
     }, [totalPages]);
 
     return (
-        <div class={styles.container} >
-            <div class={`${styles.recommended} ${text.textMedium} ${text.fontWeight800} ${text.uppercase}`}>
+        <div className={styles.container} >
+            <div className={`${styles.recommended} ${text.textMedium} ${text.fontWeight800} ${text.uppercase}`}>
                 ВІДІБРАНЕ І РЕКОМЕНДАЦІЇ
             </div>
             <div className={styles.gameInfoContainer}>
                 <div className={`${mainStyle.interactive} ${text.textMediumSmall} ${text.fontWeight800}`}
                     onClick={() => window.location.href = `/apps/${currentGame.id}`}>
-                    {currentGame.name}
+                    {currentGame.title}
                 </div>
                 <div className={`${text.textMedium} ${text.fontWeight200}`}>
-                    {currentGame.price}
+                    {currentGame.price}₴
                 </div>
                 <div>{currentGame.description}</div>
                 <div className={positioning.row}>
-                    <div>ДАТА ВИХОДУ:&nbsp;</div>
-                    <div className={text.fontWeight700}>{currentGame.releaseDate}</div>
+                <div>ДАТА ВИХОДУ:&nbsp;</div>
+                <div className={text.fontWeight700}>
+                    {new Date(currentGame.releaseDate).toLocaleDateString('uk-UA', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </div>
+                </div>
+
             </div>
             <div className={styles.buttons}>
                 <Button href={'/'}>Додати до бажаного</Button>
@@ -68,9 +75,17 @@ export default function Recommended () {
                     Ігнорувати
                 </Button>
             </div>
-            <div className={`${styles.gameImage} ${mainStyle.interactive}`}
-                style={{backgroundImage: `url(${currentGame.image})`}} 
-                onClick={() => window.location.href = `/apps/${currentGame.id}`}/>
+            <div 
+            className={`${styles.gameImage} ${mainStyle.interactive}`} 
+            style={{
+                backgroundImage: `url(${currentGame.avatar})`,  
+                backgroundSize: 'cover',         
+                backgroundPosition: 'center',   
+                imageRendering: 'auto'                   
+            }} 
+            onClick={() => window.location.href = `/apps/${currentGame.id}`}
+            />
+
             <div className={`${styles.pagination} ${positioning.row} ${positioning.justifyCenter}`}>
                 {Array.from({ length: totalPages }, (_, index) => (
                     <div
