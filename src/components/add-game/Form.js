@@ -1,31 +1,29 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import styles from '../../styles/AddGameForm.module.css';
 
-import styles from '../../styles/AddGameForm.module.css'
-
-export default function AddGameForm ({ publisherId }) {
+export default function AddGameForm({ publisherId, publisherLogin }) {
     const router = useRouter();
 
     const [formData, setFormData] = useState({
         title: '',
         description: '',
-        headerImage: null,
-        logoImage: null,
+        avatar: null,
         source: '',
         releaseDate: '',
-        price: '',
+        price: 0,
         approved: false,
-        developer: publisherId,
-        achievements: [],
-        category: '',
+        developer: publisherLogin,
         genre: '',
+        type_game: '',
         players: '',
         deviceSupport: '',
+        status: 'Active',
+        achievements: [],
     });
 
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
-    const [isCategorySelected, setIsCategorySelected] = useState(false);
 
     useEffect(() => {
         console.log('Publisher ID:', publisherId);
@@ -35,7 +33,7 @@ export default function AddGameForm ({ publisherId }) {
         const { name, value } = e.target;
         setFormData((prevData) => ({
             ...prevData,
-            [name]: value
+            [name]: name === 'price' ? parseFloat(value) || 0 : value
         }));
     };
 
@@ -60,7 +58,7 @@ export default function AddGameForm ({ publisherId }) {
     const addAchievement = () => {
         setFormData((prevData) => ({
             ...prevData,
-            achievements: [...prevData.achievements, { name: '', description: '', image: null }]
+            achievements: [...prevData.achievements, { name: '', instruction: '', image: null }]
         }));
     };
 
@@ -71,33 +69,22 @@ export default function AddGameForm ({ publisherId }) {
         }));
     };
 
-    const handleSelectChange = (e) => {
-        const { name, value } = e.target;
-        if (!isCategorySelected) {
-            setFormData((prevData) => ({
-                ...prevData,
-                [name]: value
-            }));
-            setIsCategorySelected(true);
-        }
-    };
-
     const validateForm = () => {
         const newErrors = {};
         if (!formData.title.trim()) newErrors.title = 'Назва гри є обов\'язковою';
         if (!formData.description.trim()) newErrors.description = 'Опис гри є обов\'язковим';
-        if (!formData.headerImage) newErrors.headerImage = 'Зображення гри є обов\'язковим';
+        if (!formData.avatar) newErrors.avatar = 'Зображення гри є обов\'язковим';
         if (!formData.source.trim()) newErrors.source = 'Джерело гри є обов\'язковим';
         if (!formData.releaseDate.trim()) newErrors.releaseDate = 'Дата релізу є обов\'язковою';
-        if (!formData.price.trim() || isNaN(formData.price)) newErrors.price = 'Ціна гри має бути числом';
-        if (!formData.category) newErrors.category = 'Категорія є обов\'язковою';
+        if (!formData.type_game.trim()) newErrors.type_game = 'Тип програми є обов\'язковим'; // Validate app_type
+        if (isNaN(formData.price)) newErrors.price = 'Ціна гри має бути числом';
         if (!formData.genre) newErrors.genre = 'Жанр є обов\'язковим';
         if (!formData.players) newErrors.players = 'Тип гри є обов\'язковим';
         if (!formData.deviceSupport) newErrors.deviceSupport = 'Підтримка пристроїв є обов\'язковою';
 
         formData.achievements.forEach((achievement, index) => {
             if (!achievement.name.trim()) newErrors[`achievement${index}Name`] = 'Назва досягнення є обов\'язковою';
-            if (!achievement.description.trim()) newErrors[`achievement${index}Description`] = 'Опис досягнення є обов\'язковим';
+            if (!achievement.instruction.trim()) newErrors[`achievement${index}Instruction`] = 'Інструкція досягнення є обов\'язковою';
             if (!achievement.image) newErrors[`achievement${index}Image`] = 'Зображення досягнення є обов\'язковим';
         });
 
@@ -105,9 +92,9 @@ export default function AddGameForm ({ publisherId }) {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleHeaderImageChange = (e) => {
+    const handleAvatarChange = (e) => {
         const file = e.target.files[0];
-        setFormData((prevData) => ({ ...prevData, headerImage: file }));
+        setFormData((prevData) => ({ ...prevData, avatar: file }));
     };
 
     const uploadImage = async (file) => {
@@ -129,7 +116,6 @@ export default function AddGameForm ({ publisherId }) {
         const { url } = await response.json();
         return url;
     };
-    
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -138,7 +124,7 @@ export default function AddGameForm ({ publisherId }) {
         setLoading(true);
     
         try {
-            const headerImageUrl = await uploadImage(formData.headerImage);
+            const avatarUrl = await uploadImage(formData.avatar);
             const achievementsWithUploadedImages = await Promise.all(
                 formData.achievements.map(async (achievement) => {
                     const imageUrl = await uploadImage(achievement.image);
@@ -148,14 +134,15 @@ export default function AddGameForm ({ publisherId }) {
     
             const gameData = {
                 ...formData,
-                headerImage: headerImageUrl,
+                avatar: avatarUrl,
                 achievements: achievementsWithUploadedImages,
             };
-    
+            console.log('Дані, які відправляються на сервер:', JSON.stringify(gameData, null, 2));
+
             const response = await fetch('https://byteserver-b28593dfb543.herokuapp.com/games', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(gameData),
+                body: JSON.stringify(gameData,null,2),
             });
     
             if (!response.ok) throw new Error('Failed to create game');
@@ -169,7 +156,6 @@ export default function AddGameForm ({ publisherId }) {
             setLoading(false);
         }
     };
-    
     
     return (
         <div className={styles.container}>
@@ -220,19 +206,30 @@ export default function AddGameForm ({ publisherId }) {
                 />
                 {errors.price && <p style={{ color: 'red' }}>{errors.price}</p>}
 
-                <label name='headerImage'>
+                <label name='avatar'>
                     Зображення обкладинки гри
                     <input
                         type="file"
-                        name="headerImage"
+                        name="avatar"
                         style={{ height: '0px', padding: '0px', visibility: 'hidden'}}
-                        onChange={handleHeaderImageChange}/>
-                {errors.headerImage && <p style={{ color: 'red' }}>{errors.headerImage}</p>}
+                        onChange={handleAvatarChange}/>
+                {errors.avatar && <p style={{ color: 'red' }}>{errors.avatar}</p>}
                 </label>
+                <select
+                    name="type_game"
+                    value={formData.type_game}
+                    onChange={handleInputChange}
+                >
+                    <option value="">Оберіть тип програми</option>
+                    <option value="Game">Гра</option>
+                    <option value="Application">Застосунок</option>
+                    <option value="Instrument">Інструмент</option>
+                </select>
+                {errors.type_game && <p style={{ color: 'red' }}>{errors.type_game}</p>}
                 <select
                     name="genre"
                     value={formData.genre}
-                    onChange={handleInputChange} // Функція для обробки зміни значення
+                    onChange={handleInputChange}
                 >
                     <option value="">Оберіть жанр</option>
                     <option value="Role-playing">Рольові</option>
@@ -246,41 +243,31 @@ export default function AddGameForm ({ publisherId }) {
                     <option value="Action">Бойовик</option>
                     <option value="Strategy">Стратегія</option>
                 </select>
+                {errors.genre && <p style={{ color: 'red' }}>{errors.genre}</p>}
 
-                {errors.genre && <p style={{ color: 'red' }}>{errors.category}</p>}
-                <select
-                    name="type"
-                    value={formData.type}
-                    onChange={handleInputChange} // Функція для обробки зміни значення
-                >
-                    <option value="">Оберіть тип софту</option>
-                    <option value="Game">Гра</option>
-                    <option value="Propgram">Програма</option>
-                    <option value="Instrument">Інструмент</option>
-                </select>
-                {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
                 <select
                     name="players"
                     value={formData.players}
-                    onChange={handleInputChange} // Функція для обробки зміни значення
+                    onChange={handleInputChange}
                 >
                     <option value="">Оберіть тип гри</option>
                     <option value="Single Player">Самітна гра</option>
                     <option value="Multiplayer">Багатокористувацька гра</option>
                     <option value="Cooperative">Кооперативна гра</option>
                 </select>
-                {errors.players && <p style={{ color: 'red' }}>{errors.category}</p>}
-                {/* Селект для підтримки пристроїв */}
+                {errors.players && <p style={{ color: 'red' }}>{errors.players}</p>}
+
                 <select
                     name="deviceSupport"
                     value={formData.deviceSupport}
-                    onChange={handleInputChange} // Функція для обробки зміни значення
+                    onChange={handleInputChange}
                 >
                     <option value="">Оберіть підтримку пристроїв</option>
                     <option value="Full Controller Support">Повна підтримка контроллерів</option>
                     <option value="Controller Recommended">Бажано мати контроллер</option>
                     <option value="VR">ВР</option>
                 </select>
+                {errors.deviceSupport && <p style={{ color: 'red' }}>{errors.deviceSupport}</p>}
 
                 <div>
                     <h3>Досягнення необхідно створити, мінімум одне</h3>
@@ -297,18 +284,18 @@ export default function AddGameForm ({ publisherId }) {
 
                             <input
                                 type="text"
-                                name="description"
-                                placeholder="Опис досягнення"
-                                value={achievement.description}
+                                name="instruction"
+                                placeholder="Інструкція досягнення"
+                                value={achievement.instruction}
                                 onChange={(e) => handleAchievementChange(index, e)}
                             />
-                            {errors[`achievement${index}Description`] && <p style={{ color: 'red' }}>{errors[`achievement${index}Description`]}</p>}
+                            {errors[`achievement${index}Instruction`] && <p style={{ color: 'red' }}>{errors[`achievement${index}Instruction`]}</p>}
 
-                            <label name={`achivementImage${index}`}>
+                            <label name={`achievementImage${index}`}>
                                 Зображення досягнення
                                 <input
                                     type="file"
-                                    name={`achivementImage${index}`}
+                                    name={`achievementImage${index}`}
                                     style={{ height: '0px', padding: '0px', visibility: 'hidden'}}
                                     onChange={(e) => handleAchievementImageChange(index, e)}/>
                             {errors[`achievement${index}Image`] && <p style={{ color: 'red' }}>{errors[`achievement${index}Image`]}</p>}
@@ -335,4 +322,4 @@ export default function AddGameForm ({ publisherId }) {
             </form>
         </div>
     );
-};
+}

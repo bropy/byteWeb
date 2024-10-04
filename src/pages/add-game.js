@@ -14,7 +14,7 @@ export default function AddGame() {
     return (
         <div className={mainStyle.style}>
             <Navbar />
-            <Form publisherId={user.id} /> {/* Use user.id */}
+            <Form publisherId={user.id} publisherLogin={user.login} />
             <Footer />
         </div>
     );

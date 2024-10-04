@@ -233,7 +233,7 @@ const Form = () => {
                         id="showname"
                         name="showname"
                         className={`${styles.inputContainer} ${errors.showname && styles.error}`}
-                        placeholder="Відображуване ім'я"
+                        placeholder="Відображуване ім'я (не можна змінити потім)"
                         value={formData.showname}
                         onChange={handleInputChange}
                     />
