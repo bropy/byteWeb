@@ -146,4 +146,8 @@
     }
 
     .filterSign { display: block; }
+
+    .popupFilters {
+        display: block;
+    }
 }
