@@ -162,16 +162,19 @@ const Form = ({ userId }) => {
                     {errors.status && <p className={styles.errorText}>{errors.status}</p>}
 
                     <label className={styles.labelq} htmlFor="avatar">
-                        <span>Аватар</span>
+                        <span                             className={`${styles.pText} ${text.fontWeight800}`}
+                        >Завантажте аватар</span>
+                        <br/>
                         <input
                             type="file"
                             id="avatar"
                             name="avatar"
+                            style={{ height: '0px', padding: '0px', visibility: 'hidden'}}
                             onChange={handleAvatarChange}
                         />
                     </label>
 
-                    <button type="submit" className={stylesq.button}>Оновити обліковий запис</button>
+                    <button type="submit" className={`${stylesq.button}`}>Оновити обліковий запис</button>
                 </form>
             </div>
         </div>
