@@ -104,16 +104,6 @@ export default function Content({ profile, currentUser }) {
                     <ProfileActivity activity={profile.games} />
                 </div>
             </div>
-            <div className={`${positioning.row} ${positioning.justifyBetween} ${positioning.wrapReverse} ${styles.row}`}>
-                <div className={`${positioning.column} ${styles.column} ${positioning.marginRight20}`}>
-                    <ProfileComments comments={userMock.comments}/>
-                </div>
-                <div className={`${positioning.column} ${styles.column}`}>
-                    <FavoriteGame game={profile.favoriteGame}/>
-                    <br /><br />
-                    <ProfileGroups groups={userMock.groups} />
-                </div>
-            </div>
         </div>
     );
 }
