@@ -286,8 +286,12 @@ export default function Content () {
                                 </div>
                             )))}
                             {isTile ? 
-                                <GamePresentationTile game={{title: '', 
-                                    image: 'images/move_to_store.svg', url: '/store'}} /> : 
+                                <div className={`${mainStyle.interactive}`}
+                                    onClick={() => window.location.href = '/store'}>
+                                    <div className={styles.gameImage}
+                                        style={{backgroundImage: 'url(images/move_to_store.svg)'}}/>
+                                </div>
+                                :
                                 <div className={`${mainStyle.interactive}`}
                                     onClick={() => window.location.href = '/store'}>
                                     <div className={`${styles.gameImage} ${styles.gameImageTable} ${styles.storeElement}`}
