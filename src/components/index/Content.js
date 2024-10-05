@@ -31,7 +31,7 @@ export default function Content () {
             <Prompt isDesktop={isDesktop} />
             <div className={styles.space} />
 
-            <AboutProject isDesktop={isDesktop} />
+            <AboutProject id='aboutProject' isDesktop={isDesktop} />
             <div className={styles.space} />
 
             <div className={`${positioning.container} ${styles.feature} ${positioning.justifyStart}`}>
@@ -48,7 +48,7 @@ export default function Content () {
             </div>
             <div className={styles.space} />
 
-            <div>
+            <div id='brand'>
                 <iframe className={`${positioning.container} ${styles.video}`}
                 src="https://www.youtube.com/embed/F9tprUGf45k" 
                 title="Byte - промо-ролік" frameborder="0"

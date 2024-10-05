@@ -3,9 +3,9 @@ import text from '../../styles/Text.module.css';
 import styles from '../../styles/index/AboutProject.module.css';
 
 
-export default function AboutProject ({ isDesktop }) {
+export default function AboutProject ({ id, isDesktop }) {
     return (
-        <div className={`${positioning.container} ${isDesktop && positioning.row} ${positioning.justifyBetween}`}>
+        <div id={id} className={`${positioning.container} ${isDesktop && positioning.row} ${positioning.justifyBetween}`}>
             <div className={`${text.fontWeight800} ${positioning.marginBottom20}`} style={{ flex: `1` }}>
                 ПРО ПРОЄКТ
             </div>

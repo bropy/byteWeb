@@ -361,7 +361,7 @@ export default function Content () {
                     isOpen={isModalOpen} 
                     onClose={closeModal}>
                     <div className={`${positioning.column} ${text.textSmall} 
-                        ${text.fontWeight600} ${styles.filters}`}>
+                        ${text.fontWeight600} ${styles.filters} ${styles.popupFilters}`}>
                         <div className={`${text.textMediumSmall} ${text.uppercase} ${text.fontWeight800}`}>
                             Фільтри
                         </div>

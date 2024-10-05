@@ -10,13 +10,16 @@ import styles from '../../styles/apps/AppInfo.module.css'
 
 export default function AppInfo ({app}) {
     const { title = 'Title Not Found', description = 'Descriptiom Not Found', 
-        logo = '', trailerUrl = 'https://www.youtube.com/embed/F9tprUGf45k', screenshots = [
+        avatar = '', trailerUrl = 'https://www.youtube.com/embed/F9tprUGf45k', screenshots = [
             'https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
             'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             'https://images.pexels.com/photos/8885140/pexels-photo-8885140.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             'https://images.pexels.com/photos/15763947/pexels-photo-15763947/free-photo-of-game-boy-pocket-console.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'], 
-        price = 0, relaseDate = new Date().toLocaleDateString(), reviews = [],  } = app || {};
+        price = 0, releaseDate, reviews = [],  } = app || {};
+
+    const parsedReleaseDate = releaseDate ? new Date(releaseDate) : new Date();
+    const localizedReleaseDate = parsedReleaseDate.toLocaleDateString();
 
     const [currentMedia, setCurrentMedia] = useState(trailerUrl);
 
@@ -60,7 +63,7 @@ export default function AppInfo ({app}) {
                         referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
                     </div>
                     <div id="mediaScroll" className={`${styles.mediaPanel}`}>
-                        <img src={app.avatar} className={styles.mediaItem} 
+                        <img src={avatar} className={styles.mediaItem} 
                             onClick={() => handleMediaClick(trailerUrl)} />
                         {screenshots.map((screenshot, idx) => (
                             <img 
@@ -80,7 +83,7 @@ export default function AppInfo ({app}) {
                 </div>
                 <div className={`${styles.info}`}>
                     <div className={styles.logo}
-                        style={{backgroundImage: `url(${app.avatar})`}}/>
+                        style={{backgroundImage: `url(${avatar})`}}/>
                     <div className={`${styles.gap20}`}>
                         <div className={`${text.textMedium} ${text.fontWeight200}`}>
                             {price}₴
@@ -95,7 +98,7 @@ export default function AppInfo ({app}) {
                                 ДАТА ВИХОДУ:&nbsp;
                             </div>
                             <div className={`${text.fontWeight700}`}>
-                                {relaseDate}
+                                {localizedReleaseDate}
                             </div>
                         </div>
                         <div className={`${positioning.row}`}>
