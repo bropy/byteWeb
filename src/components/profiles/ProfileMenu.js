@@ -59,7 +59,7 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={() => window.location.href = '/profile/screenshots'}>
+                    onClick={() => window.location.href = '/community'}>
                     <div>Знімки екрана</div>
                     <div className={text.fontWeight800}>{profile.mediaCounter.screenshotCount}</div>
                 </div>
@@ -68,7 +68,7 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={() => window.location.href = '/profile/works'}>
+                    onClick={() => window.location.href = '/community'}>
                     <div>Творчі роботи</div>
                     <div className={text.fontWeight800}>{profile.mediaCounter.creativeWorkCount}</div>
                 </div>
@@ -77,7 +77,7 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={() => window.location.href = '/profile/videos'}>
+                    onClick={() => window.location.href = '/community'}>
                     <div>Відео</div>
                     <div className={text.fontWeight800}>{profile.mediaCounter.videoCount}</div>
                 </div>
@@ -86,7 +86,7 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={() => window.location.href = '/profile/guides'}>
+                    onClick={() => window.location.href = '/community'}>
                     <div>Посібники</div>
                     <div className={text.fontWeight800}>{profile.mediaCounter.guideCount}</div>
                 </div>
@@ -95,7 +95,7 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={() => window.location.href = '/profile/reviews'}>
+                    onClick={() => window.location.href = '/community'}>
                     <div>Рецензії</div>
                     <div className={text.fontWeight800}>{profile.mediaCounter.reviewCount}</div>
                 </div>

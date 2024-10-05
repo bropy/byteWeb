@@ -1,19 +1,10 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import Button from '../layouts/Button';
+import Link from 'next/link';
 import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
 import styles from '../../styles/profile/ProfileInfo.module.css';
 
 export default function ProfileInfo({ profile, currentUser }) {
-    const router = useRouter();
-
-    const openEditForm = (e) => {
-        e.preventDefault();
-        // Перенаправлення на сторінку редагування профілю
-        router.push(`/update-profile`);
-    };
-
     const isOwnProfile = currentUser && currentUser.id === profile.id;
 
     return (
@@ -46,14 +37,14 @@ export default function ProfileInfo({ profile, currentUser }) {
                         </div>
                     </div>
                     {isOwnProfile && (
-                        <Button onClick={openEditForm}>
-                            <div>Редагувати профіль</div>
-                        </Button>
+                        <Link href={`/update-profile`} className={styles.editProfileLink}>
+                            Редагувати профіль
+                        </Link>
                     )}
                     {!isOwnProfile && (
-                        <Button>
-                            <div>Слідкувати</div>
-                        </Button>
+                        <Link href="#" className={styles.editProfileLink}>
+                            Слідкувати
+                        </Link>
                     )}
                 </div>
             </div>

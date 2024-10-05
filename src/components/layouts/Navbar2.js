@@ -79,7 +79,7 @@ const Navbar = () => {
           <div className="relative" ref={accountDropdownRef}>
             <button onClick={toggleAccountDropdown} className="text-white hover:text-gray-300">
               <Image
-                src={`${user.avatar}`}
+                src={`https://static-00.iconduck.com/assets.00/profile-icon-512x512-w0uaq4yr.png`}
                 alt={`${user.nickname} Avatar`}
                 width={40}
                 height={40}
