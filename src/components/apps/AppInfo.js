@@ -10,7 +10,7 @@ import styles from '../../styles/apps/AppInfo.module.css'
 
 export default function AppInfo ({app}) {
     const { title = 'Title Not Found', description = 'Descriptiom Not Found', 
-        logo = '', trailerUrl = 'https://www.youtube.com/embed/3fLCwaA9qpw', screenshots = [
+        logo = '', trailerUrl = 'https://www.youtube.com/embed/F9tprUGf45k', screenshots = [
             'https://images.pexels.com/photos/275033/pexels-photo-275033.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', 
             'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
             'https://images.pexels.com/photos/371924/pexels-photo-371924.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
@@ -55,12 +55,12 @@ export default function AppInfo ({app}) {
                         style={{backgroundImage: `url(${currentMedia})`}}>
                         {currentMedia == trailerUrl &&<iframe className={`${styles.video}`}
                         src={trailerUrl} 
-                        title="YouTube video player" frameBorder="0" 
+                        title="Trailer" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                         referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>}
                     </div>
                     <div id="mediaScroll" className={`${styles.mediaPanel}`}>
-                        <img src={logo} className={styles.mediaItem} 
+                        <img src={app.avatar} className={styles.mediaItem} 
                             onClick={() => handleMediaClick(trailerUrl)} />
                         {screenshots.map((screenshot, idx) => (
                             <img 
@@ -79,7 +79,8 @@ export default function AppInfo ({app}) {
                     </div>
                 </div>
                 <div className={`${styles.info}`}>
-                    <div className={styles.logo}/>
+                    <div className={styles.logo}
+                        style={{backgroundImage: `url(${app.avatar})`}}/>
                     <div className={`${styles.gap20}`}>
                         <div className={`${text.textMedium} ${text.fontWeight200}`}>
                             {price}₴
