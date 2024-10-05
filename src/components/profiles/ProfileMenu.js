@@ -50,9 +50,9 @@ export default function ProfileMenu({ profile }) {
                     ${positioning.justifyBetween} 
                     ${styles.category} 
                     ${styles.interactive}`} 
-                    onClick={() => window.location.href = '/profile/games'}>
+                    onClick={() => window.location.href = '/library'}>
                     <div>Ігри</div>
-                    <div className={text.fontWeight800}>{profile.games.length}</div>
+                    <div className={text.fontWeight800}>10</div>
                 </div>
                 <div className={`
                     ${positioning.row} 
