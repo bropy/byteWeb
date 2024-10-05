@@ -11,10 +11,10 @@ import styles from '../../styles/cart/Content.module.css'
 
 
 export default function Content ({cart}) {
-    const {apps} = cart || {apps: [
-        {id: 1, title: 'Title 1', image: null, price: 1799},
-        {id: 2, title: 'Title 2', image: null, price: 1299},
-    ]};
+    const [apps, setApps] = useState(cart?.apps || [
+        { id: 1, title: 'Title 1', image: null, price: 1799 },
+        { id: 2, title: 'Title 2', image: null, price: 1299 },
+    ]);
 
     const [total, setTotal] = useState(0);
     const [discount, setDiscount] = useState(0);
@@ -37,6 +37,13 @@ export default function Content ({cart}) {
     const handleBuy = () => {
         // TODO
     }
+
+    const handleRemove = (id) => {
+        const updatedApps = apps.filter(app => app.id !== id);
+        setApps(updatedApps);
+        countTotal();
+    }
+
 
     return (
         <div className={`${positioning.container}`}>
@@ -88,15 +95,17 @@ export default function Content ({cart}) {
                             <div>
                                 *Обов’язково: зберегти цей спосіб оплати для майбутніх покупок?
                             </div>
-                            <div className={`${styles.gap20} ${positioning.border}`}>
-                                <div>
+                            <div className={`${styles.radioButtons} ${styles.gap20}`}>
+                                <label className={styles.radioContainer}>
                                     <input type="radio" id="saveYes" name="savePayment" value="true" />
-                                    <label htmlFor="saveYes" className={`${positioning.marginLeft10}`}>Так</label>
-                                </div>
-                                <div>
+                                    <span className={styles.checkmark}></span>
+                                    <span className={`${positioning.marginLeft10}`}>Так</span>
+                                </label>
+                                <label className={styles.radioContainer}>
                                     <input type="radio" id="saveNo" name="savePayment" value="false" />
-                                    <label htmlFor="saveNo" className={`${positioning.marginLeft10}`}>Ні</label>
-                                </div>
+                                    <span className={styles.checkmark}></span>
+                                    <span className={`${positioning.marginLeft10}`}>Ні</span>
+                                </label>
                             </div>
                             <div style={{fontSize: '12px'}}>
                                 Якщо зберегти вашу платіжну інформацію, цей спосіб оплати буде обрано за замовчуванням 
@@ -114,7 +123,7 @@ export default function Content ({cart}) {
                             {apps.length > 0 && (apps.map((app) => (
                                 <div key={app.id}>
                                     <br />
-                                    <AppPresentation app={app}/>
+                                    <AppPresentation app={app} handleRemove={() => handleRemove(app.id)}/>
                                 </div>
                             )))}  
                         </div>

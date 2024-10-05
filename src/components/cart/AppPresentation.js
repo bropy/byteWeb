@@ -9,14 +9,10 @@ import search from '../../styles/layouts/Search.module.css'
 import styles from '../../styles/cart/AppPresentation.module.css'
 
 
-export default function AppPresentation ({app}) {
+export default function AppPresentation ({app, handleRemove}) {
     const {title = 'Title Not Found', image = null, price = 0} = app || {};
 
     const handleAddToWishlist = () => {
-        // TODO
-    }
-
-    const handleRemove = () => {
         // TODO
     }
 
@@ -37,7 +33,7 @@ export default function AppPresentation ({app}) {
                     До бажаного
                 </div>
                 <div className={`${mainStyle.interactive} ${text.textDarkGray} ${text.underline}`}
-                    onClick={handleRemove}>
+                    onClick={() => handleRemove(app.id)}>
                     Вилучити
                 </div>
             </div>
