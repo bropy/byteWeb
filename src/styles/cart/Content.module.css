@@ -63,6 +63,42 @@
     outline: none; 
 }
 
+.radioButtons {
+    border: none;
+}
+
+.radioButtons label {
+    display: flex;
+    align-items: center;
+}
+
+.radioButtons input {
+    position: absolute; 
+    opacity: 0;
+}
+
+.radioButtons .checkmark {
+    position: relative;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    border: 2px solid white;
+    border-radius: 6px; 
+}
+
+.radioButtons input:checked + .checkmark::after {
+    position: absolute;
+    top: 4px;
+    left: 13px;
+    height: 20px;
+    width: 12px;
+    border: solid #FA3992;
+    border-width: 0 2px 2px 0;
+    content: "";
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
 .total {
     max-width: 420px;
     width: 21.875vw;

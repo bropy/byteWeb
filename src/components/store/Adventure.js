@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
+
+import mainStyle from '../../styles/MainStyle.module.css'
 import styles from '../../styles/store/New.module.css'; 
+
 
 export default function Adventure() {
     const [latestGames, setLatestGames] = useState([]);
@@ -32,7 +35,8 @@ export default function Adventure() {
             <h1 className={styles.gameTitle}>Ігри в категорії &quot;Пригоди&quot;</h1> {/* Escaped double quotes */}
             <div className={styles.gamesList}>
                 {latestGames.map(game => (
-                    <div key={game.id} className={styles.gameCard}>
+                    <div key={game.id} className={`${styles.gameCard} ${mainStyle.interactive}`}
+                        onClick={() => {window.location.href=`/apps/${game.id}`}}>
                         <img src={game.avatar} alt={game.title} className={styles.gameImage} />
                         <div className={styles.gameDetails}>
                         <div

@@ -356,7 +356,7 @@ export default function Content () {
                     />
                 </div>
 
-
+                {/* TODO: FIX Modal*/}
                 <Modal 
                     isOpen={isModalOpen} 
                     onClose={closeModal}>
