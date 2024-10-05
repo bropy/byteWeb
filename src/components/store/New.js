@@ -33,14 +33,15 @@ export default function New() {
             <h1 className={styles.gameTitle}>Останні ігри</h1>
             <div className={styles.gamesList}>
                 {latestGames.map(game => (
-                    <div key={game.id} className={`${styles.gameCard} ${mainStyle.interactive}`}
-                        onClick={() => {window.location.href=`/apps/${game.id}`}}>
-                        <img src={game.avatar} alt={game.title} className={styles.gameImage} />
+                    <div key={game.id} className={`${styles.gameCard}`}>
+                        <img src={game.avatar} alt={game.title} 
+                            className={`${styles.gameImage} ${mainStyle.interactive}`} 
+                            onClick={() => {window.location.href=`/apps/${game.id}`}}/>
                         <div className={styles.gameDetails}>
-                        <div
-                            className={`${styles.gameTitle}`}>
-                            {game.title}
-                        </div>
+                            <div className={`${styles.gameTitle} ${mainStyle.interactive}`}
+                                onClick={() => {window.location.href=`/apps/${game.id}`}}>
+                                {game.title}
+                            </div>
                             <p className={styles.gamePrice}>
                                 {game.price === 0 ? 'Вільний доступ' : `${game.price}₴`}
                             </p>

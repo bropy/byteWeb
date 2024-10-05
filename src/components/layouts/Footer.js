@@ -33,8 +33,7 @@ export default function Footer () {
             </div>
             <div className={`${styles.gridItem}`}>
                 <div className={`${positioning.column} ${positioning.alignStart} ${positioning.justifyBetween}`}>
-                    <div className={`${styles.interactive} ${text.fontWeight700}`} 
-                        onClick={() => window.location.href = '/'}>
+                    <div className={`${text.fontWeight700}`} >
                         {translations.product || 'Продукт'}
                     </div>
                     <br />
@@ -48,33 +47,26 @@ export default function Footer () {
                         <div className={styles.interactive} onClick={() => window.location.href = '/support'}>
                             {translations.support || 'Підтримка'}
                         </div>
-                        {/*<div className={styles.interactive} onClick={() => window.location.href = '/test_profile'}>
-                            {translations.profile || 'Профіль'}
-                        </div>
-                        <div className={styles.interactive} onClick={() => window.location.href = '/library'}>
-                            {translations.library || 'Бібліотека'}
-                        </div>*/}
                     </div>
                 </div>
             </div>
             <div className={`${styles.gridItem}`}>
                 <div className={`${positioning.column} ${positioning.alignStart} ${positioning.justifyBetween}`}>
-                    <div className={`${styles.interactive} ${text.fontWeight700}`} 
-                        onClick={() => window.location.href = '/'}>
+                    <div className={`${text.fontWeight700}`}>
                         {translations.company || 'Компанія'}
                     </div>
                     <br />
                     <div className={`${positioning.column} ${positioning.alignStart} ${positioning.justifyBetween}`}>
-                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/'}>
+                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/#aboutProject'}>
                             {translations.aboutUs || 'Про нас'}
                         </div>
-                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/'}>
+                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/vacancies'}>
                             {translations.jobs || 'Робота/Вакансії'}
                         </div>
-                        <div className={styles.interactive} onClick={() => window.location.href = '/'}>
+                        <div className={styles.interactive} onClick={() => window.location.href = '/#brand'}>
                             {translations.brand || 'Бренд'}
                         </div>
-                        <div className={styles.interactive} onClick={() => window.location.href = '/'}>
+                        <div className={styles.interactive} onClick={() => window.location.href = '/#news'}>
                             {translations.news || 'Новини'}
                         </div>
                     </div>
@@ -82,22 +74,21 @@ export default function Footer () {
             </div>
             <div className={`${styles.gridItem}`}>
             <div className={`${positioning.column} ${positioning.alignStart} ${positioning.justifyBetween}`}>
-                    <div className={`${styles.interactive} ${text.fontWeight700}`} 
-                        onClick={() => window.location.href = '/'}>
+                    <div className={`${text.fontWeight700}`}>
                         {translations.policy || 'Політика'}
                     </div>
                     <br />
                     <div className={`${positioning.column} ${positioning.alignStart} ${positioning.justifyBetween}`}>
-                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/'}>
+                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/privacy'}>
                             {translations.privacyPolicy || 'Політика конфіденційності'}
                         </div>
-                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/'}>
+                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/legal'}>
                             {translations.legalInformation || 'Правова інформація'}
                         </div>
-                        <div className={styles.interactive} onClick={() => window.location.href = '/'}>
+                        <div className={styles.interactive} onClick={() => window.location.href = '/refund'}>
                             {translations.returns || 'Повернення'}
                         </div>
-                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/'}>
+                        <div className={`${styles.interactive} ${text.alignLeft}`} onClick={() => window.location.href = '/coockie'}>
                             {translations.cookies || 'Файли Coockie'}
                         </div>
                     </div>

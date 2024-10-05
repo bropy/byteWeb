@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import positioning from '../../styles/Positioning.module.css';
 import text from '../../styles/Text.module.css';
 import styles from '../../styles/index/News.module.css';
@@ -44,7 +45,7 @@ export default function News({ isDesktop }) {
   };
 
   return (
-    <div className={`${positioning.container} ${positioning.row}`}>
+    <div id='news' className={`${positioning.container} ${positioning.row}`}>
       <div style={isDesktop ? { flex: 1 } : {}} />
       <div className={`${positioning.alignEnd} ${styles.container}`} style={{ flex: '3' }}>
         <div className={`${positioning.row} ${positioning.justifyBetween}`}>

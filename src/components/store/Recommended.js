@@ -60,11 +60,11 @@ export default function Recommended({ games }) {
                 )}
             </div>
             <div className={styles.buttons}>
-                <Button href={'/'}>Додати до бажаного</Button>
-                <Button href={'/'} style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}>
+                <Button>Додати до бажаного</Button>
+                <Button style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}>
                     Відстежувати
                 </Button>
-                <Button href={'/'} style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}>
+                <Button style={{ backgroundColor: `#252525`, border: `2px solid white`, color: `white` }}>
                     Ігнорувати
                 </Button>
             </div>

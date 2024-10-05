@@ -1,0 +1,39 @@
+.container{
+    display: grid;
+    width: fit-content;
+    margin: 100px auto 0 auto;
+    gap: 20px;
+}
+
+.image {
+    aspect-ratio: 14 / 11;
+    max-width: 713px;
+    width: 37.135vw;
+    min-width: 280px;
+    background-image: url('../../images/in_development.svg');
+    background-size: cover;
+}
+
+.info {
+    grid-column: 2;
+    display: grid;
+    height: fit-content;
+    max-width: 800px;
+    width: 41.67vw;
+    min-width: 280px;
+    padding-top: 10%;
+    gap: 20px;
+}
+
+.button {
+    max-width: 420px;
+    min-width: 280px;
+}
+
+@media only screen and (max-width: 800px) {
+    .info { 
+        grid-row: 2; 
+        grid-column: 1;
+        padding: 0;
+    }
+}
