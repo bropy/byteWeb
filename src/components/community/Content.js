@@ -2,7 +2,8 @@ import positioning from '../../styles/Positioning.module.css'
 import text from '../../styles/Text.module.css'
 import search from '../../styles/layouts/Search.module.css'
 import styles from '../../styles/community/Content.module.css'
-
+import Link from 'next/link';
+import Posts from './Posts'
 
 export default function Content () {
     return (
@@ -21,6 +22,7 @@ export default function Content () {
                 <input type='text' id='support_input' name='support_input' 
                     placeholder='Пошук (центр спільноти/люди)' className={search.input} />
             </form>
+            <Posts/>
         </div>
     );
 }

@@ -95,6 +95,9 @@ const Navbar = () => {
                 <Link href="/add-game" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                   {translations.addGame || 'Додати гру'}
                 </Link>
+                <Link href="/add-media" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                  {translations.addGame || 'Додати пост'}
+                </Link>
                 <button onClick={logout} className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                   {translations.logout || 'Вийти'}
                 </button>
