@@ -149,7 +149,7 @@ export default function Content ({cart}) {
                             ВСЬОГО
                         </div>
                         <div className={`${text.textMedium} ${text.fontWeight200}`}>
-                            {(total / 100) * (100 - discount)}₴
+                            {Math.ceil((total / 100) * (100 - discount))}₴
                         </div>
                     </div>
                     <br />
