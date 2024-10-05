@@ -22,7 +22,7 @@ const productsMock = [
         players: ['Самітна гра'],
         hardwareSupport: [''],
         playTime: '669',
-        image: '',
+        image: 'https://image.api.playstation.com/vulcan/ap/rnd/202111/3013/6bAF2VVEamgKclalI0oBnoAe.jpg',
         url: '/apps/1'
     },
     {
@@ -33,7 +33,7 @@ const productsMock = [
         players: ['Самітна гра'],
         hardwareSupport: ['Повна підтримка контроллерів'],
         playTime: '1450',
-        image: '',
+        image: 'https://image.api.playstation.com/vulcan/ap/rnd/202211/0711/kh4MUIuMmHlktOHar3lVl6rY.png',
         url: '/apps/2'
     },
     {
@@ -44,7 +44,7 @@ const productsMock = [
         players: ['Багатокористувацька гра'],
         hardwareSupport: ['Повна підтримка контроллерів'],
         playTime: '340',
-        image: '',
+        image: 'https://gamescollection.com.ua/wp-content/uploads/yapb_cache/eu_3g4zwkauyntb.8r86qsp3wr8ck0wwk0oooskoo.a5t19c1lt1c0cgc808kcg088o.th.jpeg',
         url: '/apps/3'
     },
     {
@@ -55,7 +55,7 @@ const productsMock = [
         players: ['Самітна гра', 'Кооперативна гра'],
         hardwareSupport: ['Бажано мати контроллер'],
         playTime: '960',
-        image: '',
+        image: 'https://store-images.s-microsoft.com/image/apps.44413.65985311967005000.4f51b5e9-febf-4990-8951-33ba59b634c9.924253ef-36b2-4cc0-8bb1-9a97c88d4828',
         url: '/apps/4'
     },
     {
@@ -66,7 +66,7 @@ const productsMock = [
         players: ['Багатокористувацька гра'],
         hardwareSupport: ['ВР'],
         playTime: '3200',
-        image: '',
+        image: 'https://static-cdn.jtvnw.net/ttv-boxart/499003_IGDB-272x380.jpg',
         url: '/apps/5'
     },
     {
@@ -77,7 +77,7 @@ const productsMock = [
         players: [''],
         hardwareSupport: [''],
         playTime: '240',
-        image: '',
+        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Blender_logo_no_text.svg/800px-Blender_logo_no_text.svg.png',
         url: '/apps/6'
     },
     {
@@ -88,7 +88,7 @@ const productsMock = [
         players: ['Багатокористувацька гра'],
         hardwareSupport: ['Бажано мати контроллер'],
         playTime: '520',
-        image: '',
+        image: 'https://image.api.playstation.com/cdn/EP4040/CUSA01797_00/NMcAucyANMnYMNkz6V5vk9f5YXty2mCz.png',
         url: '/apps/7'
     },
     {
@@ -99,7 +99,7 @@ const productsMock = [
         players: ['Багатокористувацька гра', 'Кооперативна гра'],
         hardwareSupport: ['Повна підтримка контроллерів'],
         playTime: '0',
-        image: '',
+        image: 'https://cdn1.epicgames.com/offer/9773aa1aa54f4f7b80e44bef04986cea/EGS_RocketLeague_PsyonixLLC_S2_1200x1600-8053679ba86b15ee7ced259fe01908c9',
         url: '/apps/8'
     },
     {
@@ -110,7 +110,7 @@ const productsMock = [
         players: ['Багатокористувацька гра'],
         hardwareSupport: [''],
         playTime: '1350',
-        image: '',
+        image: 'https://image.api.playstation.com/vulcan/ap/rnd/202407/2615/0a7d1c7bb620d7ac47482865f62090e9f86d3791e87806ae.png',
         url: '/apps/9'
     },
     {
@@ -121,7 +121,7 @@ const productsMock = [
         players: ['Самітна гра', 'Багатокористувацька гра'],
         hardwareSupport: [''],
         playTime: '1100',
-        image: '',
+        image: 'https://image.api.playstation.com/gs2-sec/appkgo/prod/CUSA15381_00/1/i_8d2404a5e0689b9e5e8e833773152215e991801c8979def7c86e31ecadfe2e83/i/icon0.png',
         url: '/apps/10'
     }
 ];
