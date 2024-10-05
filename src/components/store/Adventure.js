@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import styles from '../../styles/store/New.module.css'; // Ensure you have this CSS module for styling
+import styles from '../../styles/store/New.module.css'; 
 
 export default function Adventure() {
     const [latestGames, setLatestGames] = useState([]);
@@ -29,7 +29,7 @@ export default function Adventure() {
 
     return (
         <div className={styles.latestGamesContainer}>
-            <h1 className={styles.gameTitle}>Ігри в категорії "Пригоди"</h1>
+            <h1 className={styles.gameTitle}>Ігри в категорії &quot;Пригоди&quot;</h1> {/* Escaped double quotes */}
             <div className={styles.gamesList}>
                 {latestGames.map(game => (
                     <div key={game.id} className={styles.gameCard}>
