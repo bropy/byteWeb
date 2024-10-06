@@ -17,7 +17,7 @@ export default function AppInfo({ app }) {
     const localizedReleaseDate = parsedReleaseDate.toLocaleDateString();
 
     useEffect(() => {
-        // Fetch screenshots from the API
+        // get screenshots from the API
         const fetchScreenshots = async () => {
             try {
                 const response = await fetch('https://byteserver-b28593dfb543.herokuapp.com/media/screenshots/recent');

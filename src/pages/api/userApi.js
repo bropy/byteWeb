@@ -8,9 +8,9 @@ const api = axios.create({
 
 export const fetchData = async (endpoint = '') => {
   try {
-    console.log("Fetching from:", API_BASE_URL_USERS + endpoint); // Debug log
+    console.log("Fetching from:", API_BASE_URL_USERS + endpoint); 
     const response = await api.get(endpoint);
-    console.log("Response:", response); // Debug log
+    console.log("Response:", response); 
     return response.data;
   } catch (error) {
     console.error('Error fetching data:', error.response || error);

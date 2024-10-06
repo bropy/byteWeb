@@ -3,7 +3,7 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { useUser } from '../../contexts/UserContext';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
-import logo from '../../images/logo.png'; // Your logo
+import logo from '../../images/logo.png'; // наше лого
 
 const Navbar = () => {
   const { lang, setLang, translations } = useLanguage();

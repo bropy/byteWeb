@@ -11,7 +11,7 @@ const Form = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
-  const { setUser } = useUser(); // Access the setUser function from context
+  const { setUser } = useUser(); // доступ до юзера з контексту
 
   const handleLogin = async (e) => {
     e.preventDefault();

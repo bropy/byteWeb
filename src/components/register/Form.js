@@ -21,7 +21,7 @@ const Form = () => {
 
     const [errors, setErrors] = useState({});
 
-    const months = [
+    const months = [ // we dont use this, use numbers
         "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень",
         "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень"
     ];

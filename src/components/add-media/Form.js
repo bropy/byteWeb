@@ -8,12 +8,12 @@ export default function AddScreenshotForm({ profileId }) { // profileId passed f
     const [formData, setFormData] = useState({
         name: '',
         description: '',
-        source: null, // Screenshot image
+        source: null,
         date: '',
         likes: 0,
         dislikes: 0,
         award: 0, // Super like
-        gameId: '', // Related to the game
+        gameId: '', // юзер сам пише айді, в майбутньому можна  додати пошук по грі
     });
 
     const [errors, setErrors] = useState({});
@@ -78,13 +78,13 @@ export default function AddScreenshotForm({ profileId }) { // profileId passed f
             const screenshotData = {
                 name: formData.name,
                 description: formData.description,
-                source: sourceUrl, // The uploaded image URL
+                source: sourceUrl, // лінк на завантажене забраження
                 date: formData.date,
                 likes: formData.likes,
                 dislikes: formData.dislikes,
-                award: formData.award, // Super like count
+                award: formData.award, // Це супер лайк
                 gameId: formData.gameId,
-                profileId: profileId,  // Ensure profileId is passed
+                profileId: profileId,  
             };
 
             console.log('Дані, які відправляються на сервер:', JSON.stringify(screenshotData, null, 2));

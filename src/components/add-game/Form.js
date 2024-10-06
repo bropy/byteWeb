@@ -76,7 +76,7 @@ export default function AddGameForm({ publisherId, publisherLogin }) {
         if (!formData.avatar) newErrors.avatar = 'Зображення гри є обов\'язковим';
         if (!formData.source.trim()) newErrors.source = 'Джерело гри є обов\'язковим';
         if (!formData.releaseDate.trim()) newErrors.releaseDate = 'Дата релізу є обов\'язковою';
-        if (!formData.type_game.trim()) newErrors.type_game = 'Тип програми є обов\'язковим'; // Validate app_type
+        if (!formData.type_game.trim()) newErrors.type_game = 'Тип програми є обов\'язковим'; // Валідація отриманих полів
         if (isNaN(formData.price)) newErrors.price = 'Ціна гри має бути числом';
         if (!formData.genre) newErrors.genre = 'Жанр є обов\'язковим';
         if (!formData.players) newErrors.players = 'Тип гри є обов\'язковим';
